@@ -1,19 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Singleton : MonoBehaviour
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    [SerializeField]
-    // Start is called before the first frame update
-    void Start()
+    protected static T instance;
+    protected static T Instance
     {
-        
+        get
+        {
+            try
+            {
+                if (!instance) instance = Instantiate(Resources.LoadAll<T>("SingletonManager")[0]).GetComponent<T>();
+            }
+            catch (System.Exception)
+            {
+                Debug.LogError("(" + typeof(T) + ") Singleton not found.");
+            }
+            return instance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Awake()
     {
-        
+        DontDestroyOnLoad(gameObject);   
     }
 }
