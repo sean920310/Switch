@@ -19,7 +19,7 @@ public abstract class Singleton<T> : SingletonInstance<T> where T: MonoBehaviour
         if(Instance != null) 
         {
             Destroy(gameObject);
-            Debug.Log("Found more than one " + typeof(T) + " in the scene. Destroying the newest one.");
+            Debug.LogError("Found more than one " + typeof(T) + " in the scene. Destroying the newest one.");
         }
         base.Awake();
     }
