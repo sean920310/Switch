@@ -3,9 +3,9 @@ using PlayerStateMachine;
 
 namespace PlayerState
 {
-    public class PlayerWalkState : PlayerBaseState
+    public class PlayerFallState : PlayerBaseState
     {
-        public PlayerWalkState(PlayerStatesManager context, PlayerStateFactory factory)
+        public PlayerFallState(PlayerStatesManager context, PlayerStateFactory factory)
             : base(context, factory)
         {
             m_context = context;
@@ -14,33 +14,32 @@ namespace PlayerState
 
         public override void EnterState()
         {
-            
+        
         }
 
         public override void UpdateState()
         {
-            if(m_context.moveValue.x != 0)
+            // _context.rb.gravityScale = _context.FallGravityScale;
+
+            // air control
+            if(m_context.moveValue != Vector2.zero)
             {
                 if (m_context.moveValue.x < 0f)
                 {
                     m_context.FacingLeft();
                 }
-                else
+                else if (m_context.moveValue.x > 0f)
                 {
                     m_context.FacingRight();
                 }
             }
-
 
             CheckSwitchState();
         }
 
         public override void FixedUpdateState()
         {
-            if (m_context.rb.velocity.x * m_context.moveValue.x < 0)
-                m_context.rb.velocity = new Vector2(0, m_context.rb.velocity.y);
-
-            m_context.MoveWithLimit(-m_context.moveValue * m_context.playerMoveSpeedX, m_context.playerMaxSpeedX);
+            m_context.MoveWithLimit(-m_context.moveValue * m_context.playerAirMoveSpeedX, m_context.playerAirMaxSpeedX);
         }
 
         public override void ExitState()
@@ -50,17 +49,14 @@ namespace PlayerState
 
         public override void CheckSwitchState()
         {
-            if (m_context.moveValue.x == 0f)
+            if (m_context.CheckOnFloor())
             {
+                m_context.jumpCounts = m_context.maxJumpCount; // Jump Counts Reloading
                 m_context.SwitchState(m_factory.Idle());
             }
             else if (m_context.desireToJump && m_context.CanJump())
             {
-                m_context.SwitchState(m_factory.Jump());
-            }
-            else if (m_context.rb.velocity.y < -0.001)
-            {
-                m_context.SwitchState(m_factory.Fall());
+                m_context.SwitchState(m_factory.Jump()); // Jump could not reload Jump Counts
             }
         }
     }

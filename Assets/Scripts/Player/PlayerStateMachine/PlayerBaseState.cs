@@ -6,13 +6,13 @@ namespace PlayerStateMachine
     public abstract class PlayerBaseState
     {
 
-        protected PlayerStatesManager _context;
-        protected PlayerStateFactory _factory;
+        protected PlayerStatesManager m_context;
+        protected PlayerStateFactory m_factory;
 
         public PlayerBaseState(PlayerStatesManager context, PlayerStateFactory factory)
         {
-            _context = context;
-            _factory = factory;
+            m_context = context;
+            m_factory = factory;
         }
 
         public abstract void EnterState();
