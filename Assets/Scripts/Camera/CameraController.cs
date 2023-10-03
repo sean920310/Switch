@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
-[RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
-    private Camera m_camera;
+    [SerializeField]
+    private CinemachineVirtualCamera m_cameraTwoD;
+    [SerializeField]
+    private CinemachineVirtualCamera m_cameraThreeD;
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        m_camera = GetComponent<Camera>();
         CameraManager.Instance.OnSwitchCallback += Switch;
     }
 
@@ -20,6 +22,7 @@ public class CameraController : MonoBehaviour
     {
 
     }
+
 
 
 
@@ -33,12 +36,14 @@ public class CameraController : MonoBehaviour
         if (state == CameraManager.Dimension.TwoD)
         {
             // Switch to TwoD
-            m_camera.orthographic = true;
+            m_cameraTwoD.Priority = 1;
+            m_cameraThreeD.Priority = 0;
         }
         else
         {
             // Switch to ThreeD
-            m_camera.orthographic = false;
+            m_cameraTwoD.Priority = 0;
+            m_cameraThreeD.Priority = 1;
         }
     }
 }
