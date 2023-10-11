@@ -39,7 +39,7 @@ namespace PlayerState
 
         public override void FixedUpdateState()
         {
-            m_context.MoveWithLimit(-m_context.moveValue * m_context.playerAirMoveSpeedX, m_context.playerAirMaxSpeedX);
+            m_context.MoveWithLimit(m_context.moveValue * m_context.playerAirMoveSpeedX, m_context.playerAirMaxSpeedX);
         }
 
         public override void ExitState()
@@ -56,7 +56,12 @@ namespace PlayerState
             }
             else if (m_context.desireToJump && m_context.CanJump())
             {
-                m_context.SwitchState(m_factory.Jump()); // Jump could not reload Jump Counts
+                m_context.SwitchState(m_factory.Jump());
+            }
+            else if (m_context.isDimensionSwitch)
+            {
+                m_context.isDimensionSwitch = false;
+                m_context.SwitchState(m_factory.Switch());
             }
         }
     }
