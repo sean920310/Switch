@@ -18,6 +18,11 @@ namespace PlayerState
             {
                 m_context.rb.velocity = new Vector3(0f, m_context.rb.velocity.y, m_context.rb.velocity.z);
             }
+
+            if (m_context.moveValue.y == 0f)
+            {
+                m_context.rb.velocity = new Vector3(m_context.rb.velocity.x, 0f, m_context.rb.velocity.z);
+            }
         }
 
         public override void UpdateState()
@@ -37,11 +42,22 @@ namespace PlayerState
 
         public override void CheckSwitchState()
         {
-            if (m_context.moveValue.x != 0f)
+            if (m_context.moveValue.x != 0f && m_context.dimension == CameraManager.Dimension.TwoD)
+            {
                 m_context.SwitchState(m_factory.Walk());
+            }
+            else if ((m_context.moveValue.x != 0f || m_context.moveValue.y != 0f) && m_context.dimension == CameraManager.Dimension.ThreeD)
+            {
+                m_context.SwitchState(m_factory.Walk3D());
+            }
             else if (m_context.desireToJump && m_context.CanJump())
             {
                 m_context.SwitchState(m_factory.Jump());
+            }
+            else if (m_context.isDimensionSwitch)
+            {
+                m_context.isDimensionSwitch = false;
+                m_context.SwitchState(m_factory.Switch());
             }
         }
     }

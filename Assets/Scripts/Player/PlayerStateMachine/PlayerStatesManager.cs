@@ -56,6 +56,11 @@ namespace PlayerStateMachine
 
         [SerializeField] public int jumpCounts = 0;
 
+        private CameraManager.Dimension m_dimension;
+        public CameraManager.Dimension dimension { get => m_dimension; }
+
+        public bool isDimensionSwitch = false;
+
         [Header("Jump Detect")]
         [SerializeField] Vector2 m_groundCheckBoxShift;
         [SerializeField] Vector2 m_groundCheckBoxSize;
@@ -87,6 +92,9 @@ namespace PlayerStateMachine
             // variable initialize
             jumpCounts = m_maxJumpCount;
 
+
+            CameraManager.Instance.OnSwitchCallback += OnSwitch;
+
         }
         private void Update()
         {
@@ -96,6 +104,16 @@ namespace PlayerStateMachine
         private void FixedUpdate()
         {
             m_currentState.FixedUpdateState();
+        }
+
+        private void OnEnable()
+        {
+
+        }
+
+        private void OnDisable()
+        {
+            CameraManager.Instance.OnSwitchCallback -= OnSwitch;
         }
 
         public void SwitchState(PlayerBaseState newState)
@@ -113,8 +131,19 @@ namespace PlayerStateMachine
          */
         internal void MoveWithLimit(Vector2 force, float limit)
         {
-            rb.AddForce(force, ForceMode.Force);
+            rb.AddForce(new Vector3(force.x, 0f, 0f), ForceMode.Force);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -limit, limit), rb.velocity.y);
+        }
+
+        /* 
+         * force: -moveValue * m_playerMoveSpeed
+         * limit: m_playerMaxSpeed
+         */
+        internal void MoveWithLimit3D(Vector2 force, float limit)
+        {
+            rb.AddForce(force, ForceMode.Force);
+            rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -limit, limit),
+                                        Mathf.Clamp(rb.velocity.y, -limit, limit));
         }
 
         public bool CheckOnFloor()
@@ -130,11 +159,13 @@ namespace PlayerStateMachine
 
         public void FacingRight()
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            //transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            transform.localScale = Vector3.one;
         }
         public void FacingLeft()
         {
-            transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            //transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            transform.localScale = new Vector3(-1f,1f,1f);
         }
 
         void OnDrawGizmosSelected()
@@ -143,10 +174,17 @@ namespace PlayerStateMachine
             Gizmos.DrawCube(transform.position + new Vector3(m_groundCheckBoxShift.x, m_groundCheckBoxShift.y, 0.0f), m_groundCheckBoxSize);
         }
 
+
         #region Input Callback
+
+        public void OnSwitch(CameraManager.Dimension dimension)
+        {
+            isDimensionSwitch = true;
+            m_dimension = dimension;
+        }
+
         public void OnJump(InputAction.CallbackContext ctx)
         {
-            print("OnJump");
             if (ctx.performed)
             {
                 m_isJumpPress = true;
@@ -165,7 +203,6 @@ namespace PlayerStateMachine
 
         public void OnMove(InputAction.CallbackContext ctx)
         {
-            print("OnMove");
             if (ctx.performed)
             {
                 m_isMovePress = true;

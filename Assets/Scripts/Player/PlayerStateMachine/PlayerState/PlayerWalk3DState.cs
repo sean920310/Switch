@@ -3,9 +3,9 @@ using PlayerStateMachine;
 
 namespace PlayerState
 {
-    public class PlayerWalkState : PlayerBaseState
+    public class PlayerWalk3DState : PlayerBaseState
     {
-        public PlayerWalkState(PlayerStatesManager context, PlayerStateFactory factory)
+        public PlayerWalk3DState(PlayerStatesManager context, PlayerStateFactory factory)
             : base(context, factory)
         {
             m_context = context;
@@ -14,12 +14,12 @@ namespace PlayerState
 
         public override void EnterState()
         {
-            
+        
         }
 
         public override void UpdateState()
         {
-            if(m_context.moveValue.x != 0)
+            if (m_context.moveValue.x != 0)
             {
                 if (m_context.moveValue.x < 0f)
                 {
@@ -31,16 +31,19 @@ namespace PlayerState
                 }
             }
 
-
             CheckSwitchState();
         }
 
         public override void FixedUpdateState()
         {
+
             if (m_context.rb.velocity.x * m_context.moveValue.x < 0)
                 m_context.rb.velocity = new Vector2(0, m_context.rb.velocity.y);
 
-            m_context.MoveWithLimit(m_context.moveValue * m_context.playerMoveSpeedX, m_context.playerMaxSpeedX);
+            if (m_context.rb.velocity.y * m_context.moveValue.y < 0)
+                m_context.rb.velocity = new Vector2(m_context.rb.velocity.x, 0);
+
+            m_context.MoveWithLimit3D(m_context.moveValue * m_context.playerMoveSpeedX, m_context.playerMaxSpeedX);
         }
 
         public override void ExitState()
@@ -50,17 +53,9 @@ namespace PlayerState
 
         public override void CheckSwitchState()
         {
-            if (m_context.moveValue.x == 0f)
+            if (m_context.moveValue.x == 0f && m_context.moveValue.y == 0f)
             {
                 m_context.SwitchState(m_factory.Idle());
-            }
-            else if (m_context.desireToJump && m_context.CanJump())
-            {
-                m_context.SwitchState(m_factory.Jump());
-            }
-            else if (m_context.rb.velocity.y < -0.001)
-            {
-                m_context.SwitchState(m_factory.Fall());
             }
             else if (m_context.isDimensionSwitch)
             {
