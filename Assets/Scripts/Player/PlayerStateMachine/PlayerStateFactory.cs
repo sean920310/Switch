@@ -20,6 +20,10 @@ namespace PlayerStateMachine
         {
             return new PlayerWalkState(_context, this);
         }
+        public PlayerBaseState Walk3D()
+        {
+            return new PlayerWalk3DState(_context, this);
+        }
         public PlayerBaseState Jump()
         {
             return new PlayerJumpState(_context, this);
@@ -27,6 +31,10 @@ namespace PlayerStateMachine
         public PlayerBaseState Fall()
         {
             return new PlayerFallState(_context, this);
+        }
+        public PlayerBaseState Switch()
+        {
+            return new PlayerSwitchState(_context, this);
         }
     }
 }

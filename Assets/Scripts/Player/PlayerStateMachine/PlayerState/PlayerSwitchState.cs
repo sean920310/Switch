@@ -1,0 +1,49 @@
+using UnityEngine;
+using PlayerStateMachine;
+
+namespace PlayerState
+{
+    public class PlayerSwitchState : PlayerBaseState
+    {
+        public PlayerSwitchState(PlayerStatesManager context, PlayerStateFactory factory)
+            : base(context, factory)
+        {
+            m_context = context;
+            m_factory = factory;
+        }
+
+        public override void EnterState()
+        {
+            if(m_context.dimension == CameraManager.Dimension.TwoD)
+            {
+                Debug.Log("EnterState: TwoD");
+                Physics.gravity = new Vector3(0, -9.81f, 0);
+            }
+            else
+            {
+                Debug.Log("EnterState: ThreeD");
+                Physics.gravity = new Vector3(0, 0, -9.81f);
+            }
+        }
+
+        public override void UpdateState()
+        {
+            CheckSwitchState();
+        }
+
+        public override void FixedUpdateState()
+        {
+        
+        }
+
+        public override void ExitState()
+        {
+        
+        }
+
+        public override void CheckSwitchState()
+        {
+            m_context.SwitchState(m_factory.Idle());
+        }
+    }
+}
