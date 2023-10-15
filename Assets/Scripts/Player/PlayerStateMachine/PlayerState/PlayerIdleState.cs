@@ -50,7 +50,11 @@ namespace PlayerState
             {
                 m_context.SwitchState(m_factory.Walk3D());
             }
-            else if (m_context.desireToJump && m_context.CanJump())
+            else if (m_context.rb.velocity.y < -0.001 && m_context.dimension == CameraManager.Dimension.TwoD)
+            {
+                m_context.SwitchState(m_factory.Fall());
+            }
+            else if (m_context.desireToJump && m_context.CanJump() && m_context.dimension == CameraManager.Dimension.TwoD)
             {
                 m_context.SwitchState(m_factory.Jump());
             }

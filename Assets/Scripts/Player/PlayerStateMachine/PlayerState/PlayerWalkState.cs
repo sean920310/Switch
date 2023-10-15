@@ -38,7 +38,9 @@ namespace PlayerState
         public override void FixedUpdateState()
         {
             if (m_context.rb.velocity.x * m_context.moveValue.x < 0)
+            {
                 m_context.rb.velocity = new Vector2(0, m_context.rb.velocity.y);
+            }
 
             m_context.MoveWithLimit(m_context.moveValue * m_context.playerMoveSpeedX, m_context.playerMaxSpeedX);
         }
