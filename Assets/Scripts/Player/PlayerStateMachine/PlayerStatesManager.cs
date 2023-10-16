@@ -93,7 +93,6 @@ namespace PlayerStateMachine
             jumpCounts = m_maxJumpCount;
 
 
-            CameraManager.Instance.OnSwitchCallback += OnSwitch;
 
         }
         private void Update()
@@ -108,7 +107,7 @@ namespace PlayerStateMachine
 
         private void OnEnable()
         {
-
+            CameraManager.Instance.OnSwitchCallback += OnSwitch;
         }
 
         private void OnDisable()

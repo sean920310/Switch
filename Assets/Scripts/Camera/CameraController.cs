@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         CameraManager.Instance.OnSwitchCallback += Switch;
     }

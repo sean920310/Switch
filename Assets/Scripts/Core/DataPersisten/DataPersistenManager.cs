@@ -30,10 +30,9 @@ public class DataPersistenManager : PersistentSingleton<DataPersistenManager>
         LoadGame();
     }
 
-    protected override void OnApplicationQuit() 
+    protected void OnApplicationQuit() 
     {
         SaveGame();
-        base.OnApplicationQuit();
     }
 
     public void NewGame() 
