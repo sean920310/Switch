@@ -9,12 +9,20 @@ public class CameraController : MonoBehaviour
     private CinemachineVirtualCamera m_cameraTwoD;
     [SerializeField]
     private CinemachineVirtualCamera m_cameraThreeD;
+    [SerializeField]
+    private Transform m_camTrackPos;
 
 
     // Start is called before the first frame update
     private void OnEnable()
     {
         CameraManager.Instance.OnSwitchCallback += Switch;
+    }
+
+    private void Start()
+    {
+        m_cameraTwoD.Follow = m_camTrackPos;
+        m_cameraThreeD.Follow = m_camTrackPos;
     }
 
     // Update is called once per frame
