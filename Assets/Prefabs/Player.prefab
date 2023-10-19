@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2852402936927606845}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.28, y: 0.76500005, z: -1.01}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 5958234157083731646}
   - component: {fileID: 5958234157083731632}
   - component: {fileID: 5958234157083731647}
+  - component: {fileID: 1299891474081361111}
   - component: {fileID: 5958234157083731644}
   - component: {fileID: 5958234157083731645}
   - component: {fileID: 5958234157083731642}
@@ -297,6 +298,20 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerNormal
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1299891474081361111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958234157083731635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c6fc43618c8c74e9d0abc918b85d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_initData: {fileID: 11400000, guid: e915429c936ded341ac34dd1687fd64e, type: 2}
+  m_critRate: 0
 --- !u!114 &5958234157083731644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +335,7 @@ MonoBehaviour:
   m_jumpCancelRate: 5
   m_maxJumpCount: 2
   jumpCounts: 0
+  isDimensionSwitch: 0
   m_groundCheckBoxShift: {x: 0, y: -0.5}
   m_groundCheckBoxSize: {x: 0.4, y: 0.01}
   m_whatIsGround:

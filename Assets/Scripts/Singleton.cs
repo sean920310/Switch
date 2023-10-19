@@ -1,35 +1,26 @@
 using UnityEngine;
 
-public abstract class SingletonInstance<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class PersistentSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public static T Instance {get; private set;}
-    protected virtual void Awake() => Instance = this as T;
-
-    protected virtual void OnApplicationQuit()
+    protected static T instance;
+    public static T Instance
     {
-        Instance = null;
-        Destroy(gameObject);
-    }
-}
-
-public abstract class Singleton<T> : SingletonInstance<T> where T: MonoBehaviour
-{
-    protected override void Awake()
-    {
-        if(Instance != null) 
+        get
         {
-            Destroy(gameObject);
-            Debug.LogError("Found more than one " + typeof(T) + " in the scene. Destroying the newest one.");
+            try
+            {
+                if (!instance) instance = Instantiate(Resources.LoadAll<T>("SingletonManager")[0]).GetComponent<T>();
+            }
+            catch (System.Exception)
+            {
+                Debug.LogError("(" + typeof(T) + ") Singleton not found.");
+            }
+            return instance;
         }
-        base.Awake();
     }
-}
 
-public abstract class PersistentSingleton<T> : Singleton<T> where T : MonoBehaviour
-{
-    protected override void Awake()
+    protected virtual void Awake()
     {
-        base.Awake();
         DontDestroyOnLoad(gameObject);
     }
 }
