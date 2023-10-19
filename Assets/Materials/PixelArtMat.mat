@@ -127,7 +127,7 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineThickness: 1
     - _Parallax: 0.005
-    - _PixelSample: 128
+    - _PixelSample: 256
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
