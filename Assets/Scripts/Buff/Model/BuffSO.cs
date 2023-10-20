@@ -7,6 +7,6 @@ namespace BuffSystem.Model
 {
     public abstract class BuffSO : ScriptableObject
     {
-        [SerializeField] private BuffBase m_buffBase;
+        [SerializeField] protected BuffBase m_buffBase;
     }
 }

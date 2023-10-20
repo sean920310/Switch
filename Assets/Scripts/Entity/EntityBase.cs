@@ -5,6 +5,7 @@ using UnityEngine;
 
 abstract public class EntityBase : MonoBehaviour
 {
+
     [SerializeField]
     protected EntityData m_initData = null;
 
@@ -34,6 +35,6 @@ abstract public class EntityBase : MonoBehaviour
             Debug.LogError("EntityBase missing m_initData");
     }
 
-    abstract public void GetDamage(float damage);
+    abstract public void GetDamage(EntityBase enemyEntity, float damage);
     abstract public void SetDamage(EntityBase entity);
 }

@@ -7,6 +7,10 @@ public class PlayerEntity : EntityBase
     [SerializeField]
     private float m_critRate;
     private float m_critDamage;
+
+    public delegate void OnDamageDelegate(EntityBase entityBase);
+    public event OnDamageDelegate OnDamageCallback;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +23,11 @@ public class PlayerEntity : EntityBase
         
     }
 
-    public override void GetDamage(float damage)
+    public override void GetDamage(EntityBase enemyEntity, float damage)
     {
         m_heath -= damage;
+
+        OnDamageCallback?.Invoke(enemyEntity);
     }
 
     public override void SetDamage(EntityBase entity)
@@ -32,6 +38,6 @@ public class PlayerEntity : EntityBase
         float damage = Mathf.Max((attack - entity.Defence), 0) + critDamage;
 
         //Set Damage to entity
-        entity.GetDamage(damage);
+        entity.GetDamage(this, damage);
     }
 }
