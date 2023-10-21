@@ -22,6 +22,9 @@ namespace PlayerStateMachine
         Rigidbody m_rb = null;
         public Rigidbody rb { get => m_rb; }
 
+        Animator m_animator = null;
+        public Animator Animator{get=>m_animator;}
+
 
         /* Local Variable */
 
@@ -83,6 +86,7 @@ namespace PlayerStateMachine
         {
             // get game component
             m_rb = GetComponent<Rigidbody>();
+            m_animator = GetComponentInChildren<Animator>();
 
             // state setup
             m_factory = new PlayerStateFactory(this);
