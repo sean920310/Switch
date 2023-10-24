@@ -14,7 +14,8 @@ namespace PlayerState
 
         public override void EnterState()
         {
-        
+            m_context.Animator.SetBool("isMoving", true);
+
         }
 
         public override void UpdateState()
@@ -48,7 +49,8 @@ namespace PlayerState
 
         public override void ExitState()
         {
-        
+            m_context.Animator.SetBool("isMoving", false);
+
         }
 
         public override void CheckSwitchState()
