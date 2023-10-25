@@ -10,7 +10,6 @@ public class Page : MonoBehaviour
 {
     public GameObject view = null;
     public GameObject mask = null;
-    public Button close = null;
     public float _openDuration = 1F;
     public float _closeDuration = 1F;
     public bool IsOn { get { return _isOn; } }
