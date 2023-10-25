@@ -9,11 +9,11 @@ abstract public class EntityBase : MonoBehaviour
     [SerializeField]
     protected EntityData m_initData = null;
 
-    protected float m_health; 
-    protected float m_regenerate; 
-    protected float m_attack; 
-    protected float m_defence; 
-    protected float m_speed;
+    [SerializeField] protected float m_health; 
+    [SerializeField] protected float m_regenerate; 
+    [SerializeField] protected float m_attack; 
+    [SerializeField] protected float m_defence;
+    [SerializeField] protected float m_speed;
 
     public float Health { get => m_health; }
     public float Regenerate { get => m_regenerate; }

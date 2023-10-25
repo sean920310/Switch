@@ -17,6 +17,7 @@ public class PlayerEntity : EntityBase
 
     [SerializeField]
     private float m_critRate;
+    [SerializeField]
     private float m_critDamage;
 
     public delegate void OnDamageDelegate(EntityBase entityBasek, float damage);
@@ -62,7 +63,7 @@ public class PlayerEntity : EntityBase
             case EntityParameter.regenerate:
                 break;
             case EntityParameter.attack:
-                m_attack += m_attack * value;
+                m_attack += m_initData.Attack * value;
                 break;
             case EntityParameter.defence:
                 break;
