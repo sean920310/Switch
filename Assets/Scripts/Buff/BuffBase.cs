@@ -11,8 +11,5 @@ namespace BuffSystem
             m_name = name;
             m_description = description;
         }
-
-        abstract public void ApplyBuff();
-        abstract public void RemoveBuff();
     }
 }

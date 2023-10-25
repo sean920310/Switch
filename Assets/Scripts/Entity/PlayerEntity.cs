@@ -8,7 +8,7 @@ public class PlayerEntity : EntityBase
     private float m_critRate;
     private float m_critDamage;
 
-    public delegate void OnDamageDelegate(EntityBase entityBase);
+    public delegate void OnDamageDelegate(EntityBase entityBasek, float damage);
     public event OnDamageDelegate OnDamageCallback;
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class PlayerEntity : EntityBase
     {
         m_heath -= damage;
 
-        OnDamageCallback?.Invoke(enemyEntity);
+        OnDamageCallback?.Invoke(enemyEntity, damage);
     }
 
     public override void SetDamage(EntityBase entity)
@@ -40,4 +40,5 @@ public class PlayerEntity : EntityBase
         //Set Damage to entity
         entity.GetDamage(this, damage);
     }
+
 }

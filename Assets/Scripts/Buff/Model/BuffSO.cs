@@ -7,6 +7,9 @@ namespace BuffSystem.Model
 {
     public abstract class BuffSO : ScriptableObject
     {
-        [SerializeField] protected BuffBase m_buffBase;
+        [field:SerializeField] public BuffBase m_buffBase;
+
+        abstract public void ApplyBuff(PlayerEntity playerEntity);
+        abstract public void RemoveBuff(PlayerEntity playerEntity);
     }
 }

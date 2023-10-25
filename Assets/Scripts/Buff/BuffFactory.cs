@@ -17,6 +17,11 @@ namespace BuffSystem
             m_buffDict.Add(BuffType.GOD_OF_DEFENDS.DEFENSE_INCREASE, m_defendBuffList[0]);
         }
 
+        public BuffSO GetBuffByID(ID buffId)
+        {
+            return m_buffDict[buffId];
+        }
+
     }
 
 }
