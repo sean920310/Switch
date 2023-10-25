@@ -9,13 +9,13 @@ abstract public class EntityBase : MonoBehaviour
     [SerializeField]
     protected EntityData m_initData = null;
 
-    protected float m_heath; 
+    protected float m_health; 
     protected float m_regenerate; 
     protected float m_attack; 
     protected float m_defence; 
     protected float m_speed;
 
-    public float Heath { get => m_heath; }
+    public float Health { get => m_health; }
     public float Regenerate { get => m_regenerate; }
     public float Attack { get => m_attack; }
     public float Defence { get => m_defence; }
@@ -25,7 +25,7 @@ abstract public class EntityBase : MonoBehaviour
     {
         if (m_initData != null)
         {
-            m_heath = m_initData.Heath;
+            m_health = m_initData.Heath;
             m_regenerate = m_initData.Regenerate;
             m_attack = m_initData.Attack;
             m_defence = m_initData.Defence;

@@ -18,7 +18,7 @@ public class SlimeEntity : EntityBase
 
     public override void GetDamage(EntityBase enemyEntity, float damage)
     {
-        m_heath -= damage;
+        m_health -= damage;
     }
 
     public override void SetDamage(EntityBase entity)

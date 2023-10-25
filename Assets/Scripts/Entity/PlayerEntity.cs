@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class PlayerEntity : EntityBase
 {
+    public enum EntityParameter
+    {
+        health,
+        regenerate,
+        attack,
+        defence,
+        speed,
+        critRate,
+        critDamage,
+    }
+
     [SerializeField]
     private float m_critRate;
     private float m_critDamage;
@@ -25,7 +36,7 @@ public class PlayerEntity : EntityBase
 
     public override void GetDamage(EntityBase enemyEntity, float damage)
     {
-        m_heath -= damage;
+        m_health -= damage;
 
         OnDamageCallback?.Invoke(enemyEntity, damage);
     }
@@ -39,6 +50,31 @@ public class PlayerEntity : EntityBase
 
         //Set Damage to entity
         entity.GetDamage(this, damage);
+    }
+
+    public void ChangeParameter(EntityParameter entityParameter, float value)
+    {
+        switch (entityParameter)
+        {
+            case EntityParameter.health:
+
+                break;
+            case EntityParameter.regenerate:
+                break;
+            case EntityParameter.attack:
+                m_attack += m_attack * value;
+                break;
+            case EntityParameter.defence:
+                break;
+            case EntityParameter.speed:
+                break;
+            case EntityParameter.critRate:
+                break;
+            case EntityParameter.critDamage:
+                break;
+            default:
+                break;
+        }
     }
 
 }
