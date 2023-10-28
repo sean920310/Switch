@@ -1,7 +1,9 @@
 using NestedEnum;
+using System;
 
 namespace BuffSystem
 {
+    [Serializable]
     public class BuffType
     {
         public static readonly ID GOD_OF_DEFEND = 1; // ¦uÅ@¤§¯«ªº¯¬ºÖ (God_of_defend)
