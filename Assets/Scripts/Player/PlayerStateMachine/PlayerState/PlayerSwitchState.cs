@@ -14,15 +14,15 @@ namespace PlayerState
 
         public override void EnterState()
         {
-            if(m_context.dimension == CameraManager.Dimension.TwoD)
+            if (m_context.dimension == CameraManager.Dimension.TwoD)
             {
                 Debug.Log("EnterState: TwoD");
-                Physics.gravity = new Vector3(0, -9.81f, 0);
+                m_context.rb.gravityScale = 1f;
             }
             else
             {
                 Debug.Log("EnterState: ThreeD");
-                Physics.gravity = new Vector3(0, 0, -9.81f);
+                m_context.rb.gravityScale = 0;
             }
         }
 
@@ -33,12 +33,12 @@ namespace PlayerState
 
         public override void FixedUpdateState()
         {
-        
+
         }
 
         public override void ExitState()
         {
-        
+
         }
 
         public override void CheckSwitchState()

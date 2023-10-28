@@ -16,12 +16,12 @@ namespace PlayerState
         {
             if(m_context.moveValue.x == 0f)
             {
-                m_context.rb.velocity = new Vector3(0f, m_context.rb.velocity.y, m_context.rb.velocity.z);
+                m_context.rb.velocity = new Vector3(0f, m_context.rb.velocity.y, m_context.rb.velocity.y);
             }
 
             if (m_context.moveValue.y == 0f)
             {
-                m_context.rb.velocity = new Vector3(m_context.rb.velocity.x, 0f, m_context.rb.velocity.z);
+                m_context.rb.velocity = new Vector3(m_context.rb.velocity.x, 0f, m_context.rb.velocity.y);
             }
         }
 

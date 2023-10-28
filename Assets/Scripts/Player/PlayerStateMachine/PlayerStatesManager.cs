@@ -19,8 +19,11 @@ namespace PlayerStateMachine
         public PlayerStateFactory factory { get => m_factory; set => m_factory = value; }
 
         /* Game Component */
-        Rigidbody m_rb = null;
-        public Rigidbody rb { get => m_rb; }
+        Rigidbody2D m_rb = null;
+        public Rigidbody2D rb { get => m_rb; }
+
+        Animator m_animator = null;
+        public Animator Animator{get=>m_animator;}
 
 
         /* Local Variable */
@@ -82,7 +85,8 @@ namespace PlayerStateMachine
         private void Start()
         {
             // get game component
-            m_rb = GetComponent<Rigidbody>();
+            m_rb = GetComponent<Rigidbody2D>();
+            m_animator = GetComponentInChildren<Animator>();
 
             // state setup
             m_factory = new PlayerStateFactory(this);
@@ -130,7 +134,7 @@ namespace PlayerStateMachine
          */
         internal void MoveWithLimit(Vector2 force, float limit)
         {
-            rb.AddForce(new Vector3(force.x, 0f, 0f), ForceMode.Force);
+            rb.AddForce(new Vector2(force.x, 0f), ForceMode2D.Force);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -limit, limit), rb.velocity.y);
         }
 
@@ -140,7 +144,7 @@ namespace PlayerStateMachine
          */
         internal void MoveWithLimit3D(Vector2 force, float limit)
         {
-            rb.AddForce(force, ForceMode.Force);
+            rb.AddForce(force,ForceMode2D.Force);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -limit, limit),
                                         Mathf.Clamp(rb.velocity.y, -limit, limit));
         }
@@ -148,7 +152,7 @@ namespace PlayerStateMachine
         public bool CheckOnFloor()
         {
             Quaternion quaternion = Quaternion.identity;
-            return Physics.OverlapBox(transform.position + new Vector3(m_groundCheckBoxShift.x, m_groundCheckBoxShift.y, transform.position.z), m_groundCheckBoxSize, quaternion, m_whatIsGround).Length > 0;
+            return Physics2D.OverlapBox((Vector2)transform.position + m_groundCheckBoxShift, m_groundCheckBoxSize,0, m_whatIsGround) != null;
         }
 
         public bool CanJump()
