@@ -5,7 +5,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerEntity : EntityBase, IOnDamageAction
+
+public interface IOnPlayerDamageEvent: IEntityEvent<EntityBase, EntityBase, float>
+{
+
+}
+public interface IOnPlayerDamageAction : IEntityAction<EntityBase, EntityBase, float>
+{
+
+}
+
+//[SerializeField]
+//public interface IOnDamageEvent
+//{
+//    [Serializable] public class OnDamageEvent : UnityEvent<EntityBase, EntityBase, float> { }
+//    [SerializeField] public OnDamageEvent PlayerOnDamageEvent { get; set; }
+//    public void RaiseDamageEvent(EntityBase victimEntity, EntityBase enemyEntity, float value);
+//}
+
+//[SerializeField]
+//public interface IOnDamageAction
+//{
+//    public void DamageAction(EntityBase victimEntity, EntityBase enemyEntity, float value);
+//}
+
+public class PlayerEntity : EntityBase
 {
     public enum EntityParameter
     {
@@ -23,40 +47,23 @@ public class PlayerEntity : EntityBase, IOnDamageAction
     [SerializeField]
     private float m_critDamage;
 
-    [Serializable] public class OnDamageEvent : UnityEvent<EntityBase, EntityBase, float> { }
+    [RequireInterface(typeof(IOnPlayerDamageEvent))]
+    [SerializeField]
+    private UnityEngine.Object m_onDamageEventSOObject;
 
-    public OnDamageEvent OnDamageCallback;
-
-    private IOnDamageAction.OnDamageEvent m_PlayerOnDamageEvent;
-
-    public IOnDamageAction.OnDamageEvent PlayerOnDamageEvent { get { return m_PlayerOnDamageEvent; } set { PlayerOnDamageEvent = m_PlayerOnDamageEvent; } }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private IOnPlayerDamageEvent OnDamageEventSO => m_onDamageEventSOObject as IOnPlayerDamageEvent;
 
     public override void GetDamage(EntityBase enemyEntity, float damage)
     {
         m_health -= damage;
 
-        if(enemyEntity != this)
-        {
-            RaiseDamageEvent(this, enemyEntity, damage);
-        }
+        RaiseDamageEvent(this, enemyEntity, damage);
     }
 
     [ContextMenu("TestGetDamage")]
     public void TestGetDamage()
     {
-        GetDamage(null, 666);
+        GetDamage(null, 100);
     }
 
     public override void SetDamage(EntityBase entity)
@@ -97,6 +104,6 @@ public class PlayerEntity : EntityBase, IOnDamageAction
 
     public void RaiseDamageEvent(EntityBase victimEntity, EntityBase enemyEntity, float value)
     {
-        OnDamageCallback?.Invoke(this, enemyEntity, value);
+        OnDamageEventSO.EntityEvent?.Invoke(victimEntity, enemyEntity, value);
     }
 }

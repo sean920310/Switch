@@ -10,8 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 469d84bab0b0a664ab9d4c9772256886, type: 3}
-  m_Name: PlayerOnDamageSO
+  m_Name: PlayerOnDamageEventSO
   m_EditorClassIdentifier: 
-  PlayerOnDamageEvent:
-    m_PersistentCalls:
-      m_Calls: []

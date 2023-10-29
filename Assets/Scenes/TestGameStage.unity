@@ -6623,10 +6623,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2941923716088442939, guid: ff794171e4d0e154a80f5b6d2d5313c2, type: 3}
-      propertyPath: m_buffSOCheatBox
-      value: 
-      objectReference: {fileID: 11400000, guid: c7bb822611a59b449986e524f3d79497, type: 2}
     - target: {fileID: 5958234157083731632, guid: ff794171e4d0e154a80f5b6d2d5313c2, type: 3}
       propertyPath: m_Constraints
       value: 120
