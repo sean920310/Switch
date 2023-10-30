@@ -16,12 +16,10 @@ namespace PlayerState
         {
             if (m_context.dimension == CameraManager.Dimension.TwoD)
             {
-                Debug.Log("EnterState: TwoD");
                 m_context.rb.gravityScale = 1f;
             }
             else
             {
-                Debug.Log("EnterState: ThreeD");
                 m_context.rb.gravityScale = 0;
             }
         }

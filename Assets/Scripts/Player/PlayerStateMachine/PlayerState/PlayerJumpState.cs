@@ -22,6 +22,9 @@ namespace PlayerState
             // calculate jump force base on jump height
             float jumpForce = Mathf.Sqrt(m_context.maxJumpHeight * -2 * (Physics2D.gravity.y));
             m_context.rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+
+            // Jump Animation Trigger
+            m_context.Animator.SetTrigger("toggleJump");
         }
 
         public override void UpdateState()
