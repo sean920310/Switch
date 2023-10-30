@@ -210,6 +210,8 @@ namespace PlayerStateMachine
             {
                 m_isMovePress = true;
                 m_moveValue = ctx.ReadValue<Vector2>();
+                Debug.Log(m_moveValue);
+
             }
             if (ctx.canceled)
             {
