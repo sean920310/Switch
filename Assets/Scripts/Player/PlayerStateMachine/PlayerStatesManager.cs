@@ -155,7 +155,7 @@ namespace PlayerStateMachine
             bool onGround = Physics2D.OverlapBox((Vector2)transform.position + m_groundCheckBoxShift, m_groundCheckBoxSize,0, m_whatIsGround) != null;
 
             // onGround Animation
-            m_context.Animator.SetBool("onGround", onGround);
+            Animator.SetBool("onGround", onGround);
             return onGround;
         }
 
