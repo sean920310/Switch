@@ -381,14 +381,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 490759195889522663, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
-      propertyPath: weight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 490759195889522663, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1419947026353324848, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
       propertyPath: m_Camera
       value: 
@@ -640,3 +632,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e373087a2516095428b061f730f32693, type: 3}
+--- !u!1 &1995453405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1995453407}
+  - component: {fileID: 1995453406}
+  m_Layer: 0
+  m_Name: SwitchController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1995453406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995453405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e7e08e87ddb9448b35e03f8f91d000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_backgroundMat:
+  - {fileID: 2100000, guid: 5c01f8b97db2f784093b7361a28448d4, type: 2}
+  - {fileID: 2100000, guid: 27f14fc13cf35bc40a751790e761f659, type: 2}
+  - {fileID: 2100000, guid: 89e3c2dd68090f24181598e21de37790, type: 2}
+  - {fileID: 2100000, guid: cf892019a58c4f142b2e20cdcbf41d56, type: 2}
+  - {fileID: 2100000, guid: 954ffbabee43eed4a972aa01bd6f8526, type: 2}
+  - {fileID: 2100000, guid: baacfc752ec9a96459c6335365d36a78, type: 2}
+  - {fileID: 2100000, guid: 3f5daa51d2acbf34ba951d2e4b79de6a, type: 2}
+  - {fileID: 2100000, guid: 4cc65c6f62e49794c9f6dc4bda533ee1, type: 2}
+  - {fileID: 2100000, guid: de8a7eb704c27a6489d0a72a5ac60437, type: 2}
+  - {fileID: 2100000, guid: c5bda16db0684344f93f0f3bc9d4903d, type: 2}
+  - {fileID: 2100000, guid: fe61952a29ca56e4c80f8211e0f99883, type: 2}
+  - {fileID: 2100000, guid: e6bbd3a6acda76348b4458aebf27d947, type: 2}
+  - {fileID: 2100000, guid: 9de8acf57f4357e45afa72b0abf4003d, type: 2}
+  - {fileID: 2100000, guid: c2adef781d13fc04da9ee4ff6d16a129, type: 2}
+  - {fileID: 2100000, guid: 64ed9d362e45d0d4d8dfcda5c1e786b7, type: 2}
+  - {fileID: 2100000, guid: 3fd9ff6ee8342ab4b81d2e6ab23a0f8a, type: 2}
+  - {fileID: 2100000, guid: c34f756c4cd166147bebd299fd2601b9, type: 2}
+  - {fileID: 2100000, guid: bc2e9bc40e3deb24a8c522bf3b322060, type: 2}
+  m_fadeSpeed: 0.65
+--- !u!4 &1995453407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995453405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
