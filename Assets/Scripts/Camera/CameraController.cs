@@ -49,8 +49,8 @@ public class CameraController : MonoBehaviour
         if (state == CameraManager.Dimension.TwoD)
         {
             // Switch to TwoD
-            m_cameraThreeD.m_Lens.FieldOfView = 60f;
-            m_cameraTwoD.m_Lens.OrthographicSize = 3f;
+            //m_cameraThreeD.m_Lens.FieldOfView = 60f;
+            //m_cameraTwoD.m_Lens.OrthographicSize = 3f;
             if(firstcontrol != 0) vol.enabled = true;
             firstcontrol = 1;
             m_cameraTwoD.Priority = 1;
@@ -59,8 +59,8 @@ public class CameraController : MonoBehaviour
         else
         {
             // Switch to ThreeD
-            m_cameraTwoD.m_Lens.OrthographicSize = 3f;
-            m_cameraThreeD.m_Lens.FieldOfView = 60f;
+            //m_cameraTwoD.m_Lens.OrthographicSize = 3f;
+            //m_cameraThreeD.m_Lens.FieldOfView = 60f;
             if (firstcontrol != 0) vol.enabled = true;
             firstcontrol = 1;
             m_cameraTwoD.Priority = 0;
