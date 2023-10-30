@@ -14,6 +14,8 @@ namespace PlayerState
 
         public override void EnterState()
         {
+            // onGround Animation
+            m_context.Animator.SetBool("onGround", true);
             m_context.Animator.SetBool("isMoving", true);
         }
 

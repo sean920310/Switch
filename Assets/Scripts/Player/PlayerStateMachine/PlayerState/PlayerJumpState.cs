@@ -24,6 +24,7 @@ namespace PlayerState
             m_context.rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 
             // Jump Animation Trigger
+            m_context.Animator.SetBool("onGround", false);
             m_context.Animator.SetTrigger("toggleJump");
         }
 
