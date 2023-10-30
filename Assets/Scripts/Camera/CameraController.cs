@@ -13,9 +13,14 @@ public class CameraController : MonoBehaviour
     private CinemachineVirtualCamera m_cameraThreeD;
     [SerializeField]
     private Transform m_camTrackPos;
+    [SerializeField] 
+    private Volume m_switchEffectVol;
+    [SerializeField]
+    private float m_switchEffectSpeed;
 
-    [SerializeField] public Volume vol;
-    private int firstcontrol = 0;
+    private float m_effectWeight = 0f;
+
+
 
     // Start is called before the first frame update
     private void OnEnable()
@@ -28,13 +33,15 @@ public class CameraController : MonoBehaviour
         m_cameraTwoD.Follow = m_camTrackPos;
         m_cameraThreeD.Follow = m_camTrackPos;
 
-        vol.enabled = false;
+        //m_switchEffecVol.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(m_switchEffectVol.weight!= 0 || m_effectWeight !=0)
+            m_switchEffectVol.weight = Mathf.Lerp(m_switchEffectVol.weight, m_effectWeight, m_switchEffectSpeed * Time.deltaTime);
+        if (m_switchEffectVol.weight < 0.001f) m_switchEffectVol.weight = 0f;
     }
 
 
@@ -46,32 +53,27 @@ public class CameraController : MonoBehaviour
     void Switch(CameraManager.Dimension state)
     {
         print("switch to " + state);
+       // m_switchEffecVol.enabled = true;
+        m_effectWeight = 1f;
         if (state == CameraManager.Dimension.TwoD)
         {
             // Switch to TwoD
-            //m_cameraThreeD.m_Lens.FieldOfView = 60f;
-            //m_cameraTwoD.m_Lens.OrthographicSize = 3f;
-            if(firstcontrol != 0) vol.enabled = true;
-            firstcontrol = 1;
             m_cameraTwoD.Priority = 1;
             m_cameraThreeD.Priority = 0;
         }
         else
         {
             // Switch to ThreeD
-            //m_cameraTwoD.m_Lens.OrthographicSize = 3f;
-            //m_cameraThreeD.m_Lens.FieldOfView = 60f;
-            if (firstcontrol != 0) vol.enabled = true;
-            firstcontrol = 1;
             m_cameraTwoD.Priority = 0;
             m_cameraThreeD.Priority = 1;
 
         }
-        Invoke("disable_volume", 0.4f);
+        Invoke("DisableVolume", 0.4f);
     }
 
-    void disable_volume()
+    void DisableVolume()
     {
-        vol.enabled = false;
+        m_effectWeight = 0f;
+        //m_switchEffecVol.enabled = false;
     }
 }

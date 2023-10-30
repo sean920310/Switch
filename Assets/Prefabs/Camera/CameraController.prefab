@@ -171,7 +171,8 @@ MonoBehaviour:
   m_cameraTwoD: {fileID: 8095784406072830551}
   m_cameraThreeD: {fileID: 8095784405579848769}
   m_camTrackPos: {fileID: 0}
-  vol: {fileID: 490759195889522663}
+  m_switchEffectVol: {fileID: 490759195889522663}
+  m_switchEffectSpeed: 10
 --- !u!1 &8095784406072830550
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 0.08
   response:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.875
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: c0be1c8eb96854e0daf2942478a45e2b, type: 3}
@@ -100,13 +100,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8975791, z: 0.46224195, w: 0}
+    m_Value: {x: 1, y: 0.803905, z: 0.5675995, w: 0.008826192}
   midtones:
     m_OverrideState: 0
-    m_Value: {x: 0.79888946, y: 1, z: 0.65923667, w: 0}
+    m_Value: {x: 0.9862296, y: 0.98881364, z: 1, w: 0}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 0.54876995, y: 0.6432126, z: 1, w: 0}
+    m_Value: {x: 0.54876995, y: 0.6432126, z: 1, w: 0.011473857}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.425
   smoothness:
     m_OverrideState: 1
     m_Value: 0.2
