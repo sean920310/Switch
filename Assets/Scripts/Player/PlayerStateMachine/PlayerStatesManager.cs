@@ -152,7 +152,11 @@ namespace PlayerStateMachine
         public bool CheckOnFloor()
         {
             Quaternion quaternion = Quaternion.identity;
-            return Physics2D.OverlapBox((Vector2)transform.position + m_groundCheckBoxShift, m_groundCheckBoxSize,0, m_whatIsGround) != null;
+            bool onGround = Physics2D.OverlapBox((Vector2)transform.position + m_groundCheckBoxShift, m_groundCheckBoxSize,0, m_whatIsGround) != null;
+
+            // onGround Animation
+            m_context.Animator.SetBool("onGround", onGround);
+            return onGround;
         }
 
         public bool CanJump()
