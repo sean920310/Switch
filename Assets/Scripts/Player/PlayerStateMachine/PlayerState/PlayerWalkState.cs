@@ -37,7 +37,7 @@ namespace PlayerState
 
         public override void FixedUpdateState()
         {
-            if (m_context.rb.velocity.x * m_context.moveValue.x < 0)
+            if (m_context.rb.velocity.x * m_context.moveValue.x <= 0)
             {
                 m_context.rb.velocity = new Vector2(0, m_context.rb.velocity.y);
             }

@@ -13,12 +13,12 @@ public class SlimeEntity : EntityBase
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public override void GetDamage(float damage)
+    public override void GetDamage(EntityBase enemyEntity, float damage)
     {
-        m_heath -= damage;
+        m_health -= damage;
     }
 
     public override void SetDamage(EntityBase entity)
@@ -28,6 +28,6 @@ public class SlimeEntity : EntityBase
         float damage = Mathf.Max((attack - entity.Defence), 0);
 
         //Set Damage to entity
-        entity.GetDamage(damage);
+        entity.GetDamage(this, damage);
     }
 }
