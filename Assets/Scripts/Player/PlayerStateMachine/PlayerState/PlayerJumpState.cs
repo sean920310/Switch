@@ -51,7 +51,7 @@ namespace PlayerState
 
         public override void ExitState()
         {
-        
+            m_context.Animator.ResetTrigger("toggleJump");
         }
 
         public override void CheckSwitchState()

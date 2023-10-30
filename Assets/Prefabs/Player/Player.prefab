@@ -3339,12 +3339,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c5707d88c0c214aa52828bd8a99d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerMaxSpeedX: 5
-  m_playerMoveSpeedX: 50
+  m_playerMaxSpeedX: 4
+  m_playerMoveSpeedX: 40
   m_playerAirMaxSpeedX: 5
   m_playerAirMoveSpeedX: 10
   desireToJump: 0
-  m_maxJumpHeight: 1.5
+  m_maxJumpHeight: 2
   maxJumpTime: 0.2
   jumpTimeCounter: 0
   m_jumpCancelRate: 5
