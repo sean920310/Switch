@@ -16,6 +16,8 @@ namespace PlayerState
         {
             // Falling Animation Trigger
             m_context.Animator.SetBool("isFalling", true);
+            // Jump Animation Trigger
+            m_context.Animator.SetBool("onGround", false);
         }
 
         public override void UpdateState()

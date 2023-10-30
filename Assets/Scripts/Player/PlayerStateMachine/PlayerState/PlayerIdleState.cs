@@ -23,6 +23,10 @@ namespace PlayerState
             {
                 m_context.rb.velocity = new Vector3(m_context.rb.velocity.x, 0f, m_context.rb.velocity.y);
             }
+
+
+            // onGround Animation
+            m_context.Animator.SetBool("onGround", true);
         }
 
         public override void UpdateState()
