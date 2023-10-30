@@ -14,7 +14,8 @@ namespace PlayerState
 
         public override void EnterState()
         {
-        
+            // Falling Animation Trigger
+            m_context.Animator.SetBool("isFalling", true);
         }
 
         public override void UpdateState()
@@ -44,7 +45,8 @@ namespace PlayerState
 
         public override void ExitState()
         {
-        
+            // Falling Animation Trigger
+            m_context.Animator.SetBool("isFalling", false);
         }
 
         public override void CheckSwitchState()
