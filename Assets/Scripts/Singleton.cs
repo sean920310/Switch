@@ -21,6 +21,7 @@ public abstract class PersistentSingleton<T> : MonoBehaviour where T : MonoBehav
 
     protected virtual void Awake()
     {
+        instance = this as T;
         DontDestroyOnLoad(gameObject);
     }
 }

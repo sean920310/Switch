@@ -44,7 +44,10 @@ public class CameraController : MonoBehaviour
         if (m_switchEffectVol.weight < 0.001f) m_switchEffectVol.weight = 0f;
     }
 
-
+    private void OnDisable()
+    {
+        CameraManager.Instance.OnSwitchCallback -= Switch;
+    }
 
     /// <summary>
     /// Switch Dimension State
