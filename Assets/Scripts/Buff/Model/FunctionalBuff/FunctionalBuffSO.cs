@@ -25,12 +25,14 @@ namespace BuffSystem.Model
 
         override public void ApplyBuff(PlayerEntity playerEntity)
         {
-            OnDamageEventSO.EntityEvent.AddListener(OnDamageAction.EntityAction);
+            if(m_onDamageEventSOObject != null && OnDamageAction != null)
+                OnDamageEventSO.EntityEvent.AddListener(OnDamageAction.EntityAction);
         }
 
         override public void RemoveBuff(PlayerEntity playerEntity)
         {
-            OnDamageEventSO.EntityEvent.RemoveListener(OnDamageAction.EntityAction);
+            if (m_onDamageEventSOObject != null && OnDamageAction != null)
+                OnDamageEventSO.EntityEvent.RemoveListener(OnDamageAction.EntityAction);
         }
     }
 }

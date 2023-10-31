@@ -5,32 +5,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/* Player Event Interface*/
+public interface IOnPlayerDamageEvent: IEntityEvent<EntityBase, EntityBase, float> { }
+public interface IOnPlayerDamageAction : IEntityAction<EntityBase, EntityBase, float> { }
 
-public interface IOnPlayerDamageEvent: IEntityEvent<EntityBase, EntityBase, float>
-{
-
-}
-public interface IOnPlayerDamageAction : IEntityAction<EntityBase, EntityBase, float>
-{
-
-}
-
-//[SerializeField]
-//public interface IOnDamageEvent
-//{
-//    [Serializable] public class OnDamageEvent : UnityEvent<EntityBase, EntityBase, float> { }
-//    [SerializeField] public OnDamageEvent PlayerOnDamageEvent { get; set; }
-//    public void RaiseDamageEvent(EntityBase victimEntity, EntityBase enemyEntity, float value);
-//}
-
-//[SerializeField]
-//public interface IOnDamageAction
-//{
-//    public void DamageAction(EntityBase victimEntity, EntityBase enemyEntity, float value);
-//}
+public interface IOnPlayerAttackEvent : IEntityEvent<EntityBase, EntityBase, float> { }
+public interface IOnPlayerAttackAction : IEntityAction<EntityBase, EntityBase, float> { }
 
 public class PlayerEntity : EntityBase
 {
+
     public enum EntityParameter
     {
         health,
@@ -47,23 +31,25 @@ public class PlayerEntity : EntityBase
     [SerializeField]
     private float m_critDamage;
 
+
+    [Header("Player Event")]
+
     [RequireInterface(typeof(IOnPlayerDamageEvent))]
     [SerializeField]
     private UnityEngine.Object m_onDamageEventSOObject;
 
+    [RequireInterface(typeof(IOnPlayerAttackEvent))]
+    [SerializeField]
+    private UnityEngine.Object m_onAttackEventSOObject;
+
     private IOnPlayerDamageEvent OnDamageEventSO => m_onDamageEventSOObject as IOnPlayerDamageEvent;
+    private IOnPlayerAttackEvent OnAttackEventSO => m_onAttackEventSOObject as IOnPlayerAttackEvent;
 
     public override void GetDamage(EntityBase enemyEntity, float damage)
     {
         m_health -= damage;
 
-        RaiseDamageEvent(this, enemyEntity, damage);
-    }
-
-    [ContextMenu("TestGetDamage")]
-    public void TestGetDamage()
-    {
-        GetDamage(null, 100);
+        RaiseDamagedEvent(this, enemyEntity, damage);
     }
 
     public override void SetDamage(EntityBase entity)
@@ -75,6 +61,8 @@ public class PlayerEntity : EntityBase
 
         //Set Damage to entity
         entity.GetDamage(this, damage);
+
+        RaiseDamagedEvent(entity, this, damage);
     }
 
     public void ChangeParameter(EntityParameter entityParameter, float value)
@@ -102,8 +90,19 @@ public class PlayerEntity : EntityBase
         }
     }
 
-    public void RaiseDamageEvent(EntityBase victimEntity, EntityBase enemyEntity, float value)
+
+    [ContextMenu("TestGetDamage")]
+    private void TestGetDamage()
     {
-        OnDamageEventSO.EntityEvent?.Invoke(victimEntity, enemyEntity, value);
+        GetDamage(null, 100);
+    }
+
+    public void RaiseDamagedEvent(EntityBase victimEntity, EntityBase enemyEntity, float damage)
+    {
+        OnDamageEventSO.EntityEvent?.Invoke(victimEntity, enemyEntity, damage);
+    }
+    public void RaiseAttackEvent(EntityBase victimEntity, EntityBase enemyEntity, float damage)
+    {
+        OnAttackEventSO.EntityEvent?.Invoke(victimEntity, enemyEntity, damage);
     }
 }

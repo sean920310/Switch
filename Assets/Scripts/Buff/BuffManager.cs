@@ -4,6 +4,7 @@ using UnityEngine;
 using BuffSystem.Model;
 using System;
 using NestedEnum;
+using Unity.VisualScripting;
 
 namespace BuffSystem
 {
@@ -18,9 +19,8 @@ namespace BuffSystem
         private void Start()
         {
             m_playerEntity = GetComponent<PlayerEntity>();
+
         }
-
-
         public BuffSO AddBuff(BuffSO buff)
         {
             if (buff == null)
@@ -72,6 +72,7 @@ namespace BuffSystem
             }
         }
 
+        /* Cheating Section*/
         [ContextMenu("Buff Cheat Add")]
         public void BuffSOCheatAdd()
         {
@@ -90,6 +91,23 @@ namespace BuffSystem
                 return;
             }
             RemoveBuff(m_buffSOCheatBox);
+        }
+        
+        private void OnGUI()
+        {
+            if (GUILayout.Button("Buff Cheat Add"))
+            {
+                BuffSOCheatAdd();
+            }
+            if (GUILayout.Button("Buff Cheat Remove"))
+            {
+                BuffSOCheatRemove();
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            m_buffList.Clear();
         }
     }
 }

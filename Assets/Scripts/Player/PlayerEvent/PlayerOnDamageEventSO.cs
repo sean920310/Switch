@@ -1,12 +1,7 @@
-using BuffSystem.Model;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 /// <summary>
-/// Player Get Damage Channel
+/// Player Get Damaged Channel
 /// </summary>
 [CreateAssetMenu(fileName = "PlayerOnDamageEventSO", menuName = "Player Event/Create PlayerOnDamageEventSO")]
 public class PlayerOnDamageEventSO : ScriptableObject, IOnPlayerDamageEvent
