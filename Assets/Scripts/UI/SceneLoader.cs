@@ -16,10 +16,10 @@ public class SceneLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            LoadScene();
-        }
+        // if (Input.GetKeyDown(KeyCode.A))
+        // {
+        //     LoadScene();
+        // }
     }
 
     public void LoadScene()
