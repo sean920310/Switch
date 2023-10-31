@@ -26,7 +26,7 @@ public class RequireInterfaceDrawer : PropertyDrawer
             // Begin drawing property field.
             EditorGUI.BeginProperty(position, label, property);
             // Draw property field.
-            property.objectReferenceValue = EditorGUI.ObjectField(position, label, property.objectReferenceValue, requiredAttribute.requiredType, true);
+            property.objectReferenceValue = EditorGUI.ObjectField(position, label, property.objectReferenceValue, requiredAttribute.requiredType[requiredAttribute.requiredType.Count - 1], true);
             // Finish drawing property field.
             EditorGUI.EndProperty();
         }

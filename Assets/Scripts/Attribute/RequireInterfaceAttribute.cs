@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -6,7 +7,7 @@ using UnityEngine;
 public class RequireInterfaceAttribute : PropertyAttribute
 {
     // Interface type.
-    public System.Type requiredType { get; private set; }
+    public List<System.Type> requiredType = new List<System.Type>();
 
     /// <summary>
     /// Requiring implementation of the <see cref="T:RequireInterfaceAttribute"/> interface.
@@ -14,6 +15,12 @@ public class RequireInterfaceAttribute : PropertyAttribute
     /// <param name="type">Interface type.</param>
     public RequireInterfaceAttribute(System.Type type)
     {
-        this.requiredType = type;
+        this.requiredType.Add(type);
+
+        // Get all parent type
+        foreach (var i in type.GetInterfaces())
+        {
+            this.requiredType.Add(i);
+        }
     }
 }
