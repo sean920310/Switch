@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b251ec25b856354bb244e1185d8f73c, type: 3}
-  m_Name: DamageReflectBuff
+  m_Script: {fileID: 11500000, guid: 1aa91bae3d1e87d45b30e90f9410ef6a, type: 3}
+  m_Name: StunBuffAction
   m_EditorClassIdentifier: 
-  ReflectDamagePercent: 0.1
+  m_stunProbability: 0.5
