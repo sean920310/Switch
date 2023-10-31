@@ -19,8 +19,6 @@ namespace BuffSystem
         {
             m_playerEntity = GetComponent<PlayerEntity>();
         }
-
-
         public BuffSO AddBuff(BuffSO buff)
         {
             if (buff == null)
@@ -72,6 +70,7 @@ namespace BuffSystem
             }
         }
 
+        /* Cheating Section*/
         [ContextMenu("Buff Cheat Add")]
         public void BuffSOCheatAdd()
         {
@@ -90,6 +89,20 @@ namespace BuffSystem
                 return;
             }
             RemoveBuff(m_buffSOCheatBox);
+        }
+
+
+
+        private void OnGUI()
+        {
+            if (GUILayout.Button("Buff Cheat Add"))
+            {
+                BuffSOCheatAdd();
+            }
+            if (GUILayout.Button("Buff Cheat Remove"))
+            {
+                BuffSOCheatRemove();
+            }
         }
     }
 }
