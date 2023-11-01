@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
+    [Header("Stage Pool")]
     [SerializeField]
     private SceneField[] m_stagePool;
 
+    [Header("Stage Choose")]
     [SerializeField]
     private int m_stageCountToChoose = 2;
 
     [SerializeField]
     private List<SceneField> m_chosenStages;
+
+    [Header("Stage Shift")]
+    private float m_stageObjsShiftAmount = 75f;
 
     private void Start()
     {
@@ -80,6 +85,7 @@ public class StageManager : MonoBehaviour
             return;
         }
 
+        // Ramdon Pick Stages In Stage Pool (Non-repetitive)
         HashSet<int> uniqueNumbers = new HashSet<int>();
 
         while (uniqueNumbers.Count < m_stageCountToChoose)
@@ -103,7 +109,6 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        float shiftAmount = 5.0f;
 
         for (int i = 0; i < m_chosenStages.Count; i++)
         {
@@ -117,8 +122,9 @@ public class StageManager : MonoBehaviour
 
                     sceneObjects.ForEach(obj =>
                     {
+                        // x position shift right
                         Vector3 objTransform = obj.transform.position;
-                        obj.transform.position = objTransform + new Vector3(shiftAmount * i, 0f, 0f);
+                        obj.transform.position = objTransform + new Vector3(m_stageObjsShiftAmount * i, 0f, 0f);
                     });
                 }
             }
