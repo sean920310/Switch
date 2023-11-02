@@ -76,7 +76,7 @@ namespace StageSystem
         StageUnLoading,
     }
 
-    public class StageManager : MonoBehaviour
+    public class StageManager : PersistentSingleton<StageManager>
     {
         [Header("Stage Pool")]
         [SerializeField]
@@ -84,19 +84,29 @@ namespace StageSystem
 
         [Header("Stage Choose")]
         [SerializeField]
+        private bool m_loadStageAutomatically = true;
+
+        [SerializeField]
         private int m_stageCountToChoose = 2;
 
         [SerializeField]
         private List<SceneField> m_chosenStages = new List<SceneField>();
 
-        private List<AsyncOperation> m_stagesToLoad = new List<AsyncOperation>();
-        private int m_loadedStageCount = 0;
-        private List<AsyncOperation> m_stagesToUnload = new List<AsyncOperation>();
-        private int m_unloadedStageCount = 0;
-
-
         [SerializeField]
         private List<StageInformation> m_chosenStagesInformations = new List<StageInformation>();
+
+        [ReadOnly]
+        [SerializeField]
+        private List<AsyncOperation> m_stagesToLoad = new List<AsyncOperation>();
+        [ReadOnly]
+        [SerializeField]
+        private int m_loadedStageCount = 0;
+        [ReadOnly]
+        [SerializeField]
+        private List<AsyncOperation> m_stagesToUnload = new List<AsyncOperation>();
+        [ReadOnly]
+        [SerializeField]
+        private int m_unloadedStageCount = 0;
 
         [Header("Stage Shift")]
         [SerializeField]
@@ -114,7 +124,10 @@ namespace StageSystem
             switch (m_stageState)
             {
                 case StageState.StageNotChoose:
-                    ChooseStageFromStagePool();
+                    if (m_loadStageAutomatically)
+                    {
+                        ChooseStageFromStagePool(); // load stage trigger function
+                    }
                     break;
                 case StageState.StageChose:
                     LoadStages();
@@ -124,6 +137,7 @@ namespace StageSystem
                     if (m_stagesToLoad.Count == m_chosenStages.Count && m_loadedStageCount == m_stagesToLoad.Count)
                     {
                         m_stageState = StageState.StageLoaded;
+                        m_loadedStageCount = 0;
                     }
                     break;
                 case StageState.StageLoaded:
