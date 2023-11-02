@@ -53,8 +53,11 @@ MonoBehaviour:
     m_SceneName: TestStage 3
   - m_SceneAsset: {fileID: 102900000, guid: 10ebb5b5960a245409a5ae2bcfd42e0a, type: 3}
     m_SceneName: TestStage 4
+  m_loadStageAutomatically: 1
   m_stageCountToChoose: 3
   m_chosenStages: []
   m_chosenStagesInformations: []
+  m_loadedStageCount: 0
+  m_unloadedStageCount: 0
   m_stageObjsShiftAmount: 75
   m_stageState: 0
