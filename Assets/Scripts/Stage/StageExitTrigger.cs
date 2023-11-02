@@ -14,8 +14,4 @@ public class StageExitTrigger : MonoBehaviour
         onStageExitTrigger?.Invoke(collision);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("Stage Exit Trigger Exit");
-    }
 }

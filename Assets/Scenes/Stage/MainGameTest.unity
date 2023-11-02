@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerEntity: {fileID: 1606607395}
+  m_gameMasking: {fileID: 1864563834}
 --- !u!4 &133484414
 Transform:
   m_ObjectHideFlags: 0
@@ -909,6 +910,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c6fc43618c8c74e9d0abc918b85d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1864563834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 585341700361018090, guid: 9e03311ca3bbefd47a3e3a5746a792b3, type: 3}
+  m_PrefabInstance: {fileID: 2025584910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83298c7c3b6fb434890eb1a2401bee1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1891018615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1137,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadScene
       objectReference: {fileID: 0}
+    - target: {fileID: 184693212438072626, guid: 9e03311ca3bbefd47a3e3a5746a792b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 184693212447009630, guid: 9e03311ca3bbefd47a3e3a5746a792b3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1212,6 +1228,10 @@ PrefabInstance:
     - target: {fileID: 184693212447009631, guid: 9e03311ca3bbefd47a3e3a5746a792b3, type: 3}
       propertyPath: m_Name
       value: GameScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6326273697684276197, guid: 9e03311ca3bbefd47a3e3a5746a792b3, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e03311ca3bbefd47a3e3a5746a792b3, type: 3}
