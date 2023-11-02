@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeEntity : EntityBase
+public class BanditEntity: EntityBase
 {
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,7 @@ public class SlimeEntity : EntityBase
     public override void GetDamage(EntityBase enemyEntity, float damage)
     {
         m_health -= damage;
+        GetComponent<BanditStateManager>().HurtState();
     }
 
     public override void SetDamage(EntityBase entity)
