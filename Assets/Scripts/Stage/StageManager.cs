@@ -129,15 +129,16 @@ namespace StageSystem
                     {
                         m_stageState = StageState.StageLoaded;
                         m_loadedStageCount = 0;
+
+
+                        // load stage information when stage is all loaded
+                        LoadStagesInformations();
+                        StageShiftWithBorderPosition();
+
+                        onStageLoadedDone?.Invoke();
                     }
                     break;
                 case StageState.StageLoaded:
-
-                    // load stage information when stage is all loaded
-                    LoadStagesInformations();
-                    StageShiftWithBorderPosition();
-
-                    onStageLoadedDone?.Invoke();
                     break;
                 case StageState.StageUnLoading:
                     // Check if all stages are loaded
@@ -305,8 +306,8 @@ namespace StageSystem
                 return;
             }
 
-            float xShiftAmount = 0f, centerNormallize = 0;
-            for (int i = 1; i < m_chosenStages.Count; i++)
+            float xShiftAmount = 0f;
+            for (int i = 0; i < m_chosenStages.Count; i++)
             {
                 for (int j = 0; j < SceneManager.sceneCount; j++)
                 {
@@ -317,12 +318,15 @@ namespace StageSystem
                         loadedScene.GetRootGameObjects(sceneObjects);
 
                         // Shift each stage position to prevent map overlap with border position
-                        xShiftAmount += (m_chosenStagesInformations[i - 1].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i - 1].stageController.borderLeft.transform.position.x) / 2 +
-                                                (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
+                        if(i > 0)
+                        {
+                            xShiftAmount += (m_chosenStagesInformations[i - 1].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i - 1].stageController.borderLeft.transform.position.x) / 2 + 
+                                                    (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
+                        }
 
-                        centerNormallize = (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
-                        centerNormallize = m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - centerNormallize;
+                        float centerNormallize = (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x + m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
 
+                        Debug.Log(i + ": centerNormallize: " + centerNormallize);
 
                         sceneObjects.ForEach(obj =>
                         {
