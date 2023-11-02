@@ -19,6 +19,7 @@ public class BanditEntity: EntityBase
     public override void GetDamage(EntityBase enemyEntity, float damage)
     {
         m_health -= damage;
+        GetComponent<BanditStateManager>().HurtState();
     }
 
     public override void SetDamage(EntityBase entity)

@@ -46,7 +46,7 @@ public class BanditStateManager : MonoBehaviour
     public float AttackCDTime { get => _attackCDTime; }
     public bool CanAttack { get => _canAttack; set => _canAttack = value; }
     public Vector3 AttackCenter { get => _attackDetection.transform.position; }
-    public bool Attacking { get => _attacking; }
+    public bool Attacking { get => _attacking; set => _attacking = value; }
     public Shader ColorTintShader { get => _colorTintShader; }
     public Shader AttackingShader { get => _attackingShader; }
     public Material Material { get => _material; }
@@ -81,7 +81,6 @@ public class BanditStateManager : MonoBehaviour
         _groundDetection = GetComponentInChildren<GroundDetect>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-        _attackCollider.GetComponent<EnemyAttackCollide>().SetDamage(_attackDamage);
         _material = GetComponent<SpriteRenderer>().material;
 
         // state setup
@@ -120,12 +119,12 @@ public class BanditStateManager : MonoBehaviour
         this.CurrentState = newState;
     }
 
+    #region interact function
+
     public void HurtState()
     {
         SwitchState(_factory.Hurt());
     }
-
-    #region interact function
 
     public void attackStart() 
     {

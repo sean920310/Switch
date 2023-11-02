@@ -13,19 +13,19 @@ public class BanditAttackState : BanditBaseState
 
     public override void EnterState()
     {
-        if (_context.CanAttack)
-            _context.startCorutine(AttackDelay());
+        //if (_context.CanAttack)
+            //_context.startCorutine(AttackDelay());
         _context.Anim.SetFloat("Speed", 0);
     }
 
     public override void UpdateState()
     {
         CheckSwitchState();
-        _context.LookAtPlayer(); 
+        if (!_context.Attacking)
+            _context.LookAtPlayer();
         if (_context.CanAttack)
         {
-            _context.Anim.SetTrigger("Attack");
-            _context.startCorutine(AttackCD());
+            Attack();
         }
     }
 
@@ -53,6 +53,14 @@ public class BanditAttackState : BanditBaseState
             }
         }
     }
+
+    void Attack()
+    {
+        _context.Attacking = true;
+        _context.Anim.SetTrigger("Attack");
+        _context.startCorutine(AttackCD());
+    }
+
     IEnumerator AttackDelay()
     {
         _context.CanAttack = false;
