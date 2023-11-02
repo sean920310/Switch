@@ -5,15 +5,13 @@ using UnityEngine;
 public class EnemyAttackCollide : MonoBehaviour
 {
     [SerializeField] LayerMask playerLayer;
-    float _damage;
-    public void SetDamage(float damage) => _damage = damage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((playerLayer & 1 << collision.gameObject.layer) == 1 << collision.gameObject.layer)
         {
             Debug.Log("Player Hurt: " + collision.gameObject.name);
-            collision.gameObject.GetComponent<EntityBase>().GetDamage(gameObject.GetComponentInParent<EntityBase>(), (int)_damage);
+            gameObject.GetComponentInParent<EntityBase>().SetDamage(collision.gameObject.GetComponent<EntityBase>());
             this.enabled = false;
         }
     }
