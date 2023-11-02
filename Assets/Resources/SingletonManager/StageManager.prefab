@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stagePool:
   - m_SceneAsset: {fileID: 102900000, guid: e85fb41c8ee7f644ba1c1e75d140c110, type: 3}
-    m_SceneName: TestStage 1
+    m_SceneName: 1-1
   - m_SceneAsset: {fileID: 102900000, guid: 975730d43b4ca4a419ee615c809238fa, type: 3}
     m_SceneName: TestStage 2
   - m_SceneAsset: {fileID: 102900000, guid: 6bd6fcae29aef0343813f56e74d64bd9, type: 3}
@@ -59,5 +59,4 @@ MonoBehaviour:
   m_chosenStagesInformations: []
   m_loadedStageCount: 0
   m_unloadedStageCount: 0
-  m_stageObjsShiftAmount: 75
   m_stageState: 0

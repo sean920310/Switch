@@ -154,6 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerEntity: {fileID: 1606607395}
   m_gameMasking: {fileID: 1864563834}
+  m_isSceneCurrentllyFadeIn: 0
+  m_isSceneCurrentllyFadeOut: 0
 --- !u!4 &133484414
 Transform:
   m_ObjectHideFlags: 0
