@@ -82,6 +82,8 @@ namespace PlayerStateMachine
         private bool m_isJumpRelease = false;
         public bool isJumpRelease { get => m_isJumpRelease; }
 
+        private bool m_isAppQuiting = false;
+
         private void Start()
         {
             // get game component
@@ -114,9 +116,15 @@ namespace PlayerStateMachine
             CameraManager.Instance.OnSwitchCallback += OnSwitch;
         }
 
+        private void OnApplicationQuit()
+        {
+            m_isAppQuiting = true;   
+        }
+
         private void OnDisable()
         {
-            CameraManager.Instance.OnSwitchCallback -= OnSwitch;
+            if(!m_isAppQuiting)
+                CameraManager.Instance.OnSwitchCallback -= OnSwitch;
         }
 
         public void SwitchState(PlayerBaseState newState)

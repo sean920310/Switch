@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
     private float m_switchEffectSpeed;
 
     private float m_effectWeight = 0f;
-
+    private bool m_isAppQuiting = false;
 
 
     // Start is called before the first frame update
@@ -44,9 +44,15 @@ public class CameraController : MonoBehaviour
         if (m_switchEffectVol.weight < 0.001f) m_switchEffectVol.weight = 0f;
     }
 
+    private void OnApplicationQuit()
+    {
+        m_isAppQuiting = true;
+    }
+
     private void OnDisable()
     {
-        CameraManager.Instance.OnSwitchCallback -= Switch;
+        if(!m_isAppQuiting)
+            CameraManager.Instance.OnSwitchCallback -= Switch;
     }
 
     /// <summary>
