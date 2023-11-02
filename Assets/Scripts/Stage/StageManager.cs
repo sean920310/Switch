@@ -25,15 +25,6 @@ namespace StageSystem
         // Current Stage Information
         public StageController stageController;
 
-        public GameObject spownPointLeft { get; private set; }
-        public GameObject spownPointRight { get; private set; }
-
-        public GameObject borderLeft { get; private set; }
-        public GameObject borderRight { get; private set; }
-
-        public GameObject lastStageEnterTrigger { get; private set; }
-        public GameObject nextStageEnterTrigger { get; private set; }
-
         // Stage Relationship
         [Header("Stage Relationship")]
         public StageController lastStage;
@@ -51,14 +42,6 @@ namespace StageSystem
             this.stageController = stageController;
             this.lastStage = lastStage;
             this.nextStage = nextStage;
-
-            // Get Current Stage Information
-            spownPointLeft = this.stageController.transform.Find("SpawnPoint/Left").gameObject;
-            spownPointRight = this.stageController.transform.Find("SpawnPoint/Right").gameObject;
-            borderLeft = this.stageController.transform.Find("Border/Left").gameObject;
-            borderRight = this.stageController.transform.Find("Border/Right").gameObject;
-            lastStageEnterTrigger = this.stageController.transform.Find("StageEnterTrigger/LastStageEnterTrigger").gameObject;
-            nextStageEnterTrigger = this.stageController.transform.Find("StageEnterTrigger/NextStageEnterTrigger").gameObject;
         }
 
         public void SetNextStage(StageController nextStage)
@@ -94,6 +77,7 @@ namespace StageSystem
 
         [SerializeField]
         private List<StageInformation> m_chosenStagesInformations = new List<StageInformation>();
+        public List<StageInformation> ChosenStagesInformations { get => m_chosenStagesInformations;}
 
         [ReadOnly]
         [SerializeField]
@@ -108,12 +92,18 @@ namespace StageSystem
         [SerializeField]
         private int m_unloadedStageCount = 0;
 
-        [Header("Stage Shift")]
-        [SerializeField]
-        private float m_stageObjsShiftAmount = 75f;
+        //[Header("Stage Shift")]
+        //[SerializeField]
+        //private float m_stageObjsShiftAmount = 75f;
 
+        [ReadOnly]
         [SerializeField]
         private StageState m_stageState = StageState.StageNotChoose;
+
+
+        // delegate and action for each stage state done
+        public delegate void StageStateDone();
+        public event StageStateDone onStageLoadedDone;
 
 
         private void Start()
@@ -131,7 +121,7 @@ namespace StageSystem
                     }
                     break;
                 case StageState.StageChose:
-                    LoadStages();
+                    LoadStagesFromChosenStages();
                     break;
                 case StageState.StageLoading:
                     // Check if all stages are loaded
@@ -147,6 +137,7 @@ namespace StageSystem
                     LoadStagesInformations();
                     StageShiftWithBorderPosition();
 
+                    onStageLoadedDone?.Invoke();
                     break;
                 case StageState.StageUnLoading:
                     // Check if all stages are loaded
@@ -162,19 +153,7 @@ namespace StageSystem
             }
 
         }
-
-        private void StageInfoReset()
-        {
-            m_chosenStages.Clear();
-            m_chosenStagesInformations.Clear();
-            m_stagesToUnload.Clear();
-            m_stagesToLoad.Clear();
-            m_loadedStageCount = 0;
-            m_unloadedStageCount = 0;
-        }
-
-        [ContextMenu("Load Stages")]
-        private void LoadStages()
+        private void LoadStagesFromChosenStages()
         {
             if (m_chosenStages.Count == 0)
             {
@@ -210,8 +189,6 @@ namespace StageSystem
                 }
             }
         }
-
-        [ContextMenu("Load Stages Informations")]
         private void LoadStagesInformations()
         {
             // clear stage information
@@ -263,37 +240,6 @@ namespace StageSystem
                 }
             }
         }
-
-        [ContextMenu("UnLoad Stages")]
-        private void UnLoadStages()
-        {
-            if (m_chosenStages.Count == 0)
-            {
-                Debug.LogWarning("No stage to unload!");
-                return;
-            }
-
-            // Switch Stage State
-            m_stageState = StageState.StageUnLoading;
-
-            m_stagesToUnload.Clear();
-            m_unloadedStageCount = 0;
-
-            for (int i = 0; i < m_chosenStages.Count; i++)
-            {
-                for (int j = 0; j < SceneManager.sceneCount; j++)
-                {
-                    Scene loadedScene = SceneManager.GetSceneAt(j);
-                    if (loadedScene.name == m_chosenStages[i].SceneName)
-                    {
-                        m_stagesToUnload.Add(SceneManager.UnloadSceneAsync(loadedScene));
-                        m_stagesToUnload[m_stagesToUnload.Count - 1].completed += OnStageUnloaded;
-                    }
-                }
-            }
-        }
-
-        [ContextMenu("Choose Stage From Stage Pool")]
         private void ChooseStageFromStagePool()
         {
             if (m_stageCountToChoose > m_stagePool.Length)
@@ -322,39 +268,35 @@ namespace StageSystem
             // Switch Stage State
             m_stageState = StageState.StageChose;
         }
-
-        [ContextMenu("Stage Shift")]
-        private void StageShift()
-        {
-            if (m_chosenStages.Count == 1)
-            {
-                Debug.LogWarning("Not enough stage to shift!");
-                return;
-            }
+        //private void StageShift()
+        //{
+        //    if (m_chosenStages.Count == 1)
+        //    {
+        //        Debug.LogWarning("Not enough stage to shift!");
+        //        return;
+        //    }
 
 
-            for (int i = 0; i < m_chosenStages.Count; i++)
-            {
-                for (int j = 0; j < SceneManager.sceneCount; j++)
-                {
-                    Scene loadedScene = SceneManager.GetSceneAt(j);
-                    if (loadedScene.name == m_chosenStages[i].SceneName)
-                    {
-                        List<GameObject> sceneObjects = new List<GameObject>();
-                        loadedScene.GetRootGameObjects(sceneObjects);
+        //    for (int i = 0; i < m_chosenStages.Count; i++)
+        //    {
+        //        for (int j = 0; j < SceneManager.sceneCount; j++)
+        //        {
+        //            Scene loadedScene = SceneManager.GetSceneAt(j);
+        //            if (loadedScene.name == m_chosenStages[i].SceneName)
+        //            {
+        //                List<GameObject> sceneObjects = new List<GameObject>();
+        //                loadedScene.GetRootGameObjects(sceneObjects);
 
-                        sceneObjects.ForEach(obj =>
-                        {
-                            // x position shift right
-                            Vector3 objTransform = obj.transform.position;
-                            obj.transform.position = objTransform + new Vector3(m_stageObjsShiftAmount * i, 0f, 0f);
-                        });
-                    }
-                }
-            }
-        }
-
-        [ContextMenu("Stage Shift With Border Position")]
+        //                sceneObjects.ForEach(obj =>
+        //                {
+        //                    // x position shift right
+        //                    Vector3 objTransform = obj.transform.position;
+        //                    obj.transform.position = objTransform + new Vector3(m_stageObjsShiftAmount * i, 0f, 0f);
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
         private void StageShiftWithBorderPosition()
         {
             if (m_chosenStages.Count == 1)
@@ -375,8 +317,8 @@ namespace StageSystem
                         loadedScene.GetRootGameObjects(sceneObjects);
 
                         // Shift each stage position to prevent map overlap with border position
-                        xShiftAmount += (m_chosenStagesInformations[i - 1].borderRight.transform.position.x - m_chosenStagesInformations[i - 1].borderLeft.transform.position.x) / 2 +
-                                                (m_chosenStagesInformations[i].borderRight.transform.position.x - m_chosenStagesInformations[i].borderLeft.transform.position.x) / 2;
+                        xShiftAmount += (m_chosenStagesInformations[i - 1].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i - 1].stageController.borderLeft.transform.position.x) / 2 +
+                                                (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
                         sceneObjects.ForEach(obj =>
                         {
                             obj.transform.position = new Vector3(xShiftAmount, obj.transform.position.y, obj.transform.position.z);
@@ -385,7 +327,17 @@ namespace StageSystem
                 }
             }
         }
+        private void StageInfoReset()
+        {
+            m_chosenStages.Clear();
+            m_chosenStagesInformations.Clear();
+            m_stagesToUnload.Clear();
+            m_stagesToLoad.Clear();
+            m_loadedStageCount = 0;
+            m_unloadedStageCount = 0;
+        }
 
+        // Callbacks for loading and unloading stages
         private void OnStageLoaded(AsyncOperation asyncOperation)
         {
             Debug.Log("Stage loaded: " + m_loadedStageCount + " / " + m_chosenStages.Count);
@@ -397,6 +349,47 @@ namespace StageSystem
             Debug.Log("Stage unloaded: " + m_unloadedStageCount + " / " + m_chosenStages.Count);
             asyncOperation.completed -= OnStageUnloaded;
             m_unloadedStageCount++;
+        }
+
+        [ContextMenu("UnLoad Stages")]
+        public void UnLoadStages()
+        {
+            if (m_chosenStages.Count == 0 || m_stageState != StageState.StageLoaded)
+            {
+                Debug.LogWarning("No stage to unload!");
+                return;
+            }
+
+            // Switch Stage State
+            m_stageState = StageState.StageUnLoading;
+
+            m_stagesToUnload.Clear();
+            m_unloadedStageCount = 0;
+
+            for (int i = 0; i < m_chosenStages.Count; i++)
+            {
+                for (int j = 0; j < SceneManager.sceneCount; j++)
+                {
+                    Scene loadedScene = SceneManager.GetSceneAt(j);
+                    if (loadedScene.name == m_chosenStages[i].SceneName)
+                    {
+                        m_stagesToUnload.Add(SceneManager.UnloadSceneAsync(loadedScene));
+                        m_stagesToUnload[m_stagesToUnload.Count - 1].completed += OnStageUnloaded;
+                    }
+                }
+            }
+        }
+
+        [ContextMenu("Load Stages To Scene")]
+        public void LoadStagesToScene()
+        {
+            if (m_stageState != StageState.StageNotChoose)
+            {
+                Debug.LogWarning("Failed to load stages to scene: Current stages needs to unload first");
+                return;
+            }
+
+            LoadStagesFromChosenStages();
         }
     }
 
