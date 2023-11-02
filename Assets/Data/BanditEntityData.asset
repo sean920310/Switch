@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba6c4d6473a575b40ada57f0aa8127e4, type: 3}
-  m_Name: SlimeEntityData
+  m_Name: BanditEntityData
   m_EditorClassIdentifier: 
   Heath: 200
   Regenerate: 100

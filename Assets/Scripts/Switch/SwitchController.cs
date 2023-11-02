@@ -12,6 +12,7 @@ public class SwitchController : MonoBehaviour
 
     private float m_fadeAlpha = 0;
     private bool m_isFading = false;
+    private bool m_isAppQuiting = false;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -29,10 +30,16 @@ public class SwitchController : MonoBehaviour
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        m_isAppQuiting = true;
+    }
+
     void OnDisable()
     {
         SetOutlineAlpha(0);
-        CameraManager.Instance.OnSwitchCallback -= OnSwitch;
+        if(!m_isAppQuiting)
+            CameraManager.Instance.OnSwitchCallback -= OnSwitch;
     }
 
     void SetOutlineAlpha(float alpha)
