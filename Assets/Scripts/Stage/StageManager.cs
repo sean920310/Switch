@@ -305,7 +305,7 @@ namespace StageSystem
                 return;
             }
 
-            float xShiftAmount = 0f;
+            float xShiftAmount = 0f, centerNormallize = 0;
             for (int i = 1; i < m_chosenStages.Count; i++)
             {
                 for (int j = 0; j < SceneManager.sceneCount; j++)
@@ -319,9 +319,14 @@ namespace StageSystem
                         // Shift each stage position to prevent map overlap with border position
                         xShiftAmount += (m_chosenStagesInformations[i - 1].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i - 1].stageController.borderLeft.transform.position.x) / 2 +
                                                 (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
+
+                        centerNormallize = (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
+                        centerNormallize = m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - centerNormallize;
+
+
                         sceneObjects.ForEach(obj =>
                         {
-                            obj.transform.position = new Vector3(xShiftAmount, obj.transform.position.y, obj.transform.position.z);
+                            obj.transform.position = new Vector3(xShiftAmount - centerNormallize, obj.transform.position.y, obj.transform.position.z);
                         });
                     }
                 }
