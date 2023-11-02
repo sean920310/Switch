@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2350737944628668032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2350737944628668046}
+  - component: {fileID: 2350737944628668047}
+  m_Layer: 0
+  m_Name: StageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2350737944628668046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350737944628668032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.27523, y: 2.6320624, z: -0.052127838}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2350737944628668047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350737944628668032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312e9ebc4b3a0244a96bf251dbded66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_stagePool:
+  - m_SceneAsset: {fileID: 102900000, guid: e85fb41c8ee7f644ba1c1e75d140c110, type: 3}
+    m_SceneName: 1-1
+  - m_SceneAsset: {fileID: 102900000, guid: 975730d43b4ca4a419ee615c809238fa, type: 3}
+    m_SceneName: TestStage 2
+  - m_SceneAsset: {fileID: 102900000, guid: 6bd6fcae29aef0343813f56e74d64bd9, type: 3}
+    m_SceneName: TestStage 3
+  - m_SceneAsset: {fileID: 102900000, guid: 10ebb5b5960a245409a5ae2bcfd42e0a, type: 3}
+    m_SceneName: TestStage 4
+  m_loadStageAutomatically: 1
+  m_stageCountToChoose: 3
+  m_chosenStages: []
+  m_chosenStagesInformations: []
+  m_loadedStageCount: 0
+  m_unloadedStageCount: 0
+  m_stageState: 0
