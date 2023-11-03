@@ -30,12 +30,16 @@ public class StageController : MonoBehaviour
     [SerializeField]
     private GameObject m_spownPointRight;
 
+    [SerializeField]
+    private PolygonCollider2D m_cameraConfiner;
+
     public GameObject borderLeft { get => m_borderLeft; }
     public GameObject borderRight { get => m_borderRight; }
     public StageExitTrigger lastStageEnterTrigger { get => m_lastStageEnterTrigger;}
     public StageExitTrigger nextStageEnterTrigger { get => m_nextStageEnterTrigger;}
     public GameObject spownPointLeft { get => m_spownPointLeft; }
     public GameObject spownPointRight { get => m_spownPointRight; }
+    public PolygonCollider2D CameraConfiner { get => m_cameraConfiner; }
 
 
     // Start is called before the first frame update

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+
 public class GameManager : PersistentSingleton<GameManager>
 {
     [SerializeField]
@@ -12,6 +13,11 @@ public class GameManager : PersistentSingleton<GameManager>
 
     [SerializeField]
     private GameMasking m_gameMasking; // Fade In Fade Out Effect
+
+    [SerializeField]
+    private Cinemachine.CinemachineConfiner2D m_confiner2D;
+    [SerializeField]
+    private Cinemachine.CinemachineConfiner2D m_confiner3D;
 
     private void Start()
     {
@@ -61,6 +67,9 @@ public class GameManager : PersistentSingleton<GameManager>
 
         StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.gameObject.SetActive(false);
         StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.gameObject.SetActive(false);
+
+        m_confiner2D.m_BoundingShape2D = null;
+        m_confiner3D.m_BoundingShape2D = null;
     }
 
     // bind actions to current stage exit triggers
@@ -71,6 +80,9 @@ public class GameManager : PersistentSingleton<GameManager>
 
         StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.onStageExitTrigger += OnPlayerEnterLastStageExitTrigger;
         StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.onStageExitTrigger += OnPlayerEnterNextStageExitTrigger;
+
+        m_confiner2D.m_BoundingShape2D = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.CameraConfiner;
+        m_confiner3D.m_BoundingShape2D = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.CameraConfiner;
     }
 
     // Action when player enter last stage exit trigger
