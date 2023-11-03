@@ -14,11 +14,6 @@ public class GameManager : PersistentSingleton<GameManager>
     [SerializeField]
     private GameMasking m_gameMasking;
 
-    [SerializeField]
-    private bool m_isSceneCurrentllyFadeIn = false;
-    [SerializeField]
-    private bool m_isSceneCurrentllyFadeOut = false;
-
     private void Start()
     {
         m_stageManager = StageManager.Instance;
@@ -36,10 +31,7 @@ public class GameManager : PersistentSingleton<GameManager>
         m_playerEntity.transform.position = pos;
 
         BindStageExitTrigger();
-
-        // set player active
-        m_playerEntity.gameObject.SetActive(true);
-        m_gameMasking.FadeOut();
+        m_gameMasking.OnFadeInComplete += OnFadeInComplete;
     }
 
     // unbind actions from current stage exit triggers
@@ -79,18 +71,17 @@ public class GameManager : PersistentSingleton<GameManager>
             return;
         }
         m_gameMasking.FadeIn();
-        m_isSceneCurrentllyFadeIn = true;
         // set player inactive
         m_playerEntity.gameObject.SetActive(false);
-
-        // set player position to last stage spawn point
-        Vector3 pos = m_stageManager.ChosenStagesInformations[m_playerCurrentStage - 1].stageController.spownPointRight.transform.position;
-        m_playerEntity.transform.position = pos;
 
         UnbindStageExitTrigger();
 
         // Update current stage information
         m_playerCurrentStage--;
+
+        // set player position to last stage spawn point
+        Vector3 pos = m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointRight.transform.position;
+        m_playerEntity.transform.position = pos;
 
         // Bind actions
         BindStageExitTrigger();
@@ -115,18 +106,18 @@ public class GameManager : PersistentSingleton<GameManager>
         }
 
         m_gameMasking.FadeIn();
-        m_isSceneCurrentllyFadeIn = true;
+
         // set player inactive
         m_playerEntity.gameObject.SetActive(false);
-
-        // set player position to next stage spawn point
-        Vector3 pos = m_stageManager.ChosenStagesInformations[m_playerCurrentStage + 1].stageController.spownPointLeft.transform.position;
-        m_playerEntity.transform.position = pos;
 
         UnbindStageExitTrigger();
 
         // Update current stage information
         m_playerCurrentStage++;
+
+        // set player position to next stage spawn point
+        Vector3 pos = m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointLeft.transform.position;
+        m_playerEntity.transform.position = pos;
 
         // Bind actions
         BindStageExitTrigger();
@@ -138,7 +129,6 @@ public class GameManager : PersistentSingleton<GameManager>
     public void OnFadeInComplete()
     {
         m_gameMasking.OnFadeInComplete -= OnFadeInComplete;
-        m_isSceneCurrentllyFadeIn = false;
 
         m_gameMasking.FadeOut();
         m_gameMasking.OnFadeOutComplete += OnFadeOutComplete;
