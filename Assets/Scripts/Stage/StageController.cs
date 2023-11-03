@@ -1,9 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StageController : MonoBehaviour
 {
+    
+    [Serializable]
+    public enum StageType{
+        NORMALROOM, // 普通房間(主要打怪)
+        TRAPROOM,   // 陷阱房(著重於用SWITCH的跑酷)
+        BOSSROOM,   // Boss房
+    }
+
+    [SerializeField]
+    private StageType m_stageType;
 
     [SerializeField]
     private GameObject m_borderLeft; 
