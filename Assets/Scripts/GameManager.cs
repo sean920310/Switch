@@ -12,26 +12,47 @@ public class GameManager : PersistentSingleton<GameManager>
     private int m_playerCurrentStage = 0;
 
     [SerializeField]
-    private GameMasking m_gameMasking;
+    private GameMasking m_gameMasking; // Fade In Fade Out Effect
 
     private void Start()
     {
         m_stageManager = StageManager.Instance;
         m_stageManager.onStageLoadedDone += OnStageLoadedDone;
+        m_stageManager.onStageUnloaded += OnStageUnloaded;
+        m_stageManager.onStageUnloadedDone += OnStageUnloadedDone;
 
         m_gameMasking.FadeIn();
+        m_gameMasking.OnFadeInComplete += OnFadeInComplete;
     }
 
     private void OnStageLoadedDone()
     {
-        m_stageManager.onStageLoadedDone -= OnStageLoadedDone;
-
         // set player position
         Vector3 pos = m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointLeft.transform.position;
         m_playerEntity.transform.position = pos;
 
         BindStageExitTrigger();
+
+        if (m_stageManager.setStageActivationDynamicly)
+        {
+            m_stageManager.SetStageActivation(m_playerCurrentStage, true);
+        }
+    }
+
+    private void OnStageUnloaded()
+    {
+        m_gameMasking.FadeIn();
         m_gameMasking.OnFadeInComplete += OnFadeInComplete;
+
+        // set player inactive
+        m_playerEntity.gameObject.SetActive(false);
+
+        UnbindStageExitTrigger();
+    }
+
+    private void OnStageUnloadedDone()
+    {
+        m_playerCurrentStage = 0;
     }
 
     // unbind actions from current stage exit triggers
