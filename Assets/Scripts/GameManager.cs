@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 public class GameManager : PersistentSingleton<GameManager>
 {
-    private StageManager m_stageManager;
     [SerializeField]
     private PlayerEntity m_playerEntity;
 
@@ -16,10 +15,9 @@ public class GameManager : PersistentSingleton<GameManager>
 
     private void Start()
     {
-        m_stageManager = StageManager.Instance;
-        m_stageManager.onStageLoadedDone += OnStageLoadedDone;
-        m_stageManager.onStageUnloaded += OnStageUnloaded;
-        m_stageManager.onStageUnloadedDone += OnStageUnloadedDone;
+        StageManager.Instance.onStageLoadedDone += OnStageLoadedDone;
+        StageManager.Instance.onStageUnloaded += OnStageUnloaded;
+        StageManager.Instance.onStageUnloadedDone += OnStageUnloadedDone;
 
         m_gameMasking.FadeIn();
         m_gameMasking.OnFadeInComplete += OnFadeInComplete;
@@ -28,14 +26,14 @@ public class GameManager : PersistentSingleton<GameManager>
     private void OnStageLoadedDone()
     {
         // set player position
-        Vector3 pos = m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointLeft.transform.position;
+        Vector3 pos = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointLeft.transform.position;
         m_playerEntity.transform.position = pos;
 
         BindStageExitTrigger();
 
-        if (m_stageManager.setStageActivationDynamicly)
+        if (StageManager.Instance.setStageActivationDynamicly)
         {
-            m_stageManager.SetStageActivation(m_playerCurrentStage, true);
+            StageManager.Instance.SetStageActivation(m_playerCurrentStage, true);
         }
     }
 
@@ -58,21 +56,21 @@ public class GameManager : PersistentSingleton<GameManager>
     // unbind actions from current stage exit triggers
     private void UnbindStageExitTrigger()
     {
-        m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.onStageExitTrigger -= OnPlayerEnterLastStageExitTrigger;
-        m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.onStageExitTrigger -= OnPlayerEnterNextStageExitTrigger;
+        StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.onStageExitTrigger -= OnPlayerEnterLastStageExitTrigger;
+        StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.onStageExitTrigger -= OnPlayerEnterNextStageExitTrigger;
 
-        m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.gameObject.SetActive(false);
-        m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.gameObject.SetActive(false);
+        StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.gameObject.SetActive(false);
+        StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.gameObject.SetActive(false);
     }
 
     // bind actions to current stage exit triggers
     private void BindStageExitTrigger()
     {
-        m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.gameObject.SetActive(true);
-        m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.gameObject.SetActive(true);
+        StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.gameObject.SetActive(true);
+        StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.gameObject.SetActive(true);
 
-        m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.onStageExitTrigger += OnPlayerEnterLastStageExitTrigger;
-        m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.onStageExitTrigger += OnPlayerEnterNextStageExitTrigger;
+        StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.onStageExitTrigger += OnPlayerEnterLastStageExitTrigger;
+        StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.onStageExitTrigger += OnPlayerEnterNextStageExitTrigger;
     }
 
     // Action when player enter last stage exit trigger
@@ -101,7 +99,7 @@ public class GameManager : PersistentSingleton<GameManager>
         m_playerCurrentStage--;
 
         // set player position to last stage spawn point
-        Vector3 pos = m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointRight.transform.position;
+        Vector3 pos = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointRight.transform.position;
         m_playerEntity.transform.position = pos;
 
         // Bind actions
@@ -119,7 +117,7 @@ public class GameManager : PersistentSingleton<GameManager>
             Debug.LogWarning("Player is not in trigger");
             return;
         }
-        if (m_playerCurrentStage == m_stageManager.ChosenStagesInformations.Count - 1)
+        if (m_playerCurrentStage == StageManager.Instance.ChosenStagesInformations.Count - 1)
         {
             // warning about player is already in last stage
             Debug.LogWarning("Player is already in last stage");
@@ -137,7 +135,7 @@ public class GameManager : PersistentSingleton<GameManager>
         m_playerCurrentStage++;
 
         // set player position to next stage spawn point
-        Vector3 pos = m_stageManager.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointLeft.transform.position;
+        Vector3 pos = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointLeft.transform.position;
         m_playerEntity.transform.position = pos;
 
         // Bind actions
