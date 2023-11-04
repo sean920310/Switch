@@ -1253,7 +1253,7 @@ ScriptedImporter:
     - {x: 25, y: 26}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -188, y: 538}
+    uvTransform: {x: 136, y: 1917}
     spritePosition: {x: 324, y: 1379}
   - name: Ear
     originalName: 
@@ -3734,7 +3734,7 @@ ScriptedImporter:
     - {x: 24, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -191, y: 685}
+    uvTransform: {x: 60, y: 1996}
     spritePosition: {x: 251, y: 1311}
   - name: white
     originalName: 
@@ -4313,7 +4313,7 @@ ScriptedImporter:
     - {x: 20, y: 21}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -142, y: 625}
+    uvTransform: {x: 100, y: 1996}
     spritePosition: {x: 242, y: 1371}
   - name: bracelet
     originalName: 
@@ -5498,7 +5498,7 @@ ScriptedImporter:
     - {x: 28, y: 29}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -286, y: 780}
+    uvTransform: {x: 4, y: 1736}
     spritePosition: {x: 290, y: 956}
   - name: skirt
     originalName: 
@@ -5892,7 +5892,7 @@ ScriptedImporter:
     - {x: 31, y: 32}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 138, y: -105}
+    uvTransform: {x: 302, y: 583}
     spritePosition: {x: 164, y: 688}
   - name: Right Arm
     originalName: 
@@ -6780,7 +6780,7 @@ ScriptedImporter:
     - {x: 28, y: 29}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 481, y: -595}
+    uvTransform: {x: 711, y: 583}
     spritePosition: {x: 230, y: 1178}
   - name: Left
     originalName: 
