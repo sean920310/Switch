@@ -1321,11 +1321,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[0].m_SceneName
-      value: 1-1
+      value: Normal_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[1].m_SceneName
