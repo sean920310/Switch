@@ -67,7 +67,11 @@ namespace StageSystem
 
         [Header("Stage Choose")]
         [SerializeField]
-        private bool m_loadStageAutomatically = true;
+        private bool m_setStageActivationDynamicly = false; // Currently not working
+        public bool setStageActivationDynamicly { get => m_setStageActivationDynamicly; } // Currently not working
+
+        [SerializeField]
+        private bool m_loadStageAutomatically = false;
 
         [SerializeField]
         private int m_stageCountToChoose = 2;
@@ -105,6 +109,12 @@ namespace StageSystem
         public delegate void StageStateDone();
         public event StageStateDone onStageLoadedDone;
 
+        // delegate and action for unloading stage done
+        public delegate void StageUnloadingDone();
+        public event StageUnloadingDone onStageUnloadedDone;
+
+        public delegate void StageUnloading();
+        public event StageUnloading onStageUnloaded;
 
         private void Start()
         {
@@ -147,6 +157,7 @@ namespace StageSystem
                         m_stageState = StageState.StageNotChoose;
 
                         StageInfoReset();
+                        onStageUnloadedDone?.Invoke();
                     }
                     break;
                 default:
@@ -176,6 +187,7 @@ namespace StageSystem
                 for (int j = 0; j < SceneManager.sceneCount; j++)
                 {
                     Scene loadedScene = SceneManager.GetSceneAt(j);
+                    
                     if (loadedScene.name == m_chosenStages[i].SceneName)
                     {
                         isSceneLoaded = true;
@@ -346,6 +358,15 @@ namespace StageSystem
             m_unloadedStageCount = 0;
         }
 
+        public void SetAllStageUnactive()
+        {
+            m_stagesToLoad.ForEach(stage => stage.allowSceneActivation = false);
+        }
+        public void SetStageActivation(int stageIdx, bool activation)
+        {
+            m_stagesToLoad[stageIdx].allowSceneActivation = activation;
+        }
+
         // Callbacks for loading and unloading stages
         private void OnStageLoaded(AsyncOperation asyncOperation)
         {
@@ -371,6 +392,8 @@ namespace StageSystem
 
             // Switch Stage State
             m_stageState = StageState.StageUnLoading;
+
+            onStageUnloaded?.Invoke();
 
             m_stagesToUnload.Clear();
             m_unloadedStageCount = 0;
@@ -398,7 +421,7 @@ namespace StageSystem
                 return;
             }
 
-            LoadStagesFromChosenStages();
+            ChooseStageFromStagePool();
         }
     }
 
