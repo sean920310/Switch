@@ -1026,7 +1026,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderSize3D_x: 0.3779367
-  colliderSize3D_y: 0.7923383
+  colliderSize3D_y: 0.69
+  colliderOffset3D_x: 0.1072523
+  colliderOffset3D_y: -0.72
+  camTarget: {fileID: 2021472718}
 --- !u!1001 &230145287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6475,6 +6478,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5422460213958407852, guid: baa377d715e5b4949bb0b50bf845744e, type: 3}
   m_PrefabInstance: {fileID: 1985303256}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2021472718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1807805180, guid: fdee537d29a35e545be1998787b5b302, type: 3}
+  m_PrefabInstance: {fileID: 7768753347837988890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2034598735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7196,6 +7204,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1807805181, guid: fdee537d29a35e545be1998787b5b302, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2253910921225031006, guid: fdee537d29a35e545be1998787b5b302, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7265,6 +7277,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 8398875087044430260}
+    - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9415765
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.3367994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -39.364
+      objectReference: {fileID: 0}
     - target: {fileID: 8095784405847371808, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
       propertyPath: m_Name
       value: CameraController
