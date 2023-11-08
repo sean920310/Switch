@@ -45,12 +45,18 @@ public class GameMasking : MonoBehaviour
     {
         m_animator.ResetTrigger(animationName);
         m_animator.SetTrigger(animationName);
-        yield return new WaitForSeconds(m_animator.GetCurrentAnimatorStateInfo(0).length);
 
         if (animationName == "FadeIn")
+        {
+            yield return new WaitForSeconds(m_animator.GetCurrentAnimatorStateInfo(0).length);
+
             OnFadeInComplete?.Invoke();
+        }
         else if (animationName == "FadeOut")
+        {
+            yield return new WaitForSeconds(m_animator.GetCurrentAnimatorStateInfo(0).length * 0.7f);
             OnFadeOutComplete?.Invoke();
+        }
 
         m_isPlayingCount--;
     }
