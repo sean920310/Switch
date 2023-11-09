@@ -11,8 +11,6 @@ public class PlayerColliderSwitch : MonoBehaviour
     private Vector2 m_colliderSize3D;
     [SerializeField]
     private Vector2 m_colliderOffset3D;
-    [SerializeField]
-    private float m_canvasDistance3D;
 
 
     [Header("2D")]
@@ -21,12 +19,6 @@ public class PlayerColliderSwitch : MonoBehaviour
     private Vector2 m_colliderSize2D;
     [SerializeField]
     private Vector2 m_colliderOffset2D;
-    [SerializeField]
-    private float m_canvasDistance2D;
-
-    [Space(10)]
-    [SerializeField]
-    private Canvas m_playerRenderCanvas;
 
     private bool m_isAppQuiting = false;
 
@@ -69,13 +61,11 @@ public class PlayerColliderSwitch : MonoBehaviour
         {
             GetComponent<BoxCollider2D>().size = m_colliderSize3D;
             GetComponent<BoxCollider2D>().offset = m_colliderOffset3D;
-            m_playerRenderCanvas.planeDistance = m_canvasDistance3D;
         }
         else
         {
             GetComponent<BoxCollider2D>().size = m_colliderSize2D;
             GetComponent<BoxCollider2D>().offset = m_colliderOffset2D;
-            m_playerRenderCanvas.planeDistance = m_canvasDistance2D;
         }
     }
 }

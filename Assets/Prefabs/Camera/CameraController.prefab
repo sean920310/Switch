@@ -187,6 +187,9 @@ MonoBehaviour:
   m_cameraTwoD: {fileID: 8095784406072830551}
   m_cameraThreeD: {fileID: 8095784405579848769}
   m_camTrackPos: {fileID: 0}
+  m_canvasDistance2D: 5
+  m_canvasDistance3D: 4.6
+  m_playerRenderCanvas: {fileID: 1419947026353324848}
   m_switchEffectVol: {fileID: 490759195889522663}
   m_switchEffectSpeed: 10
 --- !u!1 &8095784406072830550
@@ -215,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8095784406072830550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 20.368, y: 4.253, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -575,6 +578,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ea42c51f4ad77c4b9e3a7b339286d9e, type: 3}
+--- !u!223 &1419947026353324848 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7200881190152186892, guid: 1ea42c51f4ad77c4b9e3a7b339286d9e, type: 3}
+  m_PrefabInstance: {fileID: 8095784407471337276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1419947026353324851 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7200881190152186895, guid: 1ea42c51f4ad77c4b9e3a7b339286d9e, type: 3}

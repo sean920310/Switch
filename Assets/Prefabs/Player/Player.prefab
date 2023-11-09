@@ -3429,10 +3429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9067f4999416a42e08e40f0af8fe57d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_colliderSize3D: {x: 0.37793672, y: 1.1221964}
-  m_colliderOffset3D: {x: 0.1072523, y: -0.34478283}
-  m_canvasDistance3D: 4.7
+  m_colliderSize3D: {x: 0.37793672, y: 0.9327074}
+  m_colliderOffset3D: {x: 0.1072523, y: -0.43952733}
   m_colliderSize2D: {x: 0.37793672, y: 1.5918784}
   m_colliderOffset2D: {x: 0.1072523, y: 0.005540371}
-  m_canvasDistance2D: 5
-  m_playerRenderCanvas: {fileID: 0}
