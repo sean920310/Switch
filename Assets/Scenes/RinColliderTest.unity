@@ -1025,16 +1025,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9067f4999416a42e08e40f0af8fe57d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderSize3D_x: 0.3779367
-  colliderSize3D_y: 0.69
-  colliderOffset3D_x: 0.1072523
-  colliderOffset3D_y: -0.72
-  m_canvasDistance3D: 4.7
   m_colliderSize3D: {x: 0.37793672, y: 1.2813156}
   m_colliderOffset3D: {x: 0.1072523, y: -0.42434227}
-  m_canvasDistance2D: 5
+  m_canvasDistance3D: 4.7
   m_colliderSize2D: {x: 0.37793672, y: 1.5918784}
   m_colliderOffset2D: {x: 0.1072523, y: 0.005540371}
+  m_canvasDistance2D: 5
   m_playerRenderCanvas: {fileID: 1913711344}
 --- !u!1001 &230145287
 PrefabInstance:
@@ -7279,22 +7275,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 8398875087044430260}
-    - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9415765
-      objectReference: {fileID: 0}
-    - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.3367994
-      objectReference: {fileID: 0}
-    - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8095784405579848770, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -39.364
