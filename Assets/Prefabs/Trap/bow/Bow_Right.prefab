@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6403416716273062577}
   - component: {fileID: 6403416716273062574}
   - component: {fileID: 6403416716273062575}
-  m_Layer: 0
-  m_Name: Bow
+  m_Layer: 6
+  m_Name: Bow_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
