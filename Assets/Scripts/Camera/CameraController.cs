@@ -13,6 +13,13 @@ public class CameraController : MonoBehaviour
     private CinemachineVirtualCamera m_cameraThreeD;
     [SerializeField]
     private Transform m_camTrackPos;
+    
+    [SerializeField]
+    private float m_canvasDistance2D;
+    [SerializeField]
+    private float m_canvasDistance3D;
+    [SerializeField]
+    private Canvas m_playerRenderCanvas;
     [SerializeField] 
     private Volume m_switchEffectVol;
     [SerializeField]
@@ -69,13 +76,14 @@ public class CameraController : MonoBehaviour
             // Switch to TwoD
             m_cameraTwoD.Priority = 1;
             m_cameraThreeD.Priority = 0;
+            m_playerRenderCanvas.planeDistance = m_canvasDistance2D;
         }
         else
         {
             // Switch to ThreeD
             m_cameraTwoD.Priority = 0;
             m_cameraThreeD.Priority = 1;
-
+            m_playerRenderCanvas.planeDistance = m_canvasDistance3D;
         }
         Invoke("DisableVolume", 0.4f);
     }
