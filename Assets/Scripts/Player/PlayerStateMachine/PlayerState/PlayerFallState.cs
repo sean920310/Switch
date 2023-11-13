@@ -67,6 +67,10 @@ namespace PlayerState
                 m_context.isDimensionSwitch = false;
                 m_context.SwitchState(m_factory.Switch());
             }
+            else if (m_context.isAttackPress && m_context.canAttack)
+            {
+                m_context.SwitchState(m_factory.SmiteAttack());
+            }
         }
     }
 }

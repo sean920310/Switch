@@ -3,11 +3,12 @@ using PlayerStateMachine;
 
 namespace PlayerState
 {
-    public class PlayerAttackState : PlayerBaseState
+    public class PlayerSwingAttackState : PlayerBaseState
     {
         float m_attackCounter = 0;
+        const float SWING_LENGTH = 0.583f;
 
-        public PlayerAttackState(PlayerStatesManager context, PlayerStateFactory factory)
+        public PlayerSwingAttackState(PlayerStatesManager context, PlayerStateFactory factory)
             : base(context, factory)
         {
             m_context = context;
@@ -53,7 +54,7 @@ namespace PlayerState
 
         public override void CheckSwitchState()
         {
-            if (m_attackCounter > 0.583)
+            if (m_attackCounter > SWING_LENGTH)
             {
                 m_context.SwitchState(m_factory.Idle());
             }

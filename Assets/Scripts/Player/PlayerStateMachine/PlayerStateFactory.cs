@@ -36,9 +36,13 @@ namespace PlayerStateMachine
         {
             return new PlayerSwitchState(m_context, this);
         }
-        public PlayerBaseState Attack()
+        public PlayerBaseState SwingAttack()
         {
-            return new PlayerAttackState(m_context, this);
+            return new PlayerSwingAttackState(m_context, this);
+        }
+        public PlayerBaseState SmiteAttack()
+        {
+            return new PlayerSmiteAttackState(m_context, this);
         }
     }
 }

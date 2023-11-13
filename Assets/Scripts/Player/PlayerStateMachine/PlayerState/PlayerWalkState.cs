@@ -73,7 +73,7 @@ namespace PlayerState
             }
             else if (m_context.isAttackPress && m_context.canAttack)
             {
-                m_context.SwitchState(m_factory.Attack());
+                m_context.SwitchState(m_factory.SwingAttack());
             }
         }
     }
