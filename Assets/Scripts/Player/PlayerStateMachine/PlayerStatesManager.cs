@@ -64,6 +64,9 @@ namespace PlayerStateMachine
 
         public bool isDimensionSwitch = false;
 
+        private bool m_canAttack = false;
+        public bool canAttack { get => m_canAttack; set => m_canAttack = value; }
+
         [Header("Jump Detect")]
         [SerializeField] Vector2 m_groundCheckBoxShift;
         [SerializeField] Vector2 m_groundCheckBoxSize;
@@ -81,6 +84,9 @@ namespace PlayerStateMachine
 
         private bool m_isJumpRelease = false;
         public bool isJumpRelease { get => m_isJumpRelease; }
+
+        private bool m_isAttackPress = false;
+        public bool isAttackPress { get => m_isAttackPress; set => m_isAttackPress = value; }
 
         private bool m_isAppQuiting = false;
 
@@ -224,6 +230,18 @@ namespace PlayerStateMachine
             {
                 m_isMovePress = false;
                 m_moveValue = ctx.ReadValue<Vector2>();
+            }
+        }
+
+        public void OnAttack(InputAction.CallbackContext ctx)
+        {
+            if (ctx.performed)
+            {
+                m_isAttackPress = true;
+            }
+            if (ctx.canceled)
+            {
+                m_isAttackPress = false;
             }
         }
         #endregion

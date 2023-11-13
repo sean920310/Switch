@@ -8,8 +8,8 @@ namespace PlayerState
         public #SCRIPTNAME#(PlayerStatesManager context, PlayerStateFactory factory)
             : base(context, factory)
         {
-            _context = context;
-            _factory = factory;
+            m_context = context;
+            m_factory = factory;
         }
 
         public override void EnterState()

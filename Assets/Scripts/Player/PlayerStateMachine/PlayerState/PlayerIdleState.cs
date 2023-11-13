@@ -27,6 +27,8 @@ namespace PlayerState
 
             // onGround Animation
             m_context.Animator.SetBool("onGround", true);
+
+            m_context.canAttack = true;
         }
 
         public override void UpdateState()
@@ -66,6 +68,10 @@ namespace PlayerState
             {
                 m_context.isDimensionSwitch = false;
                 m_context.SwitchState(m_factory.Switch());
+            }
+            else if (m_context.isAttackPress && m_context.canAttack)
+            {
+                m_context.SwitchState(m_factory.Attack());
             }
         }
     }
