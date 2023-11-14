@@ -54,6 +54,8 @@ public class PlayerEntity : EntityBase
 
     public override void SetDamage(EntityBase entity)
     {
+        if (!entity) 
+            return;
         //Calc damage
         float attack = m_attack * UnityEngine.Random.Range(0.9f, 1.1f);
         float critDamage = UnityEngine.Random.Range(0f, 1f) < m_critRate ? m_critDamage : 0;

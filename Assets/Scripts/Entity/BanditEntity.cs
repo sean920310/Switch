@@ -24,6 +24,8 @@ public class BanditEntity: EntityBase
 
     public override void SetDamage(EntityBase entity)
     {
+        if (!entity)
+            return;
         //Calc damage
         float attack = m_attack * Random.Range(0.9f, 1.1f);
         float damage = Mathf.Max((attack - entity.Defence), 0);
