@@ -56,8 +56,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Choppiness: 0.01
-    - _Flow_Speed: 0.3
-    - _Flow_Strength: 0.0075
+    - _Flow_Speed: -0.3
+    - _Flow_Strength: 0.03
     - _Foam_Distance: 1.5
     - _QueueControl: 0
     - _QueueOffset: 0
