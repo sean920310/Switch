@@ -16,10 +16,13 @@ namespace PlayerState
         {
             if (m_context.dimension == CameraManager.Dimension.TwoD)
             {
+                //To 2D
                 m_context.rb.gravityScale = 1f;
             }
             else
             {
+                //To 3D
+                m_context.canAttack = false;
                 m_context.rb.gravityScale = 0;
             }
         }
