@@ -13,6 +13,11 @@ public class Water : MonoBehaviour
     ParticleSystem water_particle;
     ParticleSystem.MainModule particle_main;
 
+    [SerializeField] float three_lifeTime;
+    [SerializeField] float two_lifeTime;
+    [SerializeField] Vector3 three_scale;
+    [SerializeField] Vector3 two_scale;
+
     private void Start()
     {
         waterFall = transform.Find("WaterFall2").gameObject;
@@ -39,9 +44,9 @@ public class Water : MonoBehaviour
 
             Vector3 current = default_pos;
             Vector3 target = new Vector3(0, 4.7f, -0.5f);
-            particle_main.startLifetime = 0.45f;
+            particle_main.startLifetime = three_lifeTime;
             waterFall.transform.localRotation = new Quaternion(-17.5f, 0, 0, 0);
-            waterFall.transform.localScale = new Vector3(0.04f, 0.04f, 0.04f);
+            waterFall.transform.localScale = three_scale;
 
             timer += Time.deltaTime * 0.5f;
             river.transform.localPosition = Vector3.Lerp(river_current, river_target, timer);
@@ -56,8 +61,8 @@ public class Water : MonoBehaviour
             grandChild.SetActive(true);
             //waterFall.SetActive(true);
             waterFall.transform.localRotation = new Quaternion(-30f, 0, 0, 0);
-            waterFall.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
-            particle_main.startLifetime = 1.5f;
+            waterFall.transform.localScale = two_scale;
+            particle_main.startLifetime = two_lifeTime;
             waterFall.transform.localPosition = default_pos;
             river.transform.localPosition = river_default;
         }
