@@ -7,6 +7,8 @@ public class Water : MonoBehaviour
     GameObject waterFall;
     GameObject river;
     GameObject grandChild;
+    GameObject bridge;
+    GameObject brick;
     Vector3 default_pos;
     Vector3 river_default;
     float timer = 0;
@@ -22,6 +24,8 @@ public class Water : MonoBehaviour
     {
         waterFall = transform.Find("WaterFall2").gameObject;
         river = transform.Find("RiverSet").gameObject;
+        bridge = transform.Find("BridgeSet").gameObject;
+        brick = transform.Find("Brick").gameObject;
         grandChild = transform.Find("WaterFall2/Particle System").gameObject;
         water_particle = waterFall.GetComponent<ParticleSystem>();
         particle_main = water_particle.main;
@@ -29,6 +33,8 @@ public class Water : MonoBehaviour
         river_default = river.transform.localPosition;
         waterFall.SetActive(true);
         river.SetActive(true);
+        brick.SetActive(true);
+        bridge.SetActive(false);
         timer = 0;
     }
 
@@ -38,6 +44,8 @@ public class Water : MonoBehaviour
          if (CameraManager.Instance.DimensionState == CameraManager.Dimension.ThreeD)
          {
             grandChild.SetActive(false);
+            brick.SetActive(false);
+            bridge.SetActive(true);
 
             Vector3 river_current = river.transform.localPosition;
             Vector3 river_target = new Vector3(0, 0.6f, 0);
@@ -59,6 +67,8 @@ public class Water : MonoBehaviour
          {
             timer = 0;
             grandChild.SetActive(true);
+            bridge.SetActive(false);
+            brick.SetActive(true);
             //waterFall.SetActive(true);
             waterFall.transform.localRotation = new Quaternion(-30f, 0, 0, 0);
             waterFall.transform.localScale = two_scale;
