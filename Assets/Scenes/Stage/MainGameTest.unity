@@ -761,7 +761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8095784406072830544, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.242
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 8095784406072830544, guid: 797f3f2edc8b16b4a8392f248da1b6bf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -790,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8398875087107030962, guid: ad35c1d82ecf9494cab2290789c06d59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.242
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 8398875087107030962, guid: ad35c1d82ecf9494cab2290789c06d59, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1321,39 +1321,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[0].m_SceneName
-      value: Normal_1_1
+      value: Boss_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[1].m_SceneName
-      value: Normal_1_2
+      value: Boss_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[2].m_SceneName
-      value: Normal_1_3
+      value: Boss_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[3].m_SceneName
       value: Trap_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
+      propertyPath: m_stagePool.Array.data[4].m_SceneName
+      value: Trap_1_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[0].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: e85fb41c8ee7f644ba1c1e75d140c110, type: 3}
+      objectReference: {fileID: 102900000, guid: 186e91531ecf2404b98191d544404f00, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[1].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 6bd6fcae29aef0343813f56e74d64bd9, type: 3}
+      objectReference: {fileID: 102900000, guid: 186e91531ecf2404b98191d544404f00, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[2].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 10ebb5b5960a245409a5ae2bcfd42e0a, type: 3}
+      objectReference: {fileID: 102900000, guid: 186e91531ecf2404b98191d544404f00, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[3].m_SceneAsset
       value: 
       objectReference: {fileID: 102900000, guid: 975730d43b4ca4a419ee615c809238fa, type: 3}
+    - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
+      propertyPath: m_stagePool.Array.data[4].m_SceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: e828c1515101fa74ca927120f368583c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
