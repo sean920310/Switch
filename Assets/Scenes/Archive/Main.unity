@@ -559,9 +559,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3437440427474071073, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9662503
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437440427474071073, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.016874775
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817597549666788961, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: two_scale.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: two_scale.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: two_scale.z
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: two_lifeTime
-      value: 1.5
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: three_scale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: three_scale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: three_scale.z
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: three_lifeTime
@@ -622,6 +658,42 @@ PrefabInstance:
     - target: {fileID: 3962373245802678461, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373246212400994, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373246212401021, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373246212401021, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373246212401021, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339479171619482097, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_Size.y
+      value: 0.96578014
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339479171619482097, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.01710993
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570885224640963106, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8777975
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570885224640963106, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0016513616
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570885224640963106, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
+      propertyPath: m_Offset.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
