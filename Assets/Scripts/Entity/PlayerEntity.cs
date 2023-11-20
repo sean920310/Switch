@@ -49,6 +49,8 @@ public class PlayerEntity : EntityBase
     {
         m_health -= damage;
 
+        GetComponent<PlayerStateMachine.PlayerStatesManager>().HurtState();
+
         RaiseDamagedEvent(this, enemyEntity, damage);
     }
 

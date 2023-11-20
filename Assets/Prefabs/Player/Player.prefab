@@ -3614,6 +3614,8 @@ MonoBehaviour:
   m_whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  m_hurtColor: {r: 1, g: 0.27450982, b: 0.003921569, a: 1}
+  m_material: {fileID: 2100000, guid: 50ccbc2ec762247408dc02bea420bb02, type: 2}
 --- !u!114 &7768753347837988897
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -72,6 +72,14 @@ namespace PlayerStateMachine
         [SerializeField] Vector2 m_groundCheckBoxSize;
         [SerializeField] LayerMask m_whatIsGround;
 
+        [Header("Effect")]
+        [SerializeField] 
+        private Color m_hurtColor;
+        public Color HurtColor { get => m_hurtColor; }
+        [SerializeField]
+        private Material m_material;
+        public Material Material { get => m_material; }
+
         /* Input Parameter */
         private bool m_isMovePress = false;
         public bool isMovePress { get => m_isMovePress; }
@@ -184,6 +192,11 @@ namespace PlayerStateMachine
         {
             //transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
             transform.localScale = new Vector3(-1f,1f,1f);
+        }
+
+        public void HurtState()
+        {
+            SwitchState(m_factory.Hurt());
         }
 
         void OnDrawGizmosSelected()
