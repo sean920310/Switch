@@ -8,7 +8,11 @@ public class ArrowDestroy : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Debug.Log("Player getDamaged.");
+            PlayerEntity playerEntity = collision.GetComponent<PlayerEntity>();
+            if (playerEntity != null)
+            {
+                playerEntity?.GetDamage(null, 10.0f);
+            }
             Destroy(gameObject);
         }
         else if (collision.gameObject.name == "Border")

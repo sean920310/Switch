@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : MonoBehaviour
+public class Fire : TrapBase
 {
     ParticleSystem RedFire;
     ParticleSystem OrangeFire;
@@ -39,11 +39,4 @@ public class Fire : MonoBehaviour
         YellowFire_main.startLifetime = 0.7f * fire_height;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "Player")
-        {
-            Debug.Log("Player gets damaged.");
-        }
-    }
 }
