@@ -17,16 +17,21 @@ public class GameScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log(settingPage.IsOn);
-            if (settingPage.IsOn)
-            {
-                settingPage.Close();
-            }
-            else
-            {
-                settingPage.Open();
-            };
+            OnSettingBtnClicked();
         }
+    }
+
+    public void OnSettingBtnClicked()
+    {
+        Debug.Log(settingPage.IsOn);
+        if (settingPage.IsOn)
+        {
+            settingPage.Close();
+        }
+        else
+        {
+            settingPage.Open();
+        };
     }
 
     public void OnHomeBtnClicked()
