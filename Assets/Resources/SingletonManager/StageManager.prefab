@@ -45,14 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_stagePool:
-  - m_SceneAsset: {fileID: 102900000, guid: e85fb41c8ee7f644ba1c1e75d140c110, type: 3}
-    m_SceneName: Normal_1_1
-  - m_SceneAsset: {fileID: 102900000, guid: 975730d43b4ca4a419ee615c809238fa, type: 3}
-    m_SceneName: TestStage 2
-  - m_SceneAsset: {fileID: 102900000, guid: 6bd6fcae29aef0343813f56e74d64bd9, type: 3}
-    m_SceneName: TestStage 3
-  - m_SceneAsset: {fileID: 102900000, guid: 10ebb5b5960a245409a5ae2bcfd42e0a, type: 3}
-    m_SceneName: TestStage 4
+  - m_SceneAsset: {fileID: 102900000, guid: 5e3e946aae614594f860e691249acc15, type: 3}
+    m_SceneName: Trap_1_3
+  - m_SceneAsset: {fileID: 102900000, guid: 5e3e946aae614594f860e691249acc15, type: 3}
+    m_SceneName: Trap_1_3
+  - m_SceneAsset: {fileID: 102900000, guid: 5e3e946aae614594f860e691249acc15, type: 3}
+    m_SceneName: Trap_1_3
   m_setStageActivationDynamicly: 1
   m_loadStageAutomatically: 1
   m_stageCountToChoose: 3
