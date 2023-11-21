@@ -338,7 +338,7 @@ namespace StageSystem
 
                         float centerNormallize = (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x + m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
 
-                        Debug.Log(i + ": centerNormallize: " + centerNormallize);
+                        // Debug.Log(i + ": centerNormallize: " + centerNormallize);
 
                         sceneObjects.ForEach(obj =>
                         {
