@@ -53,13 +53,14 @@ public class SwitchSkill : MonoBehaviour
 
     private void OnSwitch(CameraManager.Dimension state)
     {
-        if(state == CameraManager.Dimension.ThreeD)
+        if (state == CameraManager.Dimension.ThreeD)
         {
 
         }
         else
         {
-            if (m_countDownTime < 0) return;
+            m_countDownTime = CameraManager.Instance.GetSwitchCD();
+            if (m_countDownTime <= 0) return;
             m_remainTime = m_countDownTime;
             m_isCounting = true;
         }
