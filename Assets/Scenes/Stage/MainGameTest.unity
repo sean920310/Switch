@@ -171,6 +171,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &223896105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1945808911818188982, guid: 9e03311ca3bbefd47a3e3a5746a792b3, type: 3}
+  m_PrefabInstance: {fileID: 2025584910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7140ca2886ec48d44a6272c1d7cd0e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &278038155
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +340,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -9.422
       objectReference: {fileID: 0}
+    - target: {fileID: 4283151129548627200, guid: fdee537d29a35e545be1998787b5b302, type: 3}
+      propertyPath: m_healthBarControl
+      value: 
+      objectReference: {fileID: 223896105}
     - target: {fileID: 6774533169130201464, guid: fdee537d29a35e545be1998787b5b302, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9486157
@@ -1246,6 +1261,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8656808798560296267, guid: 9e03311ca3bbefd47a3e3a5746a792b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e03311ca3bbefd47a3e3a5746a792b3, type: 3}
 --- !u!224 &2025584911 stripped
@@ -1320,12 +1339,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
+      propertyPath: m_stageCountToChoose
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[0].m_SceneName
-      value: Trap_1_2
+      value: Trap_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[1].m_SceneName
@@ -1333,7 +1356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[2].m_SceneName
-      value: Trap_1_2
+      value: Trap_1_3
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[3].m_SceneName
@@ -1346,7 +1369,7 @@ PrefabInstance:
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[0].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: e828c1515101fa74ca927120f368583c, type: 3}
+      objectReference: {fileID: 102900000, guid: 975730d43b4ca4a419ee615c809238fa, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[1].m_SceneAsset
       value: 
@@ -1354,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[2].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: e828c1515101fa74ca927120f368583c, type: 3}
+      objectReference: {fileID: 102900000, guid: 5e3e946aae614594f860e691249acc15, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[3].m_SceneAsset
       value: 
