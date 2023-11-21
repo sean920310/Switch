@@ -159,4 +159,5 @@ MonoBehaviour:
   arrowSpeed: 5
   setWaittingTime: 1
   countDown: 0
+  suicideTime: 1
   shotPoint: {fileID: 7165319592646911884}

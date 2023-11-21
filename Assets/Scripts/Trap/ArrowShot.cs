@@ -28,8 +28,8 @@ public class ArrowShot : MonoBehaviour
 
     void Shot()
     {
-        GameObject shotObj = Instantiate(arrow, shotPoint.position, Quaternion.identity);
+        GameObject shotObj = Instantiate(arrow, shotPoint.position, shotPoint.rotation);
         Destroy(shotObj, suicideTime);
-        shotObj.GetComponent<Rigidbody2D>().velocity = transform.right * arrowSpeed;
+        shotObj.GetComponent<Rigidbody2D>().velocity = shotObj.transform.up * arrowSpeed;
     }
 }
