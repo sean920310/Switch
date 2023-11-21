@@ -152,5 +152,5 @@ Material:
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TintColor: {r: 1, g: 0.27450982, b: 0.003921569, a: 1}
+    - _TintColor: {r: 1, g: 0.27450982, b: 0.003921569, a: 0}
   m_BuildTextureStacks: []
