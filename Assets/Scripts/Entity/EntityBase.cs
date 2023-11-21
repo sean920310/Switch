@@ -24,7 +24,7 @@ abstract public class EntityBase : MonoBehaviour
     public float Defence { get => m_defence; }
     public float Speed { get => m_speed; }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         if (m_initData != null)
         {

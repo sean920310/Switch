@@ -30,6 +30,10 @@ public class PlayerEntity : EntityBase
     private float m_critRate;
     [SerializeField]
     private float m_critDamage;
+    [SerializeField]
+    private float m_switchCDTime;
+    [SerializeField]
+    private float m_threeDDurationTime;
 
 
     [Header("Player Event")]
@@ -48,6 +52,14 @@ public class PlayerEntity : EntityBase
     [Header("Player UI")]
     [SerializeField] 
     private PlayerHealthBar m_healthBarControl;
+
+    private void OnEnable()
+    {
+        base.OnEnable();
+
+        CameraManager.Instance.SetSwitchCD(m_switchCDTime);
+        CameraManager.Instance.SeDurationTime(m_threeDDurationTime);
+    }
 
     public override void GetDamage(EntityBase enemyEntity, float damage)
     {

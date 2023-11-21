@@ -3683,6 +3683,8 @@ MonoBehaviour:
   m_speed: 0
   m_critRate: 0
   m_critDamage: 0
+  m_switchCDTime: 5
+  m_threeDDurationTime: 3
   m_onDamageEventSOObject: {fileID: 11400000, guid: b8aa4a239ee5aa24b8708bb9685a6b21, type: 2}
   m_onAttackEventSOObject: {fileID: 11400000, guid: a764f2accac74754c8c5d72ba718b932, type: 2}
   m_healthBarControl: {fileID: 0}
