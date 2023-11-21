@@ -646,10 +646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressScale: 0.25
   duration: 0.2
-  UIobj: {fileID: 8921902416589289246}
-  countTime: 5
-  remainTime: 0
-  time: {fileID: 772380281060530839}
 --- !u!1 &184693212438072626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,10 +1586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressScale: 0.25
   duration: 0.2
-  UIobj: {fileID: 8069676375624515149}
-  countTime: 5
-  remainTime: 0
-  time: {fileID: 4612326510395006446}
 --- !u!1 &184693212985943172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,6 +1927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 184693213158272785}
   - component: {fileID: 184693213158272784}
+  - component: {fileID: 571336650107789303}
   m_Layer: 5
   m_Name: Skill (1)
   m_TagString: Untagged
@@ -1980,10 +1973,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressScale: 0.25
   duration: 0.2
-  UIobj: {fileID: 712397564828425227}
-  countTime: 5
-  remainTime: 0
-  time: {fileID: 2472575349603276395}
+--- !u!114 &571336650107789303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184693213158272790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d512276dd728e43b71b7898b8d81bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_countDownMask: {fileID: 712397564828425227}
+  m_remainTime: 0
+  m_timeText: {fileID: 2472575349603276395}
 --- !u!1 &184693213231503431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,10 +2098,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressScale: 0.25
   duration: 0.2
-  UIobj: {fileID: 1070769679448210349}
-  countTime: 5
-  remainTime: 0
-  time: {fileID: 4724898417220454567}
 --- !u!1 &184693213246573257
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,10 +3451,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressScale: 0.25
   duration: 0.2
-  UIobj: {fileID: 27748797745770843}
-  countTime: 5
-  remainTime: 0
-  time: {fileID: 4953841816836444403}
 --- !u!1 &184693214146833988
 GameObject:
   m_ObjectHideFlags: 0
