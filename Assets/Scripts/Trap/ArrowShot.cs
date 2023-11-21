@@ -8,6 +8,7 @@ public class ArrowShot : MonoBehaviour
     [SerializeField] float arrowSpeed = 10.0f;
     [SerializeField] float setWaittingTime = 1.0f;
     [SerializeField, ReadOnly] float countDown;
+    [SerializeField] float suicideTime = 1.0f;
     public Transform shotPoint;
 
     private void Start()
@@ -28,6 +29,7 @@ public class ArrowShot : MonoBehaviour
     void Shot()
     {
         GameObject shotObj = Instantiate(arrow, shotPoint.position, Quaternion.identity);
+        Destroy(shotObj, suicideTime);
         shotObj.GetComponent<Rigidbody2D>().velocity = transform.right * arrowSpeed;
     }
 }

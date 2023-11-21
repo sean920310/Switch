@@ -23,7 +23,7 @@ namespace PlayerStateMachine
         public Rigidbody2D rb { get => m_rb; }
 
         Animator m_animator = null;
-        public Animator Animator{get=>m_animator;}
+        public Animator Animator { get => m_animator; }
 
 
         /* Local Variable */
@@ -72,6 +72,14 @@ namespace PlayerStateMachine
         [SerializeField] Vector2 m_groundCheckBoxSize;
         [SerializeField] LayerMask m_whatIsGround;
 
+        [Header("Effect")]
+        [SerializeField]
+        private Color m_hurtColor;
+        public Color HurtColor { get => m_hurtColor; }
+        [SerializeField]
+        private Material m_material;
+        public Material Material { get => m_material; }
+
         /* Input Parameter */
         private bool m_isMovePress = false;
         public bool isMovePress { get => m_isMovePress; }
@@ -104,7 +112,8 @@ namespace PlayerStateMachine
             // variable initialize
             jumpCounts = m_maxJumpCount;
 
-
+            //effect initialize
+            m_material.SetColor("_TintColor", Color.clear);
 
         }
         private void Update()
@@ -124,12 +133,12 @@ namespace PlayerStateMachine
 
         private void OnApplicationQuit()
         {
-            m_isAppQuiting = true;   
+            m_isAppQuiting = true;
         }
 
         private void OnDisable()
         {
-            if(!m_isAppQuiting)
+            if (!m_isAppQuiting)
                 CameraManager.Instance.OnSwitchCallback -= OnSwitch;
         }
 
@@ -158,14 +167,14 @@ namespace PlayerStateMachine
          */
         internal void MoveWithLimit3D(Vector2 force, float limit)
         {
-            rb.AddForce(force,ForceMode2D.Force);
+            rb.AddForce(force, ForceMode2D.Force);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -limit, limit),
                                         Mathf.Clamp(rb.velocity.y, -limit, limit));
         }
 
         public bool CheckOnFloor()
         {
-            bool onGround = Physics2D.OverlapBox((Vector2)transform.position + m_groundCheckBoxShift, m_groundCheckBoxSize,0, m_whatIsGround) != null;
+            bool onGround = Physics2D.OverlapBox((Vector2)transform.position + m_groundCheckBoxShift, m_groundCheckBoxSize, 0, m_whatIsGround) != null;
 
             return onGround;
         }
@@ -183,7 +192,12 @@ namespace PlayerStateMachine
         public void FacingLeft()
         {
             //transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
-            transform.localScale = new Vector3(-1f,1f,1f);
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
+        public void HurtState()
+        {
+            SwitchState(m_factory.Hurt());
         }
 
         void OnDrawGizmosSelected()

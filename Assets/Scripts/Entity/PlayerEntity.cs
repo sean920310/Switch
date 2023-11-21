@@ -45,10 +45,17 @@ public class PlayerEntity : EntityBase
     private IOnPlayerDamageEvent OnDamageEventSO => m_onDamageEventSOObject as IOnPlayerDamageEvent;
     private IOnPlayerAttackEvent OnAttackEventSO => m_onAttackEventSOObject as IOnPlayerAttackEvent;
 
+    [Header("Player UI")]
+    [SerializeField] 
+    private PlayerHealthBar m_healthBarControl;
+
     public override void GetDamage(EntityBase enemyEntity, float damage)
     {
         m_health -= damage;
 
+        GetComponent<PlayerStateMachine.PlayerStatesManager>().HurtState();
+
+        m_healthBarControl.SetHealth(m_health/m_initHealth);
         RaiseDamagedEvent(this, enemyEntity, damage);
     }
 

@@ -44,6 +44,10 @@ namespace PlayerStateMachine
         {
             return new PlayerSmiteAttackState(m_context, this);
         }
+        public PlayerHurtState Hurt()
+        {
+            return new PlayerHurtState(m_context, this);
+        }
     }
 }
 

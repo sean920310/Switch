@@ -5,7 +5,8 @@ using UnityEngine;
 public class BurningGhoulEntity : EntityBase
 {
     [SerializeField] private GameObject m_deathExplosion;
-    
+    [SerializeField] private HealthBarControl m_healthBarControl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class BurningGhoulEntity : EntityBase
             Instantiate(m_deathExplosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+        m_healthBarControl.SetHealth(m_health / m_initHealth);
         GetComponent<BurningGhoulStateManager>().HurtState();
     }
 
