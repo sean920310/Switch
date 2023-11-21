@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5108938460255853677}
   - component: {fileID: 7835191015168116464}
+  - component: {fileID: 8425556669962499120}
   m_Layer: 0
   m_Name: shadow
   m_TagString: Untagged
@@ -115,6 +116,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8425556669962499120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85411229782777968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aff150eb6a675b44849c83c4ed741dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shadow: {fileID: 7835191015168116464}
 --- !u!1 &252920440543181631
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,6 +3685,7 @@ MonoBehaviour:
   m_critDamage: 0
   m_onDamageEventSOObject: {fileID: 11400000, guid: b8aa4a239ee5aa24b8708bb9685a6b21, type: 2}
   m_onAttackEventSOObject: {fileID: 11400000, guid: a764f2accac74754c8c5d72ba718b932, type: 2}
+  m_healthBarControl: {fileID: 0}
 --- !u!114 &6190977223722046039
 MonoBehaviour:
   m_ObjectHideFlags: 0
