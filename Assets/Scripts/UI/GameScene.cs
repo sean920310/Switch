@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameScene : MonoBehaviour
 {
     public SettingPage settingPage;
+    public TeachingPage teachingPage;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,14 @@ public class GameScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            OnSettingBtnClicked();
+            if (teachingPage.IsOn)
+            {
+                teachingPage.Close();
+            }
+            else
+            {
+                OnSettingBtnClicked();
+            }
         }
     }
 
@@ -31,6 +39,19 @@ public class GameScene : MonoBehaviour
         else
         {
             settingPage.Open();
+        };
+    }
+
+    public void OnTeachingBtnClicked()
+    {
+        Debug.Log(teachingPage.IsOn);
+        if (teachingPage.IsOn)
+        {
+            teachingPage.Close();
+        }
+        else
+        {
+            teachingPage.Open();
         };
     }
 
