@@ -6,22 +6,34 @@ using UnityEngine;
 [Serializable]
 public abstract class TrapBase : MonoBehaviour
 {
-    [SerializeField] float m_trapDamage = 10.0f;
+    [Header("Trap Base")]
+    [SerializeField] protected float m_trapDamage = 10.0f;
 
-    [SerializeField] bool m_isPlayerInTrap = false;
-    [SerializeField] float m_trapDamageCD = 1.5f;
+    [SerializeField] protected bool m_isPlayerInTrap = false;
+    [SerializeField] protected float m_trapDamageCD = 1.5f;
+
+    [SerializeField] protected bool m_isDoingDamage = true;
 
     private IEnumerator m_hurtPlayerCoroutine;
+
+    public delegate void PlayerTriggerEvent();
+    public event PlayerTriggerEvent playerEnterTrigger;
+    public event PlayerTriggerEvent playerExitTrigger;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerEntity playerEntity = other.GetComponent<PlayerEntity>();
         if (other.name == "Player" && playerEntity != null)
         {
-
             m_isPlayerInTrap = true;
-            m_hurtPlayerCoroutine = HurtPlayerCunoroutine(playerEntity);
-            StartCoroutine(m_hurtPlayerCoroutine);
+
+            playerEnterTrigger?.Invoke();
+
+            if (m_isDoingDamage)
+            {
+                m_hurtPlayerCoroutine = HurtPlayerCunoroutine(playerEntity);
+                StartCoroutine(m_hurtPlayerCoroutine);
+            }
         }
 
     }
@@ -32,9 +44,11 @@ public abstract class TrapBase : MonoBehaviour
         if (other.name == "Player" && playerEntity != null)
         {
             m_isPlayerInTrap = false;
-
-            if (m_hurtPlayerCoroutine != null)
+            playerExitTrigger?.Invoke();
+            if (m_hurtPlayerCoroutine != null && m_isDoingDamage)
+            {
                 StopCoroutine(m_hurtPlayerCoroutine);
+            }
         }
     }
 
