@@ -573,15 +573,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: two_scale.x
-      value: 0.12
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: two_scale.y
-      value: 0.12
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: two_scale.z
-      value: 0.12
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: two_lifeTime
@@ -589,15 +589,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: three_scale.x
-      value: 0.1
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: three_scale.y
-      value: 0.1
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: three_scale.z
-      value: 0.1
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678434, guid: 4d11b88545a2d44998d4728ed6d4e3eb, type: 3}
       propertyPath: three_lifeTime

@@ -536,7 +536,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9c099666a2a914b159dd9368215d27fc, type: 2}
+  - {fileID: 2100000, guid: 13292f6f569334463b77cdebcfe0d18f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5623,7 +5623,7 @@ Transform:
   m_GameObject: {fileID: 3962373246212400992}
   m_LocalRotation: {x: -0.258819, y: -0, z: -0, w: 0.9659259}
   m_LocalPosition: {x: 0, y: 6, z: -0.55}
-  m_LocalScale: {x: 0.06, y: 0.060000002, z: 0.060000002}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3962373245847892871}
@@ -5639,7 +5639,7 @@ ParticleSystem:
   m_GameObject: {fileID: 3962373246212400992}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 2
+  simulationSpeed: 1.5
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
@@ -5705,7 +5705,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -5820,7 +5820,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.5424528, g: 1, b: 0.9999999, a: 0.5019608}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5882,7 +5882,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 6
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6205,7 +6205,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.03
+      scalar: 1.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -9539,7 +9539,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     minVertexDistance: 0
-    textureMode: 0
+    textureMode: 2
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -10316,8 +10316,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: 07e8a8eb4785146a99c1d86699bc6ba4, type: 2}
+  - {fileID: 2100000, guid: a0e96c9ada77545109603b64cc25c7a8, type: 2}
+  - {fileID: 2100000, guid: a0e96c9ada77545109603b64cc25c7a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
