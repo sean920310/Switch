@@ -178,10 +178,6 @@ PrefabInstance:
       propertyPath: m_healthBarControl
       value: 
       objectReference: {fileID: 456384834}
-    - target: {fileID: 5108938460255853677, guid: fdee537d29a35e545be1998787b5b302, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7835191015168116464, guid: fdee537d29a35e545be1998787b5b302, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -282,10 +278,6 @@ PrefabInstance:
     - target: {fileID: 8398875087107030962, guid: ad35c1d82ecf9494cab2290789c06d59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398875087107030963, guid: ad35c1d82ecf9494cab2290789c06d59, type: 3}
-      propertyPath: orthographic size
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad35c1d82ecf9494cab2290789c06d59, type: 3}
