@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ArrowDestroy : MonoBehaviour
 {
+    [SerializeField] public LayerMask whatIsPlayer;
+    [SerializeField] public LayerMask borderLayer;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Player")
+        if ((whatIsPlayer & (1 << collision.gameObject.layer)) != 0)
         {
             PlayerEntity playerEntity = collision.GetComponent<PlayerEntity>();
             if (playerEntity != null)
@@ -15,7 +18,7 @@ public class ArrowDestroy : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        else if (collision.gameObject.name == "Border")
+        else if ((borderLayer & (1 << collision.gameObject.layer)) != 0)
         {
             Destroy(gameObject, 0.1f);
         }
