@@ -6552,14 +6552,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1694408218144188954, guid: 879c513f969fb9a4589da738c49c969f, type: 3}
-      propertyPath: m_MaxValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694408218144188954, guid: 879c513f969fb9a4589da738c49c969f, type: 3}
-      propertyPath: m_MinValue
-      value: -80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694408218144188954, guid: 879c513f969fb9a4589da738c49c969f, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6359924666328246726}

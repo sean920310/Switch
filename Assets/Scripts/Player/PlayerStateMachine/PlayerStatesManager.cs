@@ -90,12 +90,16 @@ namespace PlayerStateMachine
         public AudioSource FallSound { get => m_fallSound; }
 
         [SerializeField]
-        private AudioSource m_jumpSound;
-        public AudioSource JumpSound { get => m_jumpSound; }
+        private AudioSource m_swingSound;
+        public AudioSource SwingSound { get => m_swingSound; }
 
         [SerializeField]
-        private AudioSource m_attackSound;
-        public AudioSource AttackSound { get => m_attackSound; }
+        private AudioSource m_smiteSound;
+        public AudioSource SmiteSound { get => m_smiteSound; }
+
+        [SerializeField]
+        private AudioSource m_jumpSound;
+        public AudioSource JumpSound { get => m_jumpSound; }
 
         /* Input Parameter */
         private bool m_isMovePress = false;

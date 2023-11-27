@@ -21,6 +21,8 @@ namespace PlayerState
 
             m_context.Animator.SetTrigger("isAttack");
             m_attackCounter = 0;
+
+            m_context.SmiteSound.PlayDelayed(0.5f);
         }
 
         public override void UpdateState()
@@ -48,6 +50,9 @@ namespace PlayerState
         public override void ExitState()
         {
             m_context.Animator.ResetTrigger("isAttack");
+
+            //if (m_context.SmiteSound.isPlaying)
+            //    m_context.SmiteSound.Stop();
         }
 
         public override void CheckSwitchState()
