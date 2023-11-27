@@ -80,6 +80,23 @@ namespace PlayerStateMachine
         private Material m_material;
         public Material Material { get => m_material; }
 
+        [Header("Sound")]
+        [SerializeField]
+        private AudioSource m_footStepSound;
+        public AudioSource FootStepSound { get => m_footStepSound; }
+
+        [SerializeField]
+        private AudioSource m_fallSound;
+        public AudioSource FallSound { get => m_fallSound; }
+
+        [SerializeField]
+        private AudioSource m_jumpSound;
+        public AudioSource JumpSound { get => m_jumpSound; }
+
+        [SerializeField]
+        private AudioSource m_attackSound;
+        public AudioSource AttackSound { get => m_attackSound; }
+
         /* Input Parameter */
         private bool m_isMovePress = false;
         public bool isMovePress { get => m_isMovePress; }

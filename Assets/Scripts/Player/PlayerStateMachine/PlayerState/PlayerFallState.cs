@@ -49,6 +49,9 @@ namespace PlayerState
         {
             // Falling Animation Trigger
             m_context.Animator.SetBool("isFalling", false);
+
+            if (m_context.CheckOnFloor())
+                m_context.FallSound.Play();
         }
 
         public override void CheckSwitchState()

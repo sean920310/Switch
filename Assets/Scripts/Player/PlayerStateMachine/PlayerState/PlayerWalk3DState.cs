@@ -33,6 +33,8 @@ namespace PlayerState
                 }
             }
 
+            if (!m_context.FootStepSound.isPlaying)
+                m_context.FootStepSound.Play();
             CheckSwitchState();
         }
 
@@ -51,7 +53,8 @@ namespace PlayerState
         public override void ExitState()
         {
             m_context.Animator.SetBool("isMoving", false);
-
+            if (m_context.FootStepSound.isPlaying)
+                m_context.FootStepSound.Pause();
         }
 
         public override void CheckSwitchState()
