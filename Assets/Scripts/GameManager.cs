@@ -107,6 +107,8 @@ public class GameManager : PersistentSingleton<GameManager>
 
         UnbindStageExitTrigger();
 
+        StageManager.instance.LoadStageByStageIdx(m_playerCurrentStage--);
+
         // Update current stage information
         m_playerCurrentStage--;
 
@@ -142,7 +144,7 @@ public class GameManager : PersistentSingleton<GameManager>
         m_playerEntity.gameObject.SetActive(false);
 
         UnbindStageExitTrigger();
-
+        StageManager.instance.LoadStageByStageIdx(m_playerCurrentStage++);
         // Update current stage information
         m_playerCurrentStage++;
 

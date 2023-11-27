@@ -95,7 +95,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4372122741127285404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: bbe47ef081e615440be705287c50d50d, type: 2}
   m_CullingMode: 0
@@ -125,7 +125,9 @@ MonoBehaviour:
   m_trapDamageCD: 1.5
   m_isDoingDamage: 0
   m_buttonState: 0
-  m_buttonMeshRenderer: {fileID: 0}
+  m_fadeSpeed: 1
+  m_switchOnMaterial: {fileID: 2100000, guid: de839c8374a81314aac4b0f2e835c217, type: 2}
+  m_switchOffMaterial: {fileID: 2100000, guid: 386c495102c80924987b05b1b97dd67a, type: 2}
 --- !u!61 &6493746889350998358
 BoxCollider2D:
   m_ObjectHideFlags: 0

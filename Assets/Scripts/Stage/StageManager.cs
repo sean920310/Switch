@@ -116,6 +116,8 @@ namespace StageSystem
         public delegate void StageUnloading();
         public event StageUnloading onStageUnloaded;
 
+        public int playerCurrentStage = 0;
+
         private void Start()
         {
         }
@@ -131,7 +133,7 @@ namespace StageSystem
                     }
                     break;
                 case StageState.StageChose:
-                    LoadStagesFromChosenStages();
+                    LoadStagesFromChosenStages(playerCurrentStage);
                     break;
                 case StageState.StageLoading:
                     // Check if all stages are loaded
@@ -142,7 +144,7 @@ namespace StageSystem
 
 
                         // load stage information when stage is all loaded
-                        LoadStagesInformations();
+                        LoadStagesInformations(playerCurrentStage);
                         StageShiftWithBorderPosition();
 
                         onStageLoadedDone?.Invoke();
@@ -165,7 +167,7 @@ namespace StageSystem
             }
 
         }
-        private void LoadStagesFromChosenStages()
+        private void LoadStagesFromChosenStages(int playerCurrentStage)
         {
             if (m_chosenStages.Count == 0)
             {
@@ -180,7 +182,8 @@ namespace StageSystem
             m_loadedStageCount = 0;
 
             // Load Scene
-            for (int i = 0; i < m_chosenStages.Count; i++)
+            for (int i = 0; i < playerCurrentStage + 1; i++)
+            // for (int i = 0; i < m_chosenStages.Count; i++)
             {
                 bool isSceneLoaded = false;
 
@@ -202,13 +205,14 @@ namespace StageSystem
                 }
             }
         }
-        private void LoadStagesInformations()
+        private void LoadStagesInformations(int playerCurrentStage)
         {
             // clear stage information
             m_chosenStagesInformations.Clear();
 
             // Load Scene
-            for (int i = 0; i < m_chosenStages.Count; i++)
+            for (int i = 0; i < playerCurrentStage + 1; i++)
+            // for (int i = 0; i < m_chosenStages.Count; i++)
             {
                 for (int j = 0; j < SceneManager.sceneCount; j++)
                 {
@@ -247,6 +251,7 @@ namespace StageSystem
                         else
                         {
                             Debug.LogWarning("Can't find StageController in scene: " + loadedScene.name);
+
                         }
                         break;
                     }
@@ -334,6 +339,9 @@ namespace StageSystem
                         {
                             xShiftAmount += (m_chosenStagesInformations[i - 1].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i - 1].stageController.borderLeft.transform.position.x) / 2 + 
                                                     (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
+                        }else if(i == 0)
+                        {
+                            xShiftAmount = (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x - m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
                         }
 
                         float centerNormallize = (m_chosenStagesInformations[i].stageController.borderRight.transform.position.x + m_chosenStagesInformations[i].stageController.borderLeft.transform.position.x) / 2;
@@ -379,6 +387,12 @@ namespace StageSystem
             Debug.Log("Stage unloaded: " + m_unloadedStageCount + " / " + m_chosenStages.Count);
             asyncOperation.completed -= OnStageUnloaded;
             m_unloadedStageCount++;
+        }
+
+        public void LoadStageByStageIdx(int playerCurrentStage)
+        {
+            this.playerCurrentStage = playerCurrentStage;
+            m_stageState = StageState.StageChose;
         }
 
         [ContextMenu("UnLoad Stages")]
