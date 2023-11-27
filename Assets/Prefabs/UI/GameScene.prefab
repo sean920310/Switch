@@ -2005,6 +2005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_countDownMask: {fileID: 712397564828425227}
+  m_durationMask: {fileID: 8383295277465009376}
   m_remainTime: 0
   m_timeText: {fileID: 2472575349603276395}
 --- !u!1 &184693213231503431

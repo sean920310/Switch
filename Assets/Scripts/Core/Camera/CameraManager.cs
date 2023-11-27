@@ -41,7 +41,7 @@ public class CameraManager : PersistentSingleton<CameraManager>
         m_CDTime = time;
     }
 
-    public void SeDurationTime(float time)
+    public void SetDurationTime(float time)
     {
         m_durationTime = time;
     }
@@ -49,6 +49,11 @@ public class CameraManager : PersistentSingleton<CameraManager>
     public float GetSwitchCD()
     {
         return m_CDTime;
+    }
+
+    public float GetDurationTime()
+    {
+        return m_durationTime;
     }
 
     /// <summary>
