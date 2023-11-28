@@ -30,7 +30,8 @@ public class OccludeeController : MonoBehaviour
 
         if (m_material)
         {
-            m_originalAlpha = m_material.color.a;
+            //m_originalAlpha = m_material.color.a;
+            m_originalAlpha = m_material.GetFloat("_Alpha");
         }
         else
         {
@@ -65,23 +66,29 @@ public class OccludeeController : MonoBehaviour
     /// <returns></returns>
     IEnumerator ChangeAlpha()
     {
-        if (m_material.color.a > m_targetAlpha)
+        if (m_material.GetFloat("_Alpha") > m_targetAlpha)
         {
-            while (m_material.color.a > m_targetAlpha)
+            while (m_material.GetFloat("_Alpha") > m_targetAlpha)
             {
-                Color c = m_material.color;
-                c.a -= m_step;
-                m_material.color = c;
+                //Color c = m_material.color;
+                //c.a -= m_step;
+                float alpha_tmp = m_material.GetFloat("_Alpha");
+                alpha_tmp -= m_step;
+                m_material.SetFloat("_Alpha", alpha_tmp);
+                //m_material.color = c;
                 yield return new WaitForEndOfFrame();
             }
         }
         else
         {
-            while (m_material.color.a < m_targetAlpha)
+            while (m_material.GetFloat("_Alpha") < m_targetAlpha)
             {
-                Color c = m_material.color;
-                c.a += m_step;
-                m_material.color = c;
+                //Color c = m_material.color;
+                //c.a += m_step;
+                //m_material.color = c;
+                float alpha_tmp = m_material.GetFloat("_Alpha");
+                alpha_tmp += m_step;
+                m_material.SetFloat("_Alpha", alpha_tmp);
                 yield return new WaitForEndOfFrame();
             }
         }

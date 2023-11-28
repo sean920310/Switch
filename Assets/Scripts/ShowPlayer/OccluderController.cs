@@ -9,7 +9,7 @@ using UnityEngine;
 public class OccluderController : MonoBehaviour
 {
     /// <summary>（半）透明状態にする時にどれくらいの alpha にするか指定する</summary>
-    [SerializeField, Range(0f, 1f)] float m_transparency = 0.2f;
+    [SerializeField, Range(0f, 1f)] float m_transparency = 0.8f;
 
     private void OnTriggerEnter(Collider other)
     {
