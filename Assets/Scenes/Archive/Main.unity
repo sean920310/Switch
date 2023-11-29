@@ -3204,7 +3204,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1734318584 stripped
 BoxCollider2D:
@@ -24410,7 +24410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736599193139678984, guid: e373087a2516095428b061f730f32693, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8736599193139678984, guid: e373087a2516095428b061f730f32693, type: 3}
       propertyPath: m_LocalPosition.x
