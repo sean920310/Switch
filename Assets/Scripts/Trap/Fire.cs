@@ -16,6 +16,8 @@ public class Fire : TrapBase
 
     [SerializeField]
     float fire_height;
+    [SerializeField, ReadOnly]
+    float newOffset_y = 0;
 
     private void Start()
     {
@@ -34,7 +36,9 @@ public class Fire : TrapBase
     {
         // Setting value
         myCollider.size = new Vector2(0.5f, fire_height);
-        RedFire_main.startLifetime = 1.4f * fire_height;
+        newOffset_y = 0.5f * (fire_height - 1f);
+        myCollider.offset = new Vector2(0, newOffset_y);
+        RedFire_main.startLifetime = 1.2f * fire_height;
         OrangeFire_main.startLifetime = 1f * fire_height;
         YellowFire_main.startLifetime = 0.7f * fire_height;
     }
