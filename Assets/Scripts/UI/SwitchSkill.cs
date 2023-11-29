@@ -11,6 +11,9 @@ public class SwitchSkill : MonoBehaviour
     [SerializeField]
     private Image m_durationMask;
 
+    [SerializeField]
+    private Animator m_skillResetAnimator;
+
     [SerializeField, ReadOnly]
     private float m_remainTime = 0;
 
@@ -51,6 +54,7 @@ public class SwitchSkill : MonoBehaviour
                 m_remainTime = 0;
                 m_timeText.text = "";
                 m_isCountDown = false;
+                m_skillResetAnimator.Play("SkillReset");
             }
 
             m_countDownMask.fillAmount = m_remainTime / m_countDownTime;
