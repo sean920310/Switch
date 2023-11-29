@@ -9670,7 +9670,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2b9e11a128b4a8598618e49ab3f2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_trapDamage: 10
+  m_isPlayerInTrap: 0
+  m_trapDamageCD: 1.5
   fire_height: 5
+  newOffset_y: 0
 --- !u!61 &1621557470620504135
 BoxCollider2D:
   m_ObjectHideFlags: 0
