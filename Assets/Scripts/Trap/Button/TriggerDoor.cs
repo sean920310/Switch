@@ -30,7 +30,7 @@ public class TriggerDoor : MonoBehaviour
     }
     private void OnDisable()
     {
-        if (!m_isAppQuiting)
+        if (!m_isAppQuiting && m_LinkButton)
         {
             m_LinkButton.playerTurnOffTrigger -= CloseTheDoor;
             m_LinkButton.playerTurnOnTrigger -= OpenTheDoor;
@@ -38,8 +38,11 @@ public class TriggerDoor : MonoBehaviour
     }
     private void OnEnable()
     {
-        m_LinkButton.playerTurnOffTrigger += CloseTheDoor;
-        m_LinkButton.playerTurnOnTrigger += OpenTheDoor;
+        if (m_LinkButton)
+        {
+            m_LinkButton.playerTurnOffTrigger += CloseTheDoor;
+            m_LinkButton.playerTurnOnTrigger += OpenTheDoor;
+        }
     }
 
     private void CloseTheDoor()

@@ -30,9 +30,12 @@ namespace StageSystem
         public StageController lastStage;
         public StageController nextStage;
 
+        public bool stageShifted = false;
+
         public StageInformation(StageController stageController, StageController lastStage, StageController nextStage)
         {
             loadStageInformation(stageController, lastStage, nextStage);
+            stageShifted = false;
         }
 
         // load stage information with stageController
@@ -137,7 +140,7 @@ namespace StageSystem
                     break;
                 case StageState.StageLoading:
                     // Check if all stages are loaded
-                    if (m_stagesToLoad.Count == m_chosenStages.Count && m_loadedStageCount == m_stagesToLoad.Count)
+                    if (/*m_stagesToLoad.Count == m_chosenStages.Count && */m_loadedStageCount == m_stagesToLoad.Count)
                     {
                         m_stageState = StageState.StageLoaded;
                         m_loadedStageCount = 0;
@@ -207,13 +210,13 @@ namespace StageSystem
         }
         private void LoadStagesInformations(int playerCurrentStage)
         {
-            // clear stage information
-            m_chosenStagesInformations.Clear();
 
             // Load Scene
             for (int i = 0; i < playerCurrentStage + 1; i++)
             // for (int i = 0; i < m_chosenStages.Count; i++)
             {
+                if (m_chosenStagesInformations.Count - 1 >= i) continue;
+
                 for (int j = 0; j < SceneManager.sceneCount; j++)
                 {
                     Scene loadedScene = SceneManager.GetSceneAt(j);
@@ -232,16 +235,13 @@ namespace StageSystem
                         }
                         if (stageController != null)
                         {
-                            // Get Last Stage
                             StageController lastStage = null;
                             if (i > 0)
                             {
+                                // Get Last Stage
                                 lastStage = m_chosenStagesInformations[i - 1].stageController;
-                            }
 
-                            // Set Next Stage of Last Stage
-                            if (i > 0)
-                            {
+                                // Set Next Stage of Last Stage
                                 m_chosenStagesInformations[i - 1].SetNextStage(stageController);
                             }
 
@@ -326,6 +326,7 @@ namespace StageSystem
             float xShiftAmount = 0f;
             for (int i = 0; i < m_chosenStages.Count; i++)
             {
+
                 for (int j = 0; j < SceneManager.sceneCount; j++)
                 {
                     Scene loadedScene = SceneManager.GetSceneAt(j);
@@ -348,10 +349,19 @@ namespace StageSystem
 
                         // Debug.Log(i + ": centerNormallize: " + centerNormallize);
 
-                        sceneObjects.ForEach(obj =>
+                        if (m_chosenStagesInformations.Count > i && m_chosenStagesInformations[i].stageShifted)
                         {
-                            obj.transform.position = new Vector3(xShiftAmount - centerNormallize, obj.transform.position.y, obj.transform.position.z);
-                        });
+                            continue;
+                        }
+                        else
+                        {
+                            sceneObjects.ForEach(obj =>
+                            {
+                                obj.transform.position = new Vector3(xShiftAmount - centerNormallize, obj.transform.position.y, obj.transform.position.z);
+                            });
+                        }
+
+                        m_chosenStagesInformations[i].stageShifted = true;
                     }
                 }
             }
@@ -364,6 +374,16 @@ namespace StageSystem
             m_stagesToLoad.Clear();
             m_loadedStageCount = 0;
             m_unloadedStageCount = 0;
+        }
+
+        public int LastStageIdx()
+        {
+            return m_chosenStages.Count - 1;
+        }
+
+        public int FirstStageIdx()
+        {
+            return 0;
         }
 
         public void SetAllStageUnactive()
