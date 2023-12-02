@@ -86,7 +86,7 @@ public class GameManager : PersistentSingleton<GameManager>
         StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.onStageExitTrigger += OnPlayerEnterNextStageExitTrigger;
 
         m_confiner2D.m_BoundingShape2D = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.CameraConfiner;
-        m_confiner3D.m_BoundingShape2D = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.CameraConfiner;
+        //m_confiner3D.m_BoundingShape2D = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.CameraConfiner;
     }
 
     // Action when player enter last stage exit trigger

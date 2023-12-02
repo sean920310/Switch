@@ -58,7 +58,7 @@ public class PlayerEntity : EntityBase
         base.OnEnable();
 
         CameraManager.Instance.SetSwitchCD(m_switchCDTime);
-        CameraManager.Instance.SeDurationTime(m_threeDDurationTime);
+        CameraManager.Instance.SetDurationTime(m_threeDDurationTime);
     }
 
     public override void GetDamage(EntityBase enemyEntity, float damage)

@@ -22,6 +22,8 @@ namespace PlayerState
 
             m_context.Animator.SetTrigger("isAttack");
             m_attackCounter = 0;
+
+            m_context.SwingSound.PlayDelayed(0.25f);
         }
 
         public override void UpdateState()
@@ -50,6 +52,7 @@ namespace PlayerState
         {
             m_context.Animator.ResetTrigger("isAttack");
 
+            m_context.SwingSound.Stop();
         }
 
         public override void CheckSwitchState()

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class PersistentSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    protected static T instance;
+    protected static T instance = null;
     public static T Instance
     {
         get
@@ -21,7 +21,12 @@ public abstract class PersistentSingleton<T> : MonoBehaviour where T : MonoBehav
 
     protected virtual void Awake()
     {
-        instance = this as T;
-        DontDestroyOnLoad(gameObject);
+        if(instance != null) 
+            Destroy(gameObject); 
+        else
+        {
+            instance = this as T;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

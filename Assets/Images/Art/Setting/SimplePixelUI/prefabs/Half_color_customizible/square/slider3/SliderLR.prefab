@@ -121,13 +121,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1694408218591629857}
   m_HandleRect: {fileID: 1694408219700115792}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -50
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0.399
+  m_Value: -20.6
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: UpdateEffectVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &1694408218591629856
 GameObject:
   m_ObjectHideFlags: 0

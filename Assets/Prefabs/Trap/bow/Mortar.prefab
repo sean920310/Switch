@@ -50,7 +50,7 @@ MonoBehaviour:
   arrowSpeed: 4
   setWaittingTime: 2
   countDown: 0
-  suicideTime: 1.25
+  suicideTime: 10
   shotPoint: {fileID: 7834211976185289271}
 --- !u!1 &3602785456095592522
 GameObject:
