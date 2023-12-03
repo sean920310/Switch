@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1542,7 +1542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_chosenStages.Array.size
@@ -1558,7 +1558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[2].m_SceneName
-      value: Normal_1_3
+      value: Trap_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[3].m_SceneName
@@ -1583,7 +1583,7 @@ PrefabInstance:
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[2].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 10ebb5b5960a245409a5ae2bcfd42e0a, type: 3}
+      objectReference: {fileID: 102900000, guid: 975730d43b4ca4a419ee615c809238fa, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[3].m_SceneAsset
       value: 
