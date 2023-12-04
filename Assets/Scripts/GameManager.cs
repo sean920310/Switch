@@ -10,6 +10,7 @@ public class GameManager : PersistentSingleton<GameManager>
     private PlayerEntity m_playerEntity;
 
     private int m_playerCurrentStage = 0;
+    public int PlayerCurrentStage { get => m_playerCurrentStage; }
 
     [SerializeField]
     private GameMasking m_gameMasking; // Fade In Fade Out Effect
