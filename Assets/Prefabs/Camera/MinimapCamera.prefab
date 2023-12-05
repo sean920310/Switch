@@ -134,3 +134,4 @@ MonoBehaviour:
   player: {fileID: 0}
   m_minimapSize: 15
   m_guideSymbolPrefab: {fileID: 3897781115841072643, guid: 0525bc1b9dda2c84d88b18a165440460, type: 3}
+  m_enableGuideSymbol: 1
