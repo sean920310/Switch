@@ -11,16 +11,17 @@ public class MinimapCamController : MonoBehaviour
     [SerializeField] private GameObject m_guideSymbolPrefab;
     [SerializeField] private bool m_enableGuideSymbol;
 
-    private GameObject m_guideSymbol;
+    private GameObject m_guideSymbol = null;
     private Vector3 m_guideSymbolTrans;
     private bool m_isAppQuiting = false;
 
     private void OnEnable()
     {
-        if(m_enableGuideSymbol)
+        if (m_enableGuideSymbol)
         {
             StageManager.Instance.onStageLoadedDone += OnSceneLoad;
-            m_guideSymbol = Instantiate(m_guideSymbolPrefab);
+            if (m_guideSymbol == null)
+                m_guideSymbol = Instantiate(m_guideSymbolPrefab);
         }
     }
 
@@ -28,6 +29,7 @@ public class MinimapCamController : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+
         if (m_enableGuideSymbol)
         {
             m_guideSymbol.transform.position = new Vector3(
@@ -51,6 +53,6 @@ public class MinimapCamController : MonoBehaviour
 
     private void OnSceneLoad()
     {
-        m_guideSymbolTrans = StageManager.Instance.ChosenStagesInformations[GameManager.Instance.PlayerCurrentStage].stageController.nextStageEnterTrigger.gameObject.transform.position;
+        m_guideSymbolTrans = StageManager.Instance.ChosenStagesInformations[StageManager.Instance.playerCurrentStage].stageController.nextStageEnterTrigger.gameObject.transform.position;
     }
 }
