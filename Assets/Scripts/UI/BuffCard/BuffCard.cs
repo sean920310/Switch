@@ -9,6 +9,7 @@ public class BuffCard : MonoBehaviour
 {
     public TextMeshProUGUI description;
     public Image bg;
+    public Image icon;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,10 @@ public class BuffCard : MonoBehaviour
 
     }
 
-    public void SetBuffCard(string text, Sprite sprite)
+    public void SetBuffCard(string text, Sprite bgSprite, Sprite iconSprite)
     {
         description.text = text;
-        bg.sprite = sprite;
+        bg.sprite = bgSprite;
+        icon.sprite = iconSprite;
     }
 }

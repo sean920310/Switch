@@ -9,6 +9,7 @@ public class BuffCards : MonoBehaviour
     public Animator anim;
     public BuffCard[] cards;
     public Sprite[] cardBG;
+    public Sprite[] cardIcon;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,9 @@ public class BuffCards : MonoBehaviour
         {
             Debug.Log("Card_Show");
             anim.Play("Card_Show");
-            SetBuffCard(0, 0, ScriptableObject.CreateInstance<BuffSO>());
-            SetBuffCard(1, 1, ScriptableObject.CreateInstance<BuffSO>());
-            SetBuffCard(2, 0, ScriptableObject.CreateInstance<BuffSO>());
+            SetBuffCard(0, 1);
+            SetBuffCard(1, 0);
+            SetBuffCard(2, 1);
         }
 
         if (Input.GetKeyDown(KeyCode.V))
@@ -33,9 +34,14 @@ public class BuffCards : MonoBehaviour
         }
     }
 
-    public void SetBuffCard(int cardIdx, int type, BuffSystem.Model.BuffSO buffSO)
+    /*
+    cardIdx: 0~2
+    type: 0是劍 1是盾
+    */
+    public void SetBuffCard(int cardIdx, int type/*, BuffSystem.Model.BuffSO buffSO = null*/)
     {
-        cards[cardIdx].SetBuffCard(cardIdx.ToString(), cardBG[type]);
+        // cardIdx.ToString() 需替換成文字內容
+        cards[cardIdx].SetBuffCard(cardIdx.ToString(), cardBG[type], cardIcon[type]);
     }
 
     public void BuffCardClick(int cardIdx)
