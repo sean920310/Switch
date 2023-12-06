@@ -27,6 +27,10 @@ namespace PlayerState
 
             // onGround Animation
             m_context.Animator.SetBool("onGround", true);
+            
+            if(m_context.CheckOnFloor())
+                m_context.jumpCounts = m_context.maxJumpCount; // Jump Counts Reloading
+
 
             m_context.canAttack = true;
         }

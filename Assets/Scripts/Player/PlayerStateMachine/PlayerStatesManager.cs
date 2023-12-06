@@ -101,6 +101,12 @@ namespace PlayerStateMachine
         private AudioSource m_jumpSound;
         public AudioSource JumpSound { get => m_jumpSound; }
 
+        [Header("Status")]
+        [SerializeField] [ReadOnly]
+        private String m_currentStateString;
+        [SerializeField] [ReadOnly]
+        private bool m_onGround;
+
         /* Input Parameter */
         private bool m_isMovePress = false;
         public bool isMovePress { get => m_isMovePress; }
@@ -140,6 +146,7 @@ namespace PlayerStateMachine
         private void Update()
         {
             m_currentState.UpdateState();
+            m_onGround = CheckOnFloor();
         }
 
         private void FixedUpdate()
@@ -170,6 +177,7 @@ namespace PlayerStateMachine
             newState.EnterState();
 
             this.m_currentState = newState;
+            this.m_currentStateString = m_currentState.ToString();
         }
 
         /* 

@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 4f7b0c321d73d2d4c91f4dee069a8742
   - enabled: 1
+    path: Assets/Scenes/Stage/TeachingMap.unity
+    guid: 32f804ed82f8e1141bbf97848f78dfa7
+  - enabled: 1
     path: Assets/Scenes/Stage/MainGameTest.unity
     guid: a10b915e094ef704381b34e3dc575630
   - enabled: 1

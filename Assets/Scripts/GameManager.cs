@@ -10,6 +10,7 @@ public class GameManager : PersistentSingleton<GameManager>
     private PlayerEntity m_playerEntity;
 
     private int m_playerCurrentStage = 0;
+    public int PlayerCurrentStage { get => m_playerCurrentStage; }
 
     [SerializeField]
     private GameMasking m_gameMasking; // Fade In Fade Out Effect
@@ -37,10 +38,10 @@ public class GameManager : PersistentSingleton<GameManager>
 
         BindStageExitTrigger();
 
-        if (StageManager.Instance.setStageActivationDynamicly)
-        {
-            StageManager.Instance.SetStageActivation(m_playerCurrentStage, true);
-        }
+        //if (StageManager.Instance.setStageActivationDynamicly)
+        //{
+        //    StageManager.Instance.SetStageActivation(m_playerCurrentStage, true);
+        //}
     }
 
     private void OnStageUnloaded()
@@ -62,6 +63,8 @@ public class GameManager : PersistentSingleton<GameManager>
     // unbind actions from current stage exit triggers
     private void UnbindStageExitTrigger()
     {
+        if (StageManager.Instance.ChosenStagesInformations.Count <= m_playerCurrentStage) return;
+
         StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.onStageExitTrigger -= OnPlayerEnterLastStageExitTrigger;
         StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.onStageExitTrigger -= OnPlayerEnterNextStageExitTrigger;
 
@@ -75,6 +78,8 @@ public class GameManager : PersistentSingleton<GameManager>
     // bind actions to current stage exit triggers
     private void BindStageExitTrigger()
     {
+        if (StageManager.Instance.ChosenStagesInformations.Count <= m_playerCurrentStage) return;
+
         StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.lastStageEnterTrigger.gameObject.SetActive(true);
         StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.nextStageEnterTrigger.gameObject.SetActive(true);
 
@@ -95,7 +100,7 @@ public class GameManager : PersistentSingleton<GameManager>
             return;
         }
 
-        if(m_playerCurrentStage == 0)
+        if(m_playerCurrentStage == StageManager.Instance.FirstStageIdx())
         {
             // warning about player is already in first stage
             Debug.LogWarning("Player is already in first stage");
@@ -107,13 +112,10 @@ public class GameManager : PersistentSingleton<GameManager>
 
         UnbindStageExitTrigger();
 
+
         // Update current stage information
         m_playerCurrentStage--;
-
-        // set player position to last stage spawn point
-        Vector3 pos = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointRight.transform.position;
-        m_playerEntity.transform.position = pos;
-
+        StageManager.instance.LoadStageByStageIdx(m_playerCurrentStage);
         // Bind actions
         BindStageExitTrigger();
         m_gameMasking.OnFadeInComplete += OnFadeInComplete;
@@ -129,7 +131,7 @@ public class GameManager : PersistentSingleton<GameManager>
             Debug.LogWarning("Player is not in trigger");
             return;
         }
-        if (m_playerCurrentStage == StageManager.Instance.ChosenStagesInformations.Count - 1)
+        if (m_playerCurrentStage == StageManager.Instance.LastStageIdx())
         {
             // warning about player is already in last stage
             Debug.LogWarning("Player is already in last stage");
@@ -142,16 +144,11 @@ public class GameManager : PersistentSingleton<GameManager>
         m_playerEntity.gameObject.SetActive(false);
 
         UnbindStageExitTrigger();
-
         // Update current stage information
         m_playerCurrentStage++;
-
-        // set player position to next stage spawn point
-        Vector3 pos = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointLeft.transform.position;
-        m_playerEntity.transform.position = pos;
+        StageManager.instance.LoadStageByStageIdx(m_playerCurrentStage);
 
         // Bind actions
-        BindStageExitTrigger();
         m_gameMasking.OnFadeInComplete += OnFadeInComplete;
 
     }
@@ -163,6 +160,12 @@ public class GameManager : PersistentSingleton<GameManager>
 
         m_gameMasking.FadeOut();
         m_gameMasking.OnFadeOutComplete += OnFadeOutComplete;
+
+
+        // set player position to next stage spawn point
+        Vector3 pos = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointLeft.transform.position;
+        m_playerEntity.transform.position = pos;
+        BindStageExitTrigger();
     }
 
     public void OnFadeOutComplete()
