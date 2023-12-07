@@ -59,6 +59,8 @@ public class BanditAttackState : BanditBaseState
         _context.Attacking = true;
         _context.Anim.SetTrigger("Attack");
         _context.startCorutine(AttackCD());
+
+        _context.AttackSound.Play();
     }
 
     IEnumerator AttackDelay()

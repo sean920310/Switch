@@ -31,7 +31,13 @@ public class BossBanditStateManager : MonoBehaviour
     [SerializeField] private Color _hurtColor;
     [SerializeField] private Color _shellColor;
     [SerializeField] private float _hurtFadeSpeed;
-
+    [Header("Sound")]
+    [SerializeField]
+    private AudioSource m_attackSound;
+    public AudioSource AttackSound { get => m_attackSound; }
+    [SerializeField]
+    private AudioSource m_hurtSound;
+    public AudioSource HurtSound { get => m_hurtSound; }
 
     public BossBanditStateFactory Factory { get => _factory; set => _factory = value; }
     public BossBanditBaseState CurrentState { get => _currentState; set => _currentState = value; }

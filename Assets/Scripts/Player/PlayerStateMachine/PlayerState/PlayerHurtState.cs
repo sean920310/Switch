@@ -20,6 +20,8 @@ namespace PlayerState
             hurtColor.a = 1f;
             m_context.Material.SetColor("_TintColor", hurtColor);
             m_context.Animator.SetTrigger("isDamage");
+
+            m_context.HurtSound.Play();
         }
 
         public override void UpdateState()

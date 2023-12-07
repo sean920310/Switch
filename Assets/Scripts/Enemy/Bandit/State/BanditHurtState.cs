@@ -18,6 +18,8 @@ public class BanditHurtState : BanditBaseState
         _context.Material.shader = _context.ColorTintShader;
         _context.Material.SetColor("_TintColor", hurtColor);
         _context.Anim.SetTrigger("Hurt");
+
+        _context.HurtSound.Play();
     }
 
     public override void UpdateState()

@@ -101,6 +101,10 @@ namespace PlayerStateMachine
         private AudioSource m_jumpSound;
         public AudioSource JumpSound { get => m_jumpSound; }
 
+        [SerializeField]
+        private AudioSource m_hurtSound;
+        public AudioSource HurtSound { get => m_hurtSound; }
+
         [Header("Status")]
         [SerializeField] [ReadOnly]
         private String m_currentStateString;

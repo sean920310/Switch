@@ -30,7 +30,13 @@ public class BanditStateManager : MonoBehaviour
     [SerializeField] private Shader _attackingShader;
     [SerializeField] private Color _hurtColor;
     [SerializeField] private float _hurtFadeSpeed;
-
+    [Header("Sound")]
+    [SerializeField]
+    private AudioSource m_attackSound;
+    public AudioSource AttackSound { get => m_attackSound; }
+    [SerializeField]
+    private AudioSource m_hurtSound;
+    public AudioSource HurtSound { get => m_hurtSound; }
 
     public BanditStateFactory Factory { get => _factory; set => _factory = value; }
     public BanditBaseState CurrentState { get => _currentState; set => _currentState = value; }

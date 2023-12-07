@@ -26,6 +26,8 @@ namespace PlayerState
             // Jump Animation Trigger
             m_context.Animator.SetBool("onGround", false);
             m_context.Animator.SetTrigger("toggleJump");
+
+            m_context.JumpSound.Play();
         }
 
         public override void UpdateState()
