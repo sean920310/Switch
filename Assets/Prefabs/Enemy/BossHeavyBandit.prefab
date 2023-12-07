@@ -344,6 +344,7 @@ MonoBehaviour:
   - {fileID: 2737041964558831050}
   - {fileID: 7794203635620987339}
   - {fileID: 8288996277219207269}
+  m_weaknessBreak: {fileID: 0}
 --- !u!1 &7069906338082107034
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +375,7 @@ Transform:
   m_Children:
   - {fileID: 1765201948489294113}
   - {fileID: 6237757247523727423}
+  - {fileID: 2675921482240938945}
   m_Father: {fileID: 8879806086186720988}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -594,6 +596,73 @@ MonoBehaviour:
   m_deathExplosion: {fileID: 3040618790742178559, guid: 13ce39b95be811f4b9215c6bc8bb1555, type: 3}
   m_healthBarControl: {fileID: 6607431058170591653}
   m_weaknessController: {fileID: 1938962414444469654}
+--- !u!1001 &1966203193956602275
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5128875842028910127}
+    m_Modifications:
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497850324686160492, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+      propertyPath: m_Name
+      value: Weakness Break
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+--- !u!4 &2675921482240938945 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4497850324686160482, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+  m_PrefabInstance: {fileID: 1966203193956602275}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2675921482240938958 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4497850324686160493, guid: 151f06f180d4dd047ba3da2e61080391, type: 3}
+  m_PrefabInstance: {fileID: 1966203193956602275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3396810203755978661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,6 +670,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5375527614879430801}
     m_Modifications:
+    - target: {fileID: 2722873643436539244, guid: 527cb77ad86f4aa409939cb86ba2c6a8, type: 3}
+      propertyPath: m_weaknessBreak
+      value: 
+      objectReference: {fileID: 2675921482240938958}
     - target: {fileID: 6641554703130015680, guid: 527cb77ad86f4aa409939cb86ba2c6a8, type: 3}
       propertyPath: m_Name
       value: Weakness (2)
@@ -672,6 +745,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5375527614879430801}
     m_Modifications:
+    - target: {fileID: 2722873643436539244, guid: 527cb77ad86f4aa409939cb86ba2c6a8, type: 3}
+      propertyPath: m_weaknessBreak
+      value: 
+      objectReference: {fileID: 2675921482240938958}
     - target: {fileID: 6641554703130015680, guid: 527cb77ad86f4aa409939cb86ba2c6a8, type: 3}
       propertyPath: m_Name
       value: Weakness (1)
@@ -990,6 +1067,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5375527614879430801}
     m_Modifications:
+    - target: {fileID: 2722873643436539244, guid: 527cb77ad86f4aa409939cb86ba2c6a8, type: 3}
+      propertyPath: m_weaknessBreak
+      value: 
+      objectReference: {fileID: 2675921482240938958}
     - target: {fileID: 6641554703130015680, guid: 527cb77ad86f4aa409939cb86ba2c6a8, type: 3}
       propertyPath: m_Name
       value: Weakness

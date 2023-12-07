@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class WeaknessEntity : EntityBase
 {
+    [Header("Sound")]
+    [SerializeField]
+    private AudioSource m_weaknessBreak;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,7 @@ public class WeaknessEntity : EntityBase
         m_health -= damage;
         if (m_health <= 0)
         {
+            m_weaknessBreak?.Play();
             Destroy(gameObject);
         }
     }
