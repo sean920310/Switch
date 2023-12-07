@@ -11,10 +11,7 @@ namespace Enemy
         [SerializeField]
         private List<GameObject> m_weaknesses;
 
-        [Header("Sound")]
-        [SerializeField]
-        private AudioSource m_weaknessBreak;
-        public AudioSource WeaknessBreak { get => m_weaknessBreak; }
+        
 
 
         private bool m_isAppQuiting = false;
