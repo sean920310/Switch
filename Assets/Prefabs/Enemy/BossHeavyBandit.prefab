@@ -527,8 +527,9 @@ MonoBehaviour:
   _attackCDTime: 3
   _attackDamage: 10
   _colorTintShader: {fileID: -6465566751694194690, guid: a15fd62ad371782458cc8e0c79293d23, type: 3}
-  _attackingShader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  _attackingShader: {fileID: -6465566751694194690, guid: 9dec18c8a27b1c84aba66a9911a868e2, type: 3}
   _hurtColor: {r: 1, g: 0.27450982, b: 0.003921569, a: 1}
+  _shellColor: {r: 0.003921569, g: 1, b: 0.9647059, a: 1}
   _hurtFadeSpeed: 5
   _playerDetected: 0
   _attackDetected: 0

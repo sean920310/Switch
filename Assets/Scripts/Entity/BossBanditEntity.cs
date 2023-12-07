@@ -9,6 +9,8 @@ public class BossBanditEntity: EntityBase
     [SerializeField] private HealthBarControl m_healthBarControl;
     [SerializeField] private WeaknessController m_weaknessController;
 
+    private bool m_hasShell = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +20,17 @@ public class BossBanditEntity: EntityBase
     // Update is called once per frame
     void Update()
     {
+        if (m_hasShell && !m_weaknessController.HasWeakness())
+        {
+            GetComponent<BossBanditStateManager>().SetShellBreak();
+            m_hasShell = false;
+        }
 
     }
 
     public override void GetDamage(EntityBase enemyEntity, float damage)
     {
-        if (m_weaknessController.HasWeakness)
+        if (m_weaknessController.HasWeakness())
             return;
         m_health -= damage;
         if (m_health <= 0)

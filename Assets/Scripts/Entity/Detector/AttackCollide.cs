@@ -20,8 +20,8 @@ public class AttackCollide : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (m_collided)
-            return;
+        //if (m_collided)
+            //return;
         if ((detectLayer & 1 << collision.gameObject.layer) == 1 << collision.gameObject.layer)
         {
             Debug.Log("Entity Hurt: " + collision.gameObject.name);

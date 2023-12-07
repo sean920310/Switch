@@ -29,6 +29,7 @@ public class BossBanditStateManager : MonoBehaviour
     [SerializeField] private Shader _colorTintShader;
     [SerializeField] private Shader _attackingShader;
     [SerializeField] private Color _hurtColor;
+    [SerializeField] private Color _shellColor;
     [SerializeField] private float _hurtFadeSpeed;
 
 
@@ -91,6 +92,7 @@ public class BossBanditStateManager : MonoBehaviour
         //init value
         _facingRight = faceRightAtRotationZero;
         _material.shader = AttackingShader;
+        _material.SetColor("_OutlineColor", _shellColor);
     }
 
     private void Update()
@@ -170,6 +172,13 @@ public class BossBanditStateManager : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, -180, 0);
 
         _facingRight = !_facingRight;
+    }
+
+    public void SetShellBreak()
+    {
+        Color temp = _shellColor;
+        temp.a = 0;
+        _material.SetColor("_OutlineColor", temp);
     }
     #endregion
 }

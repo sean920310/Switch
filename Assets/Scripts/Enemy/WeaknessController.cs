@@ -11,7 +11,7 @@ namespace Enemy
         [SerializeField]
         private List<GameObject> m_weaknesses;
 
-        public bool HasWeakness { get => m_weaknesses.Count > 0; }
+        
 
 
         private bool m_isAppQuiting = false;
@@ -42,6 +42,16 @@ namespace Enemy
         {
             if (!m_isAppQuiting)
                 CameraManager.Instance.OnSwitchCallback -= OnSwitch;
+        }
+
+        public bool HasWeakness()
+        {
+            for (int i = 0; i < m_weaknesses.Count; i++)
+            {
+                if (m_weaknesses[i] == null)
+                    m_weaknesses.RemoveAt(i--);
+            }
+            return m_weaknesses.Count > 0;
         }
 
 
