@@ -7,6 +7,8 @@ public class BanditEntity: EntityBase
     [SerializeField] private GameObject m_deathExplosion;
     [SerializeField] private HealthBarControl m_healthBarControl;
 
+    [SerializeField] private AudioClip m_deadSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class BanditEntity: EntityBase
         if (m_health <= 0)
         {
             Instantiate(m_deathExplosion, transform.position, transform.rotation);
+            AudioManager.Instance.PlayOnShot(m_deadSound);
             Destroy(gameObject);
         }
         m_healthBarControl.SetHealth(m_health / m_initHealth);

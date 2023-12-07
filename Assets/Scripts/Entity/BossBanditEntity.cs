@@ -8,6 +8,7 @@ public class BossBanditEntity: EntityBase
     [SerializeField] private GameObject m_deathExplosion;
     [SerializeField] private HealthBarControl m_healthBarControl;
     [SerializeField] private WeaknessController m_weaknessController;
+    [SerializeField] private AudioClip m_deadSound;
 
     private bool m_hasShell = true;
 
@@ -36,6 +37,7 @@ public class BossBanditEntity: EntityBase
         if (m_health <= 0)
         {
             Instantiate(m_deathExplosion, transform.position, transform.rotation);
+            AudioManager.Instance.PlayOnShot(m_deadSound);
             Destroy(gameObject);
         }
         m_healthBarControl.SetHealth(m_health / m_initHealth);

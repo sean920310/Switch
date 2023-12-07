@@ -7,6 +7,8 @@ public class AudioManager : PersistentSingleton<AudioManager>
 {
     [SerializeField]
     private AudioMixer m_audioMixer;
+    [SerializeField]
+    private AudioSource m_audioSource;
 
     public void SetMasterVolume(float volume)
     {
@@ -21,5 +23,10 @@ public class AudioManager : PersistentSingleton<AudioManager>
     public void SetEffectVolume(float volume)
     {
         m_audioMixer.SetFloat("EffectVol", volume);
+    }
+
+    public void PlayOnShot(AudioClip clip)
+    {
+        m_audioSource.PlayOneShot(clip);
     }
 }
