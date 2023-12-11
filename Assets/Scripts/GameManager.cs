@@ -20,6 +20,8 @@ public class GameManager : PersistentSingleton<GameManager>
     [SerializeField]
     private Cinemachine.CinemachineConfiner2D m_confiner3D;
 
+    private bool m_isSceneLoading = false;
+    private bool m_isEnterNextStage = true;
     private void Start()
     {
         StageManager.Instance.onStageLoadedDone += OnStageLoadedDone;
@@ -93,7 +95,9 @@ public class GameManager : PersistentSingleton<GameManager>
     // Action when player enter last stage exit trigger
     public void OnPlayerEnterLastStageExitTrigger(Collider2D collider2D)
     {
-        if(collider2D.GetComponent<PlayerEntity>() == null)
+        if (m_isSceneLoading) return;
+
+        if (collider2D.GetComponent<PlayerEntity>() == null)
         {
             // warning about player is not in trigger
             Debug.LogWarning("Player is not in trigger");
@@ -106,14 +110,18 @@ public class GameManager : PersistentSingleton<GameManager>
             Debug.LogWarning("Player is already in first stage");
             return;
         }
+
+        m_isSceneLoading = true;
+        m_isEnterNextStage = false;
+
         m_gameMasking.FadeIn();
         // set player inactive
         m_playerEntity.gameObject.SetActive(false);
 
         UnbindStageExitTrigger();
 
-
         // Update current stage information
+        print("Update current stage information");
         m_playerCurrentStage--;
         StageManager.instance.LoadStageByStageIdx(m_playerCurrentStage);
         // Bind actions
@@ -125,6 +133,8 @@ public class GameManager : PersistentSingleton<GameManager>
     // Action when player enter next stage exit trigger
     public void OnPlayerEnterNextStageExitTrigger(Collider2D collider2D)
     {
+        if (m_isSceneLoading) return;
+
         if (collider2D.GetComponent<PlayerEntity>() == null)
         {
             // warning about player is not in trigger
@@ -138,13 +148,18 @@ public class GameManager : PersistentSingleton<GameManager>
             return;
         }
 
+        m_isSceneLoading = true;
+        m_isEnterNextStage = true;
+
         m_gameMasking.FadeIn();
 
         // set player inactive
         m_playerEntity.gameObject.SetActive(false);
 
         UnbindStageExitTrigger();
+
         // Update current stage information
+        print("Update current stage information");
         m_playerCurrentStage++;
         StageManager.instance.LoadStageByStageIdx(m_playerCurrentStage);
 
@@ -163,7 +178,12 @@ public class GameManager : PersistentSingleton<GameManager>
 
 
         // set player position to next stage spawn point
+
         Vector3 pos = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointLeft.transform.position;
+
+        if(!m_isEnterNextStage)
+            pos = StageManager.Instance.ChosenStagesInformations[m_playerCurrentStage].stageController.spownPointRight.transform.position;
+
         m_playerEntity.transform.position = pos;
         BindStageExitTrigger();
     }
@@ -173,5 +193,7 @@ public class GameManager : PersistentSingleton<GameManager>
         m_gameMasking.OnFadeOutComplete -= OnFadeOutComplete;
         // set player active
         m_playerEntity.gameObject.SetActive(true);
+
+        m_isSceneLoading = false;
     }
 }

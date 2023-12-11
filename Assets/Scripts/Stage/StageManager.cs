@@ -77,6 +77,9 @@ namespace StageSystem
         private bool m_loadStageAutomatically = false;
 
         [SerializeField]
+        private bool m_stageRandomize = false;
+
+        [SerializeField]
         private int m_stageCountToChoose = 2;
 
         [SerializeField]
@@ -132,7 +135,10 @@ namespace StageSystem
                 case StageState.StageNotChoose:
                     if (m_loadStageAutomatically)
                     {
-                        ChooseStageFromStagePool(); // load stage trigger function
+                        if(m_stageRandomize)
+                            RandomChooseStageFromStagePool();
+                        else
+                            ChooseStageFromStagePool();
                     }
                     break;
                 case StageState.StageChose:
@@ -258,7 +264,7 @@ namespace StageSystem
                 }
             }
         }
-        private void ChooseStageFromStagePool()
+        private void RandomChooseStageFromStagePool()
         {
             if (m_stageCountToChoose > m_stagePool.Length)
             {
@@ -286,6 +292,27 @@ namespace StageSystem
             // Switch Stage State
             m_stageState = StageState.StageChose;
         }
+
+        private void ChooseStageFromStagePool()
+        {
+            if (m_stagePool.Length == 0)
+            {
+                Debug.LogWarning("Can't Choose Stage: Stage pool count not enough!");
+                return;
+            }
+
+            // Clear Chosen Stages
+            m_chosenStages.Clear();
+
+            for (int i = 0; i < m_stagePool.Length; i++)
+            {
+                m_chosenStages.Add(m_stagePool[i]);
+            }
+
+            // Switch Stage State
+            m_stageState = StageState.StageChose;
+        }
+
         //private void StageShift()
         //{
         //    if (m_chosenStages.Count == 1)
@@ -455,7 +482,7 @@ namespace StageSystem
                 return;
             }
 
-            ChooseStageFromStagePool();
+            RandomChooseStageFromStagePool();
         }
     }
 
