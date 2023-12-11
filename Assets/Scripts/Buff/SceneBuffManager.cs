@@ -44,6 +44,9 @@ public class SceneBuffManager : PersistentSingleton<SceneBuffManager>
 
         m_buffCard.GetComponent<Animator>().Play("Card_Show");
 
+        Time.timeScale = 0.0f;
+
+
     }
 
     private void ChooseBuffFromBuffPool()
@@ -85,6 +88,8 @@ public class SceneBuffManager : PersistentSingleton<SceneBuffManager>
     {
         m_playerEntity.GetComponent<BuffManager>().AddBuff(m_chooseBuffList[idx]);
         m_buffCard.GetComponent<Animator>().Play("Card_Hide");
+
+        Time.timeScale = 1.0f;
     }
 
     private void OnEnable()

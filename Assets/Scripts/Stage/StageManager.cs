@@ -124,6 +124,8 @@ namespace StageSystem
 
         public int playerCurrentStage = 0;
 
+        public List<bool> isStageCleared;
+
         private void Start()
         {
         }
@@ -253,6 +255,7 @@ namespace StageSystem
 
                             // Add Stage Information
                             m_chosenStagesInformations.Add(new StageInformation(stageController, lastStage, null));
+                            isStageCleared.Add(false);
                         }
                         else
                         {

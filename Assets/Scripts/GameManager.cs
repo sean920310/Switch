@@ -12,6 +12,7 @@ public class GameManager : PersistentSingleton<GameManager>
     private int m_playerCurrentStage = 0;
     public int PlayerCurrentStage { get => m_playerCurrentStage; }
 
+
     [SerializeField]
     private GameMasking m_gameMasking; // Fade In Fade Out Effect
 
@@ -22,6 +23,7 @@ public class GameManager : PersistentSingleton<GameManager>
 
     private bool m_isSceneLoading = false;
     private bool m_isEnterNextStage = true;
+    private bool m_isAddBuff = false;
     private void Start()
     {
         StageManager.Instance.onStageLoadedDone += OnStageLoadedDone;
@@ -44,6 +46,7 @@ public class GameManager : PersistentSingleton<GameManager>
         //{
         //    StageManager.Instance.SetStageActivation(m_playerCurrentStage, true);
         //}
+
     }
 
     private void OnStageUnloaded()
@@ -113,6 +116,15 @@ public class GameManager : PersistentSingleton<GameManager>
 
         m_isSceneLoading = true;
         m_isEnterNextStage = false;
+        if (StageManager.Instance.isStageCleared[m_playerCurrentStage] == false)
+        {
+            StageManager.Instance.isStageCleared[m_playerCurrentStage] = true;
+            m_isAddBuff = true;
+        }
+        else
+        {
+            m_isAddBuff = false;
+        }
 
         m_gameMasking.FadeIn();
         // set player inactive
@@ -150,7 +162,15 @@ public class GameManager : PersistentSingleton<GameManager>
 
         m_isSceneLoading = true;
         m_isEnterNextStage = true;
-
+        if (StageManager.Instance.isStageCleared[m_playerCurrentStage] == false)
+        {
+            StageManager.Instance.isStageCleared[m_playerCurrentStage] = true;
+            m_isAddBuff = true;
+        }
+        else
+        {
+            m_isAddBuff = false;
+        }
         m_gameMasking.FadeIn();
 
         // set player inactive
@@ -195,5 +215,7 @@ public class GameManager : PersistentSingleton<GameManager>
         m_playerEntity.gameObject.SetActive(true);
 
         m_isSceneLoading = false;
+
+        SceneBuffManager.instance.PlayerGetBuff();
     }
 }

@@ -7250,6 +7250,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 184693212447009630}
     m_Modifications:
+    - target: {fileID: 1554664273855716794, guid: 0a751766c36dbb54480b8bec3979b9ae, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2124261781371063668, guid: 0a751766c36dbb54480b8bec3979b9ae, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7602,6 +7606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4244183480868444133, guid: 002ea50d837d1dd4eb8147c41d247f0a, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4383077728626214133, guid: 002ea50d837d1dd4eb8147c41d247f0a, type: 3}
       propertyPath: m_Name
       value: MaskingPanel
@@ -7858,6 +7866,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5994000290521582261, guid: 1750b2a0e8662774faf1044754990697, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7479911810266135620, guid: 1750b2a0e8662774faf1044754990697, type: 3}
       propertyPath: m_Name
       value: BuffCards
@@ -7884,6 +7896,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 415be0e9a9933f44e85bc67fb8a21f5b, type: 2}
+    - target: {fileID: 3782536870214769039, guid: 6b39802a34aceb749909b82cd4b25350, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3806140429748937529, guid: 6b39802a34aceb749909b82cd4b25350, type: 3}
       propertyPath: m_IsActive
       value: 0
