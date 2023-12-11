@@ -11,7 +11,6 @@ namespace BuffSystem.Model
     [CreateAssetMenu(fileName = "NewBuffData", menuName = "Buff/Create FunctionalBuff Data")]
     public class FunctionalBuffSO : BuffSO
     {
-
         [RequireInterface(typeof(IOnPlayerDamageEvent))]
         [SerializeField]
         private UnityEngine.Object m_onDamageEventSOObject;

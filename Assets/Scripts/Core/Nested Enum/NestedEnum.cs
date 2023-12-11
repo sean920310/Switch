@@ -1,10 +1,15 @@
 // Nested enum reference: 
 // https://stackoverflow.com/questions/980766/how-do-i-declare-a-nested-enum
 
+using System;
+using UnityEngine;
+
 namespace NestedEnum
 {
+    [Serializable]
     public struct ID
     {
+        [SerializeField]
         public static ID none;
 
         public ID this[int childID]

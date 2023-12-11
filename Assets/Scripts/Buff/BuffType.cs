@@ -7,6 +7,7 @@ namespace BuffSystem
     public class BuffType
     {
         public static readonly ID GOD_OF_DEFEND = 1; // 守護之神的祝福 (God_of_defend)
+        [Serializable]
         public static class GOD_OF_DEFENDS
         {
             public static readonly ID DEFENSE_INCREASE = GOD_OF_DEFEND[0];              // 防禦力增加 %
@@ -22,6 +23,7 @@ namespace BuffSystem
         }
 
         public static readonly ID GOD_OF_BERSERK = 1;  // 戰狂之神的祝福 (God_of_berserk)
+        [Serializable]
         public static class GOD_OF_BERSERKS
         {
             public static readonly ID DAMAGE_INCREASE = GOD_OF_BERSERK[0];              // 攻擊力增加 %
