@@ -24,7 +24,7 @@ namespace Enemy
         // Start is called before the first frame update
         void Start()
         {
-
+            OnSwitch(CameraManager.Instance.DimensionState);
         }
 
         // Update is called once per frame
