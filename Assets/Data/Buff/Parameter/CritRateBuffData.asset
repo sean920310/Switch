@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87d50d423b507b4ab45e238951791c5, type: 3}
   m_Name: CritRateBuffData
   m_EditorClassIdentifier: 
-  m_name: "\u6230\u72C2\u4E4B\u795E\u7684\u795D\u798F - \u7206\u64CA\u7387"
-  m_description: "\u6230\u72C2\u4E4B\u795E\u7684\u795D\u798F - \u7206\u64CA\u7387\u589E\u52A0
-    3%"
+  buffIcon: 0
+  buffName: 
+  description: "\u7206\u64CA\u7387\u589E\u52A0 0.03%"
   m_entityParameterList:
   - m_entityParameter: 5
     m_value: 0.03

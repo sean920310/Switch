@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa91bae3d1e87d45b30e90f9410ef6a, type: 3}
   m_Name: StunBuffAction
   m_EditorClassIdentifier: 
-  m_stunProbability: 0.5
+  m_stunProbability: 0.1
