@@ -1,28 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuffCard : MonoBehaviour
 {
-    public Animator anim;
+    public TextMeshProUGUI description;
+    public Image bg;
+    public Image icon;
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("Card_Show");
-            anim.Play("Card_Show");
-        }
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Debug.Log("Card_Hide");
-            anim.Play("Card_Hide");
-        }
+    }
+
+    public void SetBuffCard(string text, Sprite bgSprite, Sprite iconSprite)
+    {
+        description.text = text;
+        bg.sprite = bgSprite;
+        icon.sprite = iconSprite;
     }
 }

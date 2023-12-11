@@ -155,7 +155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5299647481169623312
 RectTransform:
   m_ObjectHideFlags: 0
@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 2856687017983672944}
   - component: {fileID: 2856687017983672945}
   - component: {fileID: 2856687017983672951}
+  - component: {fileID: 4025571986968206073}
   m_Layer: 5
   m_Name: Card03
   m_TagString: Untagged
@@ -538,7 +539,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -562,7 +563,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2856687017983672945}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5485147047733232553}
+        m_TargetAssemblyTypeName: BuffCards, Assembly-CSharp
+        m_MethodName: BuffCardClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4025571986968206073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2856687017983672947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c494ee8779b4f4d91ee51377891a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: {fileID: 2856687017627337628}
+  bg: {fileID: 2856687017983672945}
+  icon: {fileID: 2856687017620490144}
 --- !u!1 &2856687018257253552
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +831,7 @@ GameObject:
   - component: {fileID: 2856687019030217813}
   - component: {fileID: 2856687019030217814}
   - component: {fileID: 2856687019030217812}
+  - component: {fileID: 3956745719370023200}
   m_Layer: 5
   m_Name: Card01
   m_TagString: Untagged
@@ -914,7 +943,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2856687019030217814}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5485147047733232553}
+        m_TargetAssemblyTypeName: BuffCards, Assembly-CSharp
+        m_MethodName: BuffCardClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3956745719370023200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2856687019030217808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c494ee8779b4f4d91ee51377891a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: {fileID: 6010233040781560495}
+  bg: {fileID: 2856687019030217814}
+  icon: {fileID: 7729774596123737281}
 --- !u!1 &2856687019112090957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,6 +1059,7 @@ GameObject:
   - component: {fileID: 2856687019408598400}
   - component: {fileID: 2856687019408598401}
   - component: {fileID: 2856687019408598407}
+  - component: {fileID: 7623671747114380686}
   m_Layer: 5
   m_Name: Card02
   m_TagString: Untagged
@@ -1090,7 +1147,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1114,7 +1171,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2856687019408598401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5485147047733232553}
+        m_TargetAssemblyTypeName: BuffCards, Assembly-CSharp
+        m_MethodName: BuffCardClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7623671747114380686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2856687019408598403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c494ee8779b4f4d91ee51377891a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: {fileID: 2856687019631812187}
+  bg: {fileID: 2856687019408598401}
+  icon: {fileID: 2856687018943038282}
 --- !u!1 &2856687019631812165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1423,7 @@ GameObject:
   - component: {fileID: 5485147047733232553}
   - component: {fileID: 5994000290521582261}
   m_Layer: 5
-  m_Name: BuffCard
+  m_Name: BuffCards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1382,6 +1466,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 5994000290521582261}
+  cards:
+  - {fileID: 3956745719370023200}
+  - {fileID: 7623671747114380686}
+  - {fileID: 4025571986968206073}
+  cardBG:
+  - {fileID: -1519765084, guid: e8e69dc6fafb4a14da9c8e7828f1d40e, type: 3}
+  - {fileID: 698956285, guid: e8e69dc6fafb4a14da9c8e7828f1d40e, type: 3}
+  cardIcon:
+  - {fileID: 21300000, guid: 2ff8009b05a516641a700e092a019694, type: 3}
+  - {fileID: 21300000, guid: 19cf9904938fafa45ad1b183bbffe836, type: 3}
 --- !u!95 &5994000290521582261
 Animator:
   serializedVersion: 5
