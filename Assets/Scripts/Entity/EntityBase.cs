@@ -24,9 +24,11 @@ abstract public class EntityBase : MonoBehaviour
     public float Defence { get => m_defence; }
     public float Speed { get => m_speed; }
 
+    private bool m_inited = false;
+
     protected void OnEnable()
     {
-        if (m_initData != null)
+        if (m_initData != null && !m_inited)
         {
             m_initHealth = m_initData.Heath;
             m_health = m_initData.Heath;
@@ -34,8 +36,9 @@ abstract public class EntityBase : MonoBehaviour
             m_attack = m_initData.Attack;
             m_defence = m_initData.Defence;
             m_speed = m_initData.Speed;
+            m_inited = true;
         }
-        else
+        else if(m_initData == null)
             Debug.LogError("EntityBase missing m_initData");
     }
 

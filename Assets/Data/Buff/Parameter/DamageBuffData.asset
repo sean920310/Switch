@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffIcon: 0
   buffName: 
-  description: "\u653B\u64CA\u529B\u589E\u52A0 0.1%"
+  description: "\u653B\u64CA\u529B\u589E\u52A0 10%"
   m_entityParameterList:
   - m_entityParameter: 2
     m_value: 0.1

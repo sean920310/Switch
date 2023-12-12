@@ -54,6 +54,8 @@ public class PlayerEntity : EntityBase
     [Header("Player UI")]
     [SerializeField] 
     private PlayerHealthBar m_healthBarControl;
+    [SerializeField]
+    private UserInfo m_infoControl;
 
 
 
@@ -63,6 +65,8 @@ public class PlayerEntity : EntityBase
 
         CameraManager.Instance.SetSwitchCD(m_switchCDTime);
         CameraManager.Instance.SetDurationTime(m_threeDDurationTime);
+
+        m_infoControl.SetUserInfo(m_attack, m_defence, m_critRate, m_critDamage);
     }
 
     public override void GetDamage(EntityBase enemyEntity, float damage)
@@ -106,23 +110,30 @@ public class PlayerEntity : EntityBase
         switch (entityParameter)
         {
             case EntityParameter.health:
+                m_health += m_initData.Heath * value;
+                if (m_health > m_initHealth) m_health = m_initHealth;
                 break;
             case EntityParameter.regenerate:
                 break;
             case EntityParameter.attack:
-                m_attack += m_initData.Attack * value;
+                m_attack += m_attack * value;
                 break;
             case EntityParameter.defence:
+                m_defence += m_defence * value;
                 break;
             case EntityParameter.speed:
                 break;
             case EntityParameter.critRate:
+                m_critRate += value;
                 break;
             case EntityParameter.critDamage:
+                m_critDamage += m_critDamage * value;
                 break;
             default:
                 break;
         }
+        m_healthBarControl.SetHealth(m_health/m_initHealth);
+        m_infoControl.SetUserInfo(m_attack, m_defence, m_critRate, m_critDamage);
     }
 
 
