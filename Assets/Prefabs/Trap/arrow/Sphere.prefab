@@ -70,7 +70,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4996315, y: -0.61302626}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.24413179
 --- !u!114 &-6352995769282343218
@@ -158,11 +158,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d13fd977789c13042804eca251b64a33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d13fd977789c13042804eca251b64a33, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d13fd977789c13042804eca251b64a33, type: 3}
       propertyPath: m_LocalPosition.z
