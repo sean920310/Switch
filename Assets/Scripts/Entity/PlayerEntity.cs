@@ -65,6 +65,12 @@ public class PlayerEntity : EntityBase
     {
         m_health -= damage;
 
+        if (m_health < 0)
+        {
+            GameManager.Instance.PlayerDead();
+            return;
+        }
+
         GetComponent<PlayerStateMachine.PlayerStatesManager>().HurtState();
 
         m_healthBarControl.SetHealth(m_health/m_initHealth);

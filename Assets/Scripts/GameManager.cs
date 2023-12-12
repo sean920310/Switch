@@ -157,6 +157,7 @@ public class GameManager : PersistentSingleton<GameManager>
         {
             // warning about player is already in last stage
             Debug.LogWarning("Player is already in last stage");
+            PlayerWin();
             return;
         }
 
@@ -217,5 +218,16 @@ public class GameManager : PersistentSingleton<GameManager>
         m_isSceneLoading = false;
 
         SceneBuffManager.instance.PlayerGetBuff();
+    }
+
+
+    public void PlayerDead()
+    {
+        
+    }
+
+    public void PlayerWin()
+    {
+        
     }
 }
