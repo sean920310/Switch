@@ -107,6 +107,7 @@ MonoBehaviour:
   m_isCellingButton: 0
   m_switchOnMaterial: {fileID: 2100000, guid: de839c8374a81314aac4b0f2e835c217, type: 2}
   m_switchOffMaterial: {fileID: 2100000, guid: 386c495102c80924987b05b1b97dd67a, type: 2}
+  m_clickSound: {fileID: 8300000, guid: a72573e90e2446e4abe4481a76fa80d4, type: 3}
 --- !u!61 &6493746889350998358
 BoxCollider2D:
   m_ObjectHideFlags: 0

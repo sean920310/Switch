@@ -219,6 +219,7 @@ MonoBehaviour:
   m_isCellingButton: 1
   m_switchOnMaterial: {fileID: 2100000, guid: 1f4b1f702befc704a9c2889132c7c7e7, type: 2}
   m_switchOffMaterial: {fileID: 2100000, guid: cce93e0c698591a42b429c1cf5c5e58d, type: 2}
+  m_clickSound: {fileID: 8300000, guid: a72573e90e2446e4abe4481a76fa80d4, type: 3}
 --- !u!50 &1126622051887852796
 Rigidbody2D:
   serializedVersion: 4

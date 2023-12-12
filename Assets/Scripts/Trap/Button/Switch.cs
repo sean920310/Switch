@@ -35,7 +35,9 @@ public class Switch
     public event PlayerClickEvent playerTurnOffTrigger;
 
 
-    
+    [Header("Sound")]
+    [SerializeField] AudioClip m_clickSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,29 +58,29 @@ public class Switch
             m_fadeAlpha = Mathf.Lerp(0, 0.3f, Mathf.PingPong(Time.time * m_fadeSpeed, 1.0f));
             SetOutlineAlpha(m_fadeAlpha);
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyUp(KeyCode.F))
             {
-                RaycastHit2D[] hits;
-                if (CameraManager.Instance.DimensionState == CameraManager.Dimension.TwoD)
-                {
-                    Vector3 mousePos = Input.mousePosition;
-                    mousePos.z = Camera.main.nearClipPlane;
-                    Vector2 wp = Camera.main.ScreenToWorldPoint(mousePos);
-                    hits = Physics2D.RaycastAll(wp, Vector2.zero, 1000f);
-                }
-                else
-                {
+                //RaycastHit2D[] hits;
+                //if (CameraManager.Instance.DimensionState == CameraManager.Dimension.TwoD)
+                //{
+                //    Vector3 mousePos = Input.mousePosition;
+                //    mousePos.z = Camera.main.nearClipPlane;
+                //    Vector2 wp = Camera.main.ScreenToWorldPoint(mousePos);
+                //    hits = Physics2D.RaycastAll(wp, Vector2.zero, 1000f);
+                //}
+                //else
+                //{
 
-                    Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    hits = Physics2D.RaycastAll(r.origin, r.direction);
-                }
+                //    Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+                //    hits = Physics2D.RaycastAll(r.origin, r.direction);
+                //}
 
-                foreach (RaycastHit2D hit in hits)
-                {
-                    GameObject hitObject = hit.collider.gameObject;
+                //foreach (RaycastHit2D hit in hits)
+                //{
+                //    GameObject hitObject = hit.collider.gameObject;
 
-                    if (hit.collider.gameObject.GetComponent<Switch>())
-                    {
+                    //if (hit.collider.gameObject.GetComponent<Switch>())
+                    //{
                         Debug.Log("Switch");
                         if (m_buttonState == SwitchState.Off)
                         {
@@ -86,6 +88,7 @@ public class Switch
                             m_buttonMeshRenderer.material = m_switchOnMaterial;
                             m_buttonState = SwitchState.On;
                             playerTurnOnTrigger?.Invoke();
+                            AudioManager.Instance.PlayOnShot(m_clickSound);
                         }
                         else
                         {
@@ -93,10 +96,11 @@ public class Switch
                             m_buttonMeshRenderer.material = m_switchOffMaterial;
                             m_buttonState = SwitchState.Off;
                             playerTurnOffTrigger?.Invoke();
+                            AudioManager.Instance.PlayOnShot(m_clickSound);
                         }
-                        break;
-                    }
-                }
+                        //break;
+                //}
+            //}
 
             }
         }
