@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7916209436836533449}
   - component: {fileID: 4725949089702596417}
   - component: {fileID: 3659540368198257837}
-  - component: {fileID: 5849092939719823173}
   - component: {fileID: 611317647544690287}
   - component: {fileID: 6493746889350998358}
   - component: {fileID: 4127277004248861202}
@@ -87,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &5849092939719823173
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4372122741127285404}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bbe47ef081e615440be705287c50d50d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &611317647544690287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +104,7 @@ MonoBehaviour:
   m_isDoingDamage: 0
   m_buttonState: 0
   m_fadeSpeed: 1
+  m_isCellingButton: 0
   m_switchOnMaterial: {fileID: 2100000, guid: de839c8374a81314aac4b0f2e835c217, type: 2}
   m_switchOffMaterial: {fileID: 2100000, guid: 386c495102c80924987b05b1b97dd67a, type: 2}
 --- !u!61 &6493746889350998358

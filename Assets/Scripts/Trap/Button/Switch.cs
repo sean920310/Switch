@@ -16,11 +16,11 @@ public class Switch
     [SerializeField]
     SwitchState m_buttonState = SwitchState.Off;
 
-    Animator m_animator;
-
     // Outline
     MeshRenderer m_buttonMeshRenderer;
     [SerializeField] private float m_fadeSpeed = 1.0f;
+
+    [SerializeField] private bool m_isCellingButton = false;
 
     private float m_fadeAlpha = 0;
 
@@ -34,11 +34,13 @@ public class Switch
     public event PlayerClickEvent playerTurnOnTrigger;
     public event PlayerClickEvent playerTurnOffTrigger;
 
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         m_isDoingDamage = false;
-        m_animator = GetComponent<Animator>();
         m_buttonMeshRenderer = GetComponent<MeshRenderer>();
 
         m_buttonMeshRenderer.material = m_switchOffMaterial;
@@ -49,17 +51,27 @@ public class Switch
     private void Update()
     {
 
-        if(m_isPlayerInTrap)
+        if(m_isPlayerInTrap && (!m_isCellingButton || m_isCellingButton && CameraManager.Instance.DimensionState == CameraManager.Dimension.ThreeD))
         {
             m_fadeAlpha = Mathf.Lerp(0, 0.3f, Mathf.PingPong(Time.time * m_fadeSpeed, 1.0f));
             SetOutlineAlpha(m_fadeAlpha);
 
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 mousePos = Input.mousePosition;
-                mousePos.z = Camera.main.nearClipPlane;
-                Vector2 wp = Camera.main.ScreenToWorldPoint(mousePos);
-                RaycastHit2D[] hits = Physics2D.RaycastAll(wp, Vector2.zero, 1000f);
+                RaycastHit2D[] hits;
+                if (CameraManager.Instance.DimensionState == CameraManager.Dimension.TwoD)
+                {
+                    Vector3 mousePos = Input.mousePosition;
+                    mousePos.z = Camera.main.nearClipPlane;
+                    Vector2 wp = Camera.main.ScreenToWorldPoint(mousePos);
+                    hits = Physics2D.RaycastAll(wp, Vector2.zero, 1000f);
+                }
+                else
+                {
+
+                    Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    hits = Physics2D.RaycastAll(r.origin, r.direction);
+                }
 
                 foreach (RaycastHit2D hit in hits)
                 {
@@ -67,6 +79,7 @@ public class Switch
 
                     if (hit.collider.gameObject.GetComponent<Switch>())
                     {
+                        Debug.Log("Switch");
                         if (m_buttonState == SwitchState.Off)
                         {
                             OutlineOff();
@@ -84,6 +97,7 @@ public class Switch
                         break;
                     }
                 }
+
             }
         }
         else
