@@ -53,9 +53,12 @@ MonoBehaviour:
     m_SceneName: Trap_1_3
   m_setStageActivationDynamicly: 1
   m_loadStageAutomatically: 1
+  m_stageRandomize: 0
   m_stageCountToChoose: 3
   m_chosenStages: []
   m_chosenStagesInformations: []
+  isStageBuffGotten: 00000001
   m_loadedStageCount: 0
   m_unloadedStageCount: 0
   m_stageState: 0
+  playerCurrentStage: 0

@@ -35,6 +35,8 @@ public class PlayerEntity : EntityBase
     [SerializeField]
     private float m_threeDDurationTime;
 
+    [SerializeField]
+    private float m_dangerEffectThreshold;
 
     [Header("Player Event")]
 
@@ -53,6 +55,8 @@ public class PlayerEntity : EntityBase
     [SerializeField] 
     private PlayerHealthBar m_healthBarControl;
 
+
+
     private void OnEnable()
     {
         base.OnEnable();
@@ -65,7 +69,12 @@ public class PlayerEntity : EntityBase
     {
         m_health -= damage;
 
-        if (m_health < 0)
+        if(m_health <= m_dangerEffectThreshold)
+        {
+            ScreenController.Instance.OnDanger();
+        }
+
+        if (m_health <= 0 && !GameManager.Instance.isGameoverTrigger)
         {
             GameManager.Instance.PlayerDead();
             return;
@@ -97,7 +106,6 @@ public class PlayerEntity : EntityBase
         switch (entityParameter)
         {
             case EntityParameter.health:
-
                 break;
             case EntityParameter.regenerate:
                 break;
@@ -131,5 +139,7 @@ public class PlayerEntity : EntityBase
     public void RaiseAttackEvent(EntityBase victimEntity, EntityBase enemyEntity, float damage)
     {
         OnAttackEventSO.EntityEvent?.Invoke(victimEntity, enemyEntity, damage);
+
+
     }
 }
