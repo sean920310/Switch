@@ -24,6 +24,8 @@ public class GameManager : PersistentSingleton<GameManager>
     private bool m_isSceneLoading = false;
     private bool m_isEnterNextStage = true;
     private bool m_isAddBuff = false;
+
+    public bool isGameoverTrigger = false;
     private void Start()
     {
         StageManager.Instance.onStageLoadedDone += OnStageLoadedDone;
@@ -116,15 +118,7 @@ public class GameManager : PersistentSingleton<GameManager>
 
         m_isSceneLoading = true;
         m_isEnterNextStage = false;
-        if (StageManager.Instance.isStageCleared[m_playerCurrentStage] == false)
-        {
-            StageManager.Instance.isStageCleared[m_playerCurrentStage] = true;
-            m_isAddBuff = true;
-        }
-        else
-        {
-            m_isAddBuff = false;
-        }
+        
 
         m_gameMasking.FadeIn();
         // set player inactive
@@ -157,11 +151,14 @@ public class GameManager : PersistentSingleton<GameManager>
         {
             // warning about player is already in last stage
             Debug.LogWarning("Player is already in last stage");
+            if (!GameManager.Instance.isGameoverTrigger)
+                PlayerWin();
             return;
         }
 
         m_isSceneLoading = true;
         m_isEnterNextStage = true;
+
         if (StageManager.Instance.isStageCleared[m_playerCurrentStage] == false)
         {
             StageManager.Instance.isStageCleared[m_playerCurrentStage] = true;
@@ -171,6 +168,7 @@ public class GameManager : PersistentSingleton<GameManager>
         {
             m_isAddBuff = false;
         }
+
         m_gameMasking.FadeIn();
 
         // set player inactive
@@ -216,6 +214,30 @@ public class GameManager : PersistentSingleton<GameManager>
 
         m_isSceneLoading = false;
 
-        SceneBuffManager.instance.PlayerGetBuff();
+        if (m_isAddBuff)
+        {
+            SceneBuffManager.instance.PlayerGetBuff();
+            m_isAddBuff = false;
+        }
+    }
+
+
+    public void PlayerDead()
+    {
+        isGameoverTrigger = true;
+        ScreenController.instance.OnGameOver();
+
+    }
+
+    public void PlayerWin()
+    {
+        isGameoverTrigger = true;
+        ScreenController.instance.OnGameWin();
+
+    }
+
+    public void QuitBtnClicked()
+    {
+        Application.Quit();
     }
 }

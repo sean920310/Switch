@@ -89,6 +89,9 @@ namespace StageSystem
         private List<StageInformation> m_chosenStagesInformations = new List<StageInformation>();
         public List<StageInformation> ChosenStagesInformations { get => m_chosenStagesInformations;}
 
+
+        public List<bool> isStageCleared;
+
         [ReadOnly]
         [SerializeField]
         private List<AsyncOperation> m_stagesToLoad = new List<AsyncOperation>();
@@ -123,8 +126,6 @@ namespace StageSystem
         public event StageUnloading onStageUnloaded;
 
         public int playerCurrentStage = 0;
-
-        public List<bool> isStageCleared;
 
         private void Start()
         {
@@ -255,7 +256,10 @@ namespace StageSystem
 
                             // Add Stage Information
                             m_chosenStagesInformations.Add(new StageInformation(stageController, lastStage, null));
-                            isStageCleared.Add(false);
+
+                            // Add isStageCleared flag automatically
+                            if (isStageCleared.Count - 1 < playerCurrentStage)
+                                isStageCleared.Add(false);
                         }
                         else
                         {
