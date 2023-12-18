@@ -19,6 +19,7 @@ public class Water : MonoBehaviour
     [SerializeField] float two_lifeTime;
     [SerializeField] Vector3 three_scale;
     [SerializeField] Vector3 two_scale;
+    [SerializeField] Vector3 river_target;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class Water : MonoBehaviour
             bridge.SetActive(true);
 
             Vector3 river_current = river.transform.localPosition;
-            Vector3 river_target = new Vector3(0, 0.6f, 0);
+            //Vector3 river_target = new Vector3(0, 0.6f, 0);
 
             Vector3 current = default_pos;
             Vector3 target = new Vector3(0, 4.7f, -0.5f);
