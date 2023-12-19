@@ -15458,7 +15458,7 @@ Transform:
   - {fileID: 1648505620}
   - {fileID: 1211793295}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!154 &1762222212
 TerrainCollider:
@@ -20630,13 +20630,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3962373245802678434, guid: 0ceb1dcfdac424e23bafc900c812f820, type: 3}
+      propertyPath: river_target.z
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678435, guid: 0ceb1dcfdac424e23bafc900c812f820, type: 3}
       propertyPath: m_Name
       value: NewWaterTrap
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678461, guid: 0ceb1dcfdac424e23bafc900c812f820, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678461, guid: 0ceb1dcfdac424e23bafc900c812f820, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20648,7 +20652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678461, guid: 0ceb1dcfdac424e23bafc900c812f820, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 3962373245802678461, guid: 0ceb1dcfdac424e23bafc900c812f820, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26382,7 +26386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2253910921225031006, guid: fdee537d29a35e545be1998787b5b302, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2253910921225031006, guid: fdee537d29a35e545be1998787b5b302, type: 3}
       propertyPath: m_LocalPosition.x
