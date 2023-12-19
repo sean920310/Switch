@@ -20,6 +20,7 @@ public class Water : MonoBehaviour
     [SerializeField] Vector3 three_scale;
     [SerializeField] Vector3 two_scale;
     [SerializeField] Vector3 river_target;
+    [SerializeField] float t;
 
     private void Start()
     {
@@ -57,7 +58,7 @@ public class Water : MonoBehaviour
             waterFall.transform.localRotation = new Quaternion(-17.5f, 0, 0, 0);
             waterFall.transform.localScale = three_scale;
 
-            timer += Time.deltaTime * 0.5f;
+            timer += Time.deltaTime * t;
             river.transform.localPosition = Vector3.Lerp(river_current, river_target, timer);
             waterFall.transform.localPosition = Vector3.Lerp(current, target, timer);
 

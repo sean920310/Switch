@@ -20631,6 +20631,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3962373245802678434, guid: 0ceb1dcfdac424e23bafc900c812f820, type: 3}
+      propertyPath: t
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962373245802678434, guid: 0ceb1dcfdac424e23bafc900c812f820, type: 3}
       propertyPath: river_target.z
       value: 0.8
       objectReference: {fileID: 0}

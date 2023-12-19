@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1789,19 +1789,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[0].m_SceneName
-      value: Trap_1_1
+      value: Normal_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[1].m_SceneName
-      value: Normal_1_2
+      value: Normal_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[2].m_SceneName
-      value: Trap_1_3
+      value: Normal_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[3].m_SceneName
-      value: Boss_1_1
+      value: Normal_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[4].m_SceneName
@@ -1814,19 +1814,19 @@ PrefabInstance:
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[0].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 975730d43b4ca4a419ee615c809238fa, type: 3}
+      objectReference: {fileID: 102900000, guid: e85fb41c8ee7f644ba1c1e75d140c110, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[1].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 6bd6fcae29aef0343813f56e74d64bd9, type: 3}
+      objectReference: {fileID: 102900000, guid: e85fb41c8ee7f644ba1c1e75d140c110, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[2].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 5e3e946aae614594f860e691249acc15, type: 3}
+      objectReference: {fileID: 102900000, guid: e85fb41c8ee7f644ba1c1e75d140c110, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[3].m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 186e91531ecf2404b98191d544404f00, type: 3}
+      objectReference: {fileID: 102900000, guid: e85fb41c8ee7f644ba1c1e75d140c110, type: 3}
     - target: {fileID: 2350737944628668047, guid: 12ca640874213ee49bbd95a9e38dbb34, type: 3}
       propertyPath: m_stagePool.Array.data[4].m_SceneAsset
       value: 
