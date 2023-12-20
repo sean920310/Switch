@@ -19,6 +19,8 @@ public class Water : MonoBehaviour
     [SerializeField] float two_lifeTime;
     [SerializeField] Vector3 three_scale;
     [SerializeField] Vector3 two_scale;
+    [SerializeField] Vector3 river_target;
+    [SerializeField] float t;
 
     private void Start()
     {
@@ -48,7 +50,7 @@ public class Water : MonoBehaviour
             bridge.SetActive(true);
 
             Vector3 river_current = river.transform.localPosition;
-            Vector3 river_target = new Vector3(0, 0.6f, 0);
+            //Vector3 river_target = new Vector3(0, 0.6f, 0);
 
             Vector3 current = default_pos;
             Vector3 target = new Vector3(0, 4.7f, -0.5f);
@@ -56,7 +58,7 @@ public class Water : MonoBehaviour
             waterFall.transform.localRotation = new Quaternion(-17.5f, 0, 0, 0);
             waterFall.transform.localScale = three_scale;
 
-            timer += Time.deltaTime * 0.5f;
+            timer += Time.deltaTime * t;
             river.transform.localPosition = Vector3.Lerp(river_current, river_target, timer);
             waterFall.transform.localPosition = Vector3.Lerp(current, target, timer);
 
