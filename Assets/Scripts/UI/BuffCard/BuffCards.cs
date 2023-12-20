@@ -9,7 +9,9 @@ public class BuffCards : MonoBehaviour
     public enum BuffIcon
     {
         SWORD,
-        SHEILD
+        SHEILD,
+        CLOCK,
+        HOURGLASS
     }
 
     public Animator anim;
@@ -28,20 +30,20 @@ public class BuffCards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.C))
-        //{
-        //    Debug.Log("Card_Show");
-        //    anim.Play("Card_Show");
-        //    SetBuffCard(0, 1);
-        //    SetBuffCard(1, 0);
-        //    SetBuffCard(2, 1);
-        //}
+        // if (Input.GetKeyDown(KeyCode.C))
+        // {
+        //     Debug.Log("Card_Show");
+        //     anim.Play("Card_Show");
+        //     SetBuffCard(0, "!", BuffIcon.SWORD);
+        //     SetBuffCard(1, "!", BuffIcon.CLOCK);
+        //     SetBuffCard(2, "!", BuffIcon.HOURGLASS);
+        // }
 
-        //if (Input.GetKeyDown(KeyCode.V))
-        //{
-        //    Debug.Log("Card_Hide");
-        //    anim.Play("Card_Hide");
-        //}
+        // if (Input.GetKeyDown(KeyCode.V))
+        // {
+        //     Debug.Log("Card_Hide");
+        //     anim.Play("Card_Hide");
+        // }
     }
 
     /*

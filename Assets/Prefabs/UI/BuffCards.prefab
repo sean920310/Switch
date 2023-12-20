@@ -890,7 +890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1519765084, guid: e8e69dc6fafb4a14da9c8e7828f1d40e, type: 3}
+  m_Sprite: {fileID: -306293275, guid: e8e69dc6fafb4a14da9c8e7828f1d40e, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ff8009b05a516641a700e092a019694, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1923f3769b0351e4ca77eaab794a4337, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1473,9 +1473,13 @@ MonoBehaviour:
   cardBG:
   - {fileID: -1519765084, guid: e8e69dc6fafb4a14da9c8e7828f1d40e, type: 3}
   - {fileID: 698956285, guid: e8e69dc6fafb4a14da9c8e7828f1d40e, type: 3}
+  - {fileID: -1863423294, guid: e8e69dc6fafb4a14da9c8e7828f1d40e, type: 3}
+  - {fileID: -306293275, guid: e8e69dc6fafb4a14da9c8e7828f1d40e, type: 3}
   cardIcon:
   - {fileID: 21300000, guid: 2ff8009b05a516641a700e092a019694, type: 3}
   - {fileID: 21300000, guid: 19cf9904938fafa45ad1b183bbffe836, type: 3}
+  - {fileID: 21300000, guid: 1923f3769b0351e4ca77eaab794a4337, type: 3}
+  - {fileID: 21300000, guid: 59254fc7e3ec52e4f84fa52be415a47b, type: 3}
 --- !u!95 &5994000290521582261
 Animator:
   serializedVersion: 5
