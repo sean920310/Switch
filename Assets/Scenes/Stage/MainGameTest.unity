@@ -175,6 +175,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cc4076ea0c0f96745a4fa798dc3b167a, type: 2}
   - {fileID: 11400000, guid: 871a923c4ef3d584ca3dd70cf0c92027, type: 2}
   - {fileID: 11400000, guid: 8dfb6fcd85ee0d64886150ea2f0d93e6, type: 2}
+  - {fileID: 11400000, guid: 4ac44a49939184140841b43dbad2e7f1, type: 2}
+  - {fileID: 11400000, guid: c5e85f394079f1c40bc55b862245f217, type: 2}
   m_chooseBuffList: []
   m_buffCount: 3
 --- !u!1 &133484412

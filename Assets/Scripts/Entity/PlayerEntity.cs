@@ -24,6 +24,8 @@ public class PlayerEntity : EntityBase
         speed,
         critRate,
         critDamage,
+        cdTime,
+        durationTime,
     }
 
     [SerializeField]
@@ -128,6 +130,14 @@ public class PlayerEntity : EntityBase
                 break;
             case EntityParameter.critDamage:
                 m_critDamage += m_critDamage * value;
+                break;
+            case EntityParameter.cdTime:
+                m_switchCDTime -= value;
+                CameraManager.Instance.SetSwitchCD(m_switchCDTime);
+                break;
+            case EntityParameter.durationTime:
+                m_threeDDurationTime += value;
+                CameraManager.Instance.SetDurationTime(m_threeDDurationTime);
                 break;
             default:
                 break;
